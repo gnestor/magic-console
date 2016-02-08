@@ -1,0 +1,28 @@
+{
+  "name": "sample-script-consumer",
+  "main": "./lib/sample-script-consumer",
+  "version": "0.1.0",
+  "description": "A package that show how to properly use atom-script service",
+  "keywords": [
+    "script"
+  ],
+  "repository": "https://github.com/s1mplex/sample-script-consumer",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "consumedServices": {
+    "default-script-runtime": {
+      "versions": {
+        "0.1.0": "consumeDefaultRuntime"
+      }
+    },
+    "provide-blank-runtime": {
+      "versions": {
+        "0.1.0": "consumeBlankRuntime"
+      }
+    }
+  },
+  "dependencies": {
+  }
+}
