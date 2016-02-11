@@ -15,21 +15,10 @@ module.exports = SampleScriptConsumer =
 
   activate: (state) ->
     @subscriptions = new CompositeDisposable
-    # @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:run-blank':
-    #   => @runBlank()
-    # @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:run-default':
-    #   => @runDefault()
     @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:toggle':
       => @toggle()
     @view = null
     @blankRuntime = null
-    # @view = new ConsoleRuntimeView(state.view)
-    # atom.views.addViewProvider ConsoleRuntimeView, (model) ->
-    #   root = document.createElement 'div'
-    #   ReactDOM.render
-    #     React.createElement OutputList, {store: model}
-    #   , root
-    # })
     atom.workspace.addOpener (uriToOpen) =>
       try
         {protocol, host, pathname} = url.parse(uriToOpen)
@@ -42,9 +31,11 @@ module.exports = SampleScriptConsumer =
         return
       if host is 'editor'
         @view = new ConsoleRuntimeView(editorId: pathname.substring(1))
+        @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
         @view
       else
         @view = new ConsoleRuntimeView(filePath: pathname)
+        @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
         @view
 
   deactivate: ->
@@ -71,7 +62,9 @@ module.exports = SampleScriptConsumer =
 
   runBlank: ->
     @activatePackage('script')
-    @blankRuntime.observers = []
+    if @blankRuntime.observers
+      @blankRuntime.observers.forEach (observer) -> observer.destroy()
+      @blankRuntime.observers = []
     @blankRuntime.addObserver(new ConsoleRuntimeObserver(@view))
     @blankRuntime.execute()
 
@@ -86,8 +79,8 @@ module.exports = SampleScriptConsumer =
     previewPane = atom.workspace.paneForURI(uri)
     if previewPane
       previewPane.destroyItem(previewPane.itemForURI(uri))
-      @blankRuntime.stop()
-      return
+      return @blankRuntime.stop()
+      # return @runBlank()
     previousActivePane = atom.workspace.getActivePane()
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).then (consoleRuntimeView) =>
       if consoleRuntimeView instanceof ConsoleRuntimeView

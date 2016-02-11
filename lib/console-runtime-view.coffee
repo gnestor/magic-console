@@ -1,4 +1,8 @@
-{CompositeDisposable, Disposable} = require 'atom'
+{
+  CompositeDisposable,
+  Disposable,
+  Emitter
+} = require 'atom'
 React = require 'react'
 ReactDOM = require 'react-dom'
 OutputList = require './OutputList'
@@ -21,6 +25,7 @@ class ConsoleRuntimeView
       else
         atom.packages.onDidActivatePackage =>
           @subscribeToFilePath(@filePath)
+    @emitter = new Emitter
     @outputs = []
     # @subscriptions = new CompositeDisposable
     @element = document.createElement('div')
@@ -41,7 +46,12 @@ class ConsoleRuntimeView
     outputs: @outputs
 
   destroy: ->
+    @emitter.emit 'destroy'
     @element.remove()
+    @emitter.dispose()
+
+  onDidDestroy: (callback) ->
+    @emitter.on 'destroy', callback
 
   getElement: ->
     @element
@@ -73,8 +83,11 @@ class ConsoleRuntimeView
   handleEvents: =>
     @editorSub = new CompositeDisposable
     if @editor?
-      # @editorSub.add @editor.onDidChangePath => @trigger 'title-changed'
       @editorSub.add @editor.onDidChangePath => console.log 'title-changed'
+
+  subscribeToFilePath: (filePath) ->
+    # @trigger 'title-changed'
+    @handleEvents()
 
   getTitle: ->
       if @editor?
