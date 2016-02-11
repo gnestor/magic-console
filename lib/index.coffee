@@ -33,7 +33,8 @@ module.exports = SampleScriptConsumer =
         @view = new ConsoleRuntimeView(editorId: pathname.substring(1))
         @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
         @subscriptions.add @view.onDidSave (ev) =>
-          @runBlank()
+          if atom.config.get 'magic-console.evaluateOnSave'
+            @runBlank()
         @view
       else
         @view = new ConsoleRuntimeView(filePath: pathname)
