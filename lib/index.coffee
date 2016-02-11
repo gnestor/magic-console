@@ -32,10 +32,13 @@ module.exports = SampleScriptConsumer =
       if host is 'editor'
         @view = new ConsoleRuntimeView(editorId: pathname.substring(1))
         @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
+        @subscriptions.add @view.onDidSave (ev) =>
+          @runBlank()
         @view
       else
         @view = new ConsoleRuntimeView(filePath: pathname)
         @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
+        # @subscriptions.add @view.onDidSave (ev) => console.log ev
         @view
 
   deactivate: ->
@@ -61,6 +64,7 @@ module.exports = SampleScriptConsumer =
     atomPackage.activateNow()
 
   runBlank: ->
+    @view.stop()
     @activatePackage('script')
     if @blankRuntime.observers
       @blankRuntime.observers.forEach (observer) -> observer.destroy()

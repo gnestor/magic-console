@@ -27,6 +27,7 @@ class ConsoleRuntimeView
           @subscribeToFilePath(@filePath)
     @emitter = new Emitter
     @outputs = []
+    @status = 'stop'
     # @subscriptions = new CompositeDisposable
     @element = document.createElement('div')
     @element.classList.add('panel-body')
@@ -52,6 +53,15 @@ class ConsoleRuntimeView
 
   onDidDestroy: (callback) ->
     @emitter.on 'destroy', callback
+
+  onDidSave: (callback) ->
+    @emitter.on 'save', callback
+
+  start: ->
+    @status = 'start'
+
+  stop: ->
+    @status = 'stop'
 
   getElement: ->
     @element
@@ -84,6 +94,9 @@ class ConsoleRuntimeView
     @editorSub = new CompositeDisposable
     if @editor?
       @editorSub.add @editor.onDidChangePath => console.log 'title-changed'
+      @editorSub.add @editor.onDidSave (ev) =>
+        if @status == 'start'
+          @emitter.emit 'save', ev
 
   subscribeToFilePath: (filePath) ->
     # @trigger 'title-changed'
