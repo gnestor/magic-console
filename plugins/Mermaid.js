@@ -12,7 +12,10 @@ class Mermaid extends Component {
 }
 
 Mermaid.propTypes = {
-  data: PropTypes.string.isRequired
+  data: (props, propName, componentName) => {
+    if (!/^(sequenceDiagram|graph|gantt)/.test(props[propName])) return new Error('Validation failed!')
+    return null
+  }
 }
 
 export default Mermaid

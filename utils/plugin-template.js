@@ -18,7 +18,13 @@ class New extends Component {
 
 // Define the type of `this.props.data`
 New.propTypes = {
+  // Using React's provided PropTypes
   data: PropTypes.any.isRequired
+  // Using a custom validation function
+  // data: (props, propName, componentName) => {
+  //   if (!/^(sequenceDiagram|graph|gantt)/.test(props[propName])) return new Error('Validation failed!')
+  //   return null
+  // }
 }
 
 // Export the plugin
