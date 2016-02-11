@@ -1,0 +1,27 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "camelcase": [2, {"properties": "never"}],
+    "curly": [0, "multi"],
+    "eol-last": 0,
+    "max-len": [0, 120, 4],
+    "no-underscore-dangle": [0],
+    "no-var": 2,
+    "no-use-before-define": [2, "nofunc"],
+    "quotes": [2, "single"],
+    "space-before-function-paren": [0, {
+      "anonymous": "always",
+      "named": "never"
+    }],
+    "strict": [2, "global"]
+  }
+}

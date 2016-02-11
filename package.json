@@ -1,12 +1,12 @@
 {
-  "name": "sample-script-consumer",
-  "main": "./lib/sample-script-consumer",
+  "name": "magic-console",
+  "main": "./lib/index",
   "version": "0.1.0",
-  "description": "A package that show how to properly use atom-script service",
+  "description": "",
   "keywords": [
     "script"
   ],
-  "repository": "https://github.com/s1mplex/sample-script-consumer",
+  "repository": "https://github.com/gnestor/magic-console",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -24,5 +24,17 @@
     }
   },
   "dependencies": {
+    "react": ">=0.14.6",
+    "react-deep-force-update": ">=2.0.1",
+    "react-dom": ">=0.14.6",
+    "redbox-react": ">=1.2.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.8",
+    "babel-plugin-add-module-exports": ">=0.1.2",
+    "babel-preset-es2015": ">=6.3.13",
+    "babel-preset-react": ">=6.3.13",
+    "babel-preset-stage-0": ">=6.3.13",
+    "eslint": "^1.10.3"
   }
 }
