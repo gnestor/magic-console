@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "highlight.js": "^9.1.0",
+    "mermaid": "^0.5.8",
     "react-json-inspector": "^6.1.1",
     "react-json-tree": "^0.5.1",
     "react-object-inspector": "^0.2.1",
