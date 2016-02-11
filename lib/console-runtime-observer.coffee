@@ -10,8 +10,10 @@ class ConsoleRuntimeObserver
       # console.log('starting execution')
     @subscriptions.add runtime.onStarted =>
       # console.log('started execution')
+      console.group('OutputList.render')
     @subscriptions.add runtime.onStopped =>
-      console.log('stopped execution')
+      # console.log('stopped execution')
+      console.groupEnd()
     @subscriptions.add runtime.onDidWriteToStderr (ev) =>
       # console.log('stderr:', ev.message)
       @view.render ev.message
@@ -19,7 +21,8 @@ class ConsoleRuntimeObserver
       # console.log('stdout:', ev.message)
       @view.render ev.message
     @subscriptions.add runtime.onDidExit (ev) =>
-      console.log("execution finished, code: #{ev.returnCode}, time: #{ev.executionTime}")
+      # console.log("execution finished, code: #{ev.returnCode}, time: #{ev.executionTime}")
+      console.groupEnd()
     @subscriptions.add runtime.onDidNotRun (ev) =>
       # console.log("didn't manage to run #{ev.command}")
     @subscriptions.add runtime.onDidContextCreate (ev) =>
