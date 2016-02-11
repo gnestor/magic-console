@@ -37,6 +37,11 @@
         opacity: 1;
       }
     }
+    .plugin-container {
+      & * {
+        position: relative !important;
+      }
+    }
   }
 
   .buttons {
@@ -58,11 +63,6 @@
       height: 27px;
       border: 1px solid @button-border-color;
       border-bottom: 1px solid @button-border-color--bottom;
-    }
-    .plugin-container {
-      * {
-        position: relative !important;
-      }
     }
   }
 
