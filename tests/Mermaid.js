@@ -1,6 +1,7 @@
 import './console'
 
 console.render({
+  type: 'Mermaid',
   data: `sequenceDiagram
     participant Alice
     participant Bob

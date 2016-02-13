@@ -1,10 +1,10 @@
 require('../utils/console')
 
-console.render('## Hello, World!')
+console.render('# Hello, World!')
 
-console.render(Math.sqrt(4))
+console.render('#### Numbers', Math.sqrt(9))
 
-console.render({
+console.render('#### Data structures', {
   data: {
     key: {
       key: 'value'
@@ -12,7 +12,7 @@ console.render({
   }
 })
 
-console.render('## React component', {
+console.render('#### React components', {
   type: 'ReactComponent',
   data: {
     type: `React.createClass({
