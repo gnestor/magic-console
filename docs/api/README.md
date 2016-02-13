@@ -1,0 +1,3 @@
+# API
+
+* [Plugins](/plugins.md)

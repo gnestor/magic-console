@@ -1,0 +1,17 @@
+{
+  "plugins": [
+        "edit-link",
+        "prism",
+        "-highlight",
+        "github"
+    ],
+    "pluginsConfig": {
+      "edit-link": {
+        "base": "https://github.com/gnestor/magic-console/tree/master",
+        "label": "Edit This Page"
+      },
+      "github": {
+        "url": "https://github.com/gnestor/magic-console/"
+      }
+    }
+}
