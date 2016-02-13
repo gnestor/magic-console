@@ -2,8 +2,8 @@
 
 import React, {Component, PropTypes} from 'react'
 import vm from 'vm'
-// import babel from 'babel-core'
-// const babel = require('babel-core')
+import path from 'path'
+const babel = require('babel-core')
 
 class ReactComponent extends Component {
 
@@ -11,8 +11,15 @@ class ReactComponent extends Component {
     let {type, props = {}} = this.props.data
     if (type) {
       if (React.DOM[type]) return React.createElement(type, props)
-      // let component = babel.transform(type, {presets: ['es2015', 'react', 'stage-0']}).code
-      return React.createElement(vm.runInNewContext(type, {React}), props)
+      let transpiled = babel.transform(type, {
+        presets: [
+          require.resolve('babel-preset-es2015-without-strict'),
+          require.resolve('babel-preset-react'),
+          require.resolve('babel-preset-stage-0')]
+      }).code
+      let evaluated = vm.runInNewContext(transpiled, {React})
+      // return React.createElement(vm.runInNewContext(type, {React}), props)
+      return React.createElement(evaluated, props)
     }
   }
 
@@ -21,7 +28,7 @@ class ReactComponent extends Component {
 ReactComponent.propTypes = {
   data: PropTypes.shape({
     type: PropTypes.string.isRequired,
-    props: PropTypes.object
+    props: PropTypes.object.isRequired
   }).isRequired
 }
 

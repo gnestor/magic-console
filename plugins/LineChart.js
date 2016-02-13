@@ -35,10 +35,7 @@ class LineChart extends Component {
 LineChart.propTypes = {
   data: PropTypes.arrayOf(React.PropTypes.oneOfType([
     PropTypes.shape({
-      y: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.func
-      ]).isRequired,
+      y: PropTypes.string.isRequired,
       style: PropTypes.object
     }),
     PropTypes.shape({
