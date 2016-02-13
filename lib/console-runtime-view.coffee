@@ -26,22 +26,12 @@ class ConsoleRuntimeView
         atom.packages.onDidActivatePackage =>
           @subscribeToFilePath(@filePath)
     @emitter = new Emitter
-    @outputs = []
     @status = 'stop'
-    # @subscriptions = new CompositeDisposable
     @element = document.createElement('div')
     @element.classList.add('panel-body')
-    # ReactDOM.render(React.createElement(OutputList, {name: 'Grant'}), @element)
 
   render: (output) ->
-    @outputs = [@outputs..., output] if output
     ReactDOM.render(React.createElement(OutputList, {outputs: [output]}), @element)
-
-  # addStateChangeListener: (callback) ->
-  #   @emitter.on('state-changed', callback)
-
-  # getState: ->
-  #   @state
 
   serialize: ->
     outputs: @outputs

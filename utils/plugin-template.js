@@ -1,3 +1,4 @@
+// Use Atom's built-in Babel
 'use babel'
 
 import React, {Component, PropTypes} from 'react'

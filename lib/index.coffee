@@ -5,7 +5,7 @@ ConsoleRuntimeView = require './console-runtime-view'
 
 module.exports = SampleScriptConsumer =
 
-  subscriptions: null
+  # subscriptions: null
 
   config:
     evaluateOnSave:
@@ -83,9 +83,9 @@ module.exports = SampleScriptConsumer =
     uri = "hyper-console://editor/#{editor.id}"
     previewPane = atom.workspace.paneForURI(uri)
     if previewPane
-      previewPane.destroyItem(previewPane.itemForURI(uri))
-      return @blankRuntime.stop()
-      # return @runBlank()
+      # previewPane.destroyItem(previewPane.itemForURI(uri))
+      @blankRuntime.stop()
+      return @runBlank()
     previousActivePane = atom.workspace.getActivePane()
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).then (consoleRuntimeView) =>
       if consoleRuntimeView instanceof ConsoleRuntimeView
