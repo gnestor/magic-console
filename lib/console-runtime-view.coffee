@@ -97,6 +97,8 @@ class ConsoleRuntimeView
       @editorSub.add @editor.onDidSave (ev) =>
         if @status == 'start'
           @emitter.emit 'save', ev
+      @editorSub.add @editor.onDidDestroy =>
+        @destroy()
 
   subscribeToFilePath: (filePath) ->
     # @trigger 'title-changed'
