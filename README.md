@@ -3,6 +3,8 @@
 
 Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the outputs alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](about:blank) created by the community or create a completely custom visualization.
 
+![](/docs/live-edit.gif)
+
 ## Features
 
 * **Visual**
