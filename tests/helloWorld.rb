@@ -2,7 +2,11 @@ require 'json'
 
 puts "# This is a playground"
 
-puts Math.sqrt(16)
+puts "### Do some math"
+
+puts Math.sqrt(25)
+
+puts "### Plot some results"
 
 puts JSON.dump({
   type: 'LineChart',
@@ -25,6 +29,8 @@ puts JSON.dump({
     }
   ]
 })
+
+puts "### Create your own visualization"
 
 puts JSON.dump({
   type: 'ReactComponent',

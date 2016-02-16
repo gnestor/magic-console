@@ -2,7 +2,7 @@ import './console'
 
 console.render('# This is a playground')
 
-console.render('### Do some math', Math.sqrt(16))
+console.render('### Do some math', Math.sqrt(4))
 
 console.render('### Plot some results', {
   type: 'LineChart',

@@ -6,7 +6,7 @@ print '# This is a playground'
 
 print '### Do some math'
 
-print math.sqrt(9)
+print math.sqrt(16)
 
 print '### Plot some results'
 
@@ -25,12 +25,14 @@ print json.dumps({
       ],
       'style': {
         'data': {
-          'stroke': 'red'
+          'stroke': 'blue'
         }
       }
     }
   ]
 })
+
+print "### Create your own visualization"
 
 print json.dumps({
   'type': 'ReactComponent',

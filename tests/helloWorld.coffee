@@ -2,7 +2,7 @@ require '../utils/console'
 
 console.render '# This is a playground'
 
-console.render '### Do some math', Math.sqrt 2
+console.render '### Do some math', Math.sqrt 9
 
 console.render '### Plot some results',
   type: 'LineChart',
