@@ -24,7 +24,7 @@ class ConsoleRuntimeView
     @emitter = new Emitter
     # @status = 'stopped'
     @element = document.createElement('div')
-    @element.classList.add('panel-body')
+    @element.classList.add('console')
 
   render: (output) ->
     ReactDOM.render(React.createElement(OutputList, {outputs: [output]}), @element)
