@@ -30,7 +30,6 @@ module.exports = SampleScriptConsumer =
       catch error
         return
       if host is 'editor'
-        @subscriptions.add @view.onDidSave (ev) =>
         editorId = pathname.substring(1)
         view = new ConsoleRuntimeView({editorId})
         changeCount = view.editor.buffer.changeCount.valueOf()
@@ -40,11 +39,13 @@ module.exports = SampleScriptConsumer =
           @views = @views.filter (view) -> view.editorId != editorId
         @subscriptions.add view.onDidSave (ev) =>
           if atom.config.get 'magic-console.evaluateOnSave'
-            @runBlank()
+            if view.editor.buffer.changeCount > changeCount
+              console.log 'onDidSave', @blankRuntime.observers[0].view.editor.buffer.changeCount, changeCount
+              changeCount = @blankRuntime.observers[0].view.editor.buffer.changeCount
+              @blankRuntime.stop()
+              @runBlank(view)
         view
       else
-        @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
-        # @subscriptions.add @view.onDidSave (ev) => console.log ev
         filePath = pathname
         view = new ConsoleRuntimeView({filePath})
         changeCount = view.editor.buffer.changeCount.valueOf()
@@ -52,14 +53,21 @@ module.exports = SampleScriptConsumer =
         @subscriptions.add view.onDidDestroy =>
           @blankRuntime.stop()
           @views = @views.filter (view) -> view.filePath != filePath
+        @subscriptions.add view.onDidSave (ev) =>
+          if atom.config.get 'magic-console.evaluateOnSave'
+            if view.editor.buffer.changeCount > changeCount
+              console.log 'onDidSave', @blankRuntime.observers[0].view.editor.buffer.changeCount, changeCount
+              changeCount = @blankRuntime.observers[0].view.editor.buffer.changeCount
+              @blankRuntime.stop()
+              @runBlank(view)
         view
 
   deactivate: ->
     @subscriptions.dispose()
     @view.destroy()
 
-  serialize: ->
-    view: @view.serialize()
+  # serialize: ->
+  #   view: @views.forEach (view) -> view.serialize()
 
   # deserialize: ->
   #   view: @view.deserialize()
@@ -76,12 +84,10 @@ module.exports = SampleScriptConsumer =
     throw new Error("Packaged not installed: '#{packageName}'") unless atomPackage?
     atomPackage.activateNow()
 
-    @view.stop()
-    @activatePackage('script')
-    if @blankRuntime.observers
-      @blankRuntime.observers.forEach (observer) -> observer.destroy()
-      @blankRuntime.observers = []
   runBlank: (view) ->
+    # @activatePackage('script')
+    @blankRuntime?.observers.forEach (observer) -> observer.destroy()
+    @blankRuntime.observers = []
     @blankRuntime.addObserver(new ConsoleRuntimeObserver(view))
     @blankRuntime.execute()
 
@@ -96,8 +102,12 @@ module.exports = SampleScriptConsumer =
     previewPane = atom.workspace.paneForURI(uri)
     if previewPane
       # previewPane.destroyItem(previewPane.itemForURI(uri))
+      previousActivePane = atom.workspace.getActivePane()
+      previewPane.activateItemForURI(uri)
       @blankRuntime.stop()
-      return @runBlank()
+      previousActivePane.activate()
+      return @runBlank(previewPane.itemForURI(uri))
+      # return @blankRuntime.execute()
     previousActivePane = atom.workspace.getActivePane()
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).then (consoleRuntimeView) =>
       if consoleRuntimeView instanceof ConsoleRuntimeView

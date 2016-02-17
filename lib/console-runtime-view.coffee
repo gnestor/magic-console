@@ -1,8 +1,4 @@
-{
-  CompositeDisposable,
-  Disposable,
-  Emitter
-} = require 'atom'
+{CompositeDisposable, Disposable, Emitter} = require 'atom'
 React = require 'react'
 ReactDOM = require 'react-dom'
 OutputList = require './OutputList'
@@ -17,7 +13,7 @@ class ConsoleRuntimeView
     if state.editorId?
       @editorId = state.editorId
       @resolveEditor(@editorId)
-      @tmpPath = @getPath() # after resolveEditor
+      @tmpPath = @getPath()
     else if state.filePath?
       @filePath = state.filePath
       if atom.workspace?
@@ -26,7 +22,7 @@ class ConsoleRuntimeView
         atom.packages.onDidActivatePackage =>
           @subscribeToFilePath(@filePath)
     @emitter = new Emitter
-    @status = 'stop'
+    # @status = 'stopped'
     @element = document.createElement('div')
     @element.classList.add('panel-body')
 
@@ -46,12 +42,6 @@ class ConsoleRuntimeView
 
   onDidSave: (callback) ->
     @emitter.on 'save', callback
-
-  start: ->
-    @status = 'start'
-
-  stop: ->
-    @status = 'stop'
 
   getElement: ->
     @element
@@ -85,8 +75,8 @@ class ConsoleRuntimeView
     if @editor?
       @editorSub.add @editor.onDidChangePath => console.log 'title-changed'
       @editorSub.add @editor.onDidSave (ev) =>
-        if @status == 'start'
-          @emitter.emit 'save', ev
+        # if @status == 'stopped'
+        @emitter.emit 'save', ev
       @editorSub.add @editor.onDidDestroy =>
         @destroy()
 
@@ -95,10 +85,10 @@ class ConsoleRuntimeView
     @handleEvents()
 
   getTitle: ->
-      if @editor?
-        "#{@editor.getTitle()} Console"
-      else
-        "Console"
+    if @editor?
+      "#{@editor.getTitle()} Console"
+    else
+      "Console"
 
   getURI: ->
     "hyper-console://editor/#{@editorId}"
