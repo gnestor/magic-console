@@ -17,7 +17,7 @@ module.exports = SampleScriptConsumer =
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:toggle':
       => @toggle()
-    @view = null
+    @views = []
     @blankRuntime = null
     atom.workspace.addOpener (uriToOpen) =>
       try
@@ -30,17 +30,29 @@ module.exports = SampleScriptConsumer =
       catch error
         return
       if host is 'editor'
-        @view = new ConsoleRuntimeView(editorId: pathname.substring(1))
-        @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
         @subscriptions.add @view.onDidSave (ev) =>
+        editorId = pathname.substring(1)
+        view = new ConsoleRuntimeView({editorId})
+        changeCount = view.editor.buffer.changeCount.valueOf()
+        @views = [@views..., view]
+        @subscriptions.add view.onDidDestroy =>
+          @blankRuntime.stop()
+          @views = @views.filter (view) -> view.editorId != editorId
+        @subscriptions.add view.onDidSave (ev) =>
           if atom.config.get 'magic-console.evaluateOnSave'
             @runBlank()
-        @view
+        view
       else
-        @view = new ConsoleRuntimeView(filePath: pathname)
         @subscriptions.add @view.onDidDestroy => @blankRuntime.stop()
         # @subscriptions.add @view.onDidSave (ev) => console.log ev
-        @view
+        filePath = pathname
+        view = new ConsoleRuntimeView({filePath})
+        changeCount = view.editor.buffer.changeCount.valueOf()
+        @views = [@views..., view]
+        @subscriptions.add view.onDidDestroy =>
+          @blankRuntime.stop()
+          @views = @views.filter (view) -> view.filePath != filePath
+        view
 
   deactivate: ->
     @subscriptions.dispose()
@@ -64,13 +76,13 @@ module.exports = SampleScriptConsumer =
     throw new Error("Packaged not installed: '#{packageName}'") unless atomPackage?
     atomPackage.activateNow()
 
-  runBlank: ->
     @view.stop()
     @activatePackage('script')
     if @blankRuntime.observers
       @blankRuntime.observers.forEach (observer) -> observer.destroy()
       @blankRuntime.observers = []
-    @blankRuntime.addObserver(new ConsoleRuntimeObserver(@view))
+  runBlank: (view) ->
+    @blankRuntime.addObserver(new ConsoleRuntimeObserver(view))
     @blankRuntime.execute()
 
   runDefault: ->
@@ -90,4 +102,4 @@ module.exports = SampleScriptConsumer =
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).then (consoleRuntimeView) =>
       if consoleRuntimeView instanceof ConsoleRuntimeView
         previousActivePane.activate()
-        @runBlank()
+        @runBlank(consoleRuntimeView)
