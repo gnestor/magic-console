@@ -12,7 +12,7 @@ console.render = (...args) => {
       payload = arg
     }
     console.log(JSON.stringify(payload, (key, value) => {
-      if (typeof value === 'function') return value.toString()
+      if (typeof value === 'function' || value instanceof RegExp) return value.toString()
       return value
     }))
   })

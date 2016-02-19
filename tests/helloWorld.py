@@ -6,7 +6,7 @@ print '# This is a playground'
 
 print '### Do some math'
 
-print math.sqrt(16)
+print math.sqrt(25)
 
 print '### Plot some results'
 
