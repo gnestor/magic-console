@@ -10,13 +10,17 @@ module.exports = SampleScriptConsumer =
   config:
     evaluateOnSave:
       type        : 'boolean'
-      description : 'Re-evaluate on save'
+      description : 'Watch for changes and re-evaluate a source file on save'
       default     : true
 
   activate: (state) ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:toggle':
       => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:open-plugins-directory':
+      => @openPluginsDirectory()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:create-new-plugin':
+      => @createNewPlugin()
     @views = []
     @blankRuntime = null
     atom.workspace.addOpener (uriToOpen) =>
@@ -101,3 +105,12 @@ module.exports = SampleScriptConsumer =
       if consoleRuntimeView instanceof ConsoleRuntimeView
         previousActivePane.activate()
         @runBlank(consoleRuntimeView)
+
+  openPluginsDirectory: ->
+    atom.open(pathsToOpen: path.join(__dirname, '..', 'plugins'))
+
+  createNewPlugin: ->
+    template = fs.readFileSync(path.join(__dirname, '..', 'utils', 'plugin-template.js'), encoding: 'utf-8')
+    atom.workspace.open(path.join(__dirname, '..', 'plugins', 'New.js')).then (textEditor) =>
+      textEditor.setText(template)
+
