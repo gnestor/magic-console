@@ -1,11 +1,11 @@
 {CompositeDisposable} = require 'atom'
+fs = require 'fs'
 url = require 'url'
+path = require 'path'
 ConsoleRuntimeObserver = require './console-runtime-observer'
 ConsoleRuntimeView = require './console-runtime-view'
 
 module.exports = SampleScriptConsumer =
-
-  # subscriptions: null
 
   config:
     evaluateOnSave:
@@ -24,7 +24,7 @@ module.exports = SampleScriptConsumer =
         {protocol, host, pathname} = url.parse(uriToOpen)
       catch error
         return
-      return unless protocol is 'hyper-console:'
+      return unless protocol is 'magic-console:'
       try
         pathname = decodeURI(pathname) if pathname
       catch error
@@ -32,39 +32,28 @@ module.exports = SampleScriptConsumer =
       if host is 'editor'
         editorId = pathname.substring(1)
         view = new ConsoleRuntimeView({editorId})
-        changeCount = view.editor.buffer.changeCount.valueOf()
         @views = [@views..., view]
         @subscriptions.add view.onDidDestroy =>
           @blankRuntime.stop()
           @views = @views.filter (view) -> view.editorId != editorId
         @subscriptions.add view.onDidSave (ev) =>
           if atom.config.get 'magic-console.evaluateOnSave'
-            if view.editor.buffer.changeCount > changeCount
-              console.log 'onDidSave', @blankRuntime.observers[0].view.editor.buffer.changeCount, changeCount
-              changeCount = @blankRuntime.observers[0].view.editor.buffer.changeCount
-              @blankRuntime.stop()
-              @runBlank(view)
+            @toggle() unless @blankRuntime.observers?.length > 0
         view
       else
         filePath = pathname
         view = new ConsoleRuntimeView({filePath})
-        changeCount = view.editor.buffer.changeCount.valueOf()
         @views = [@views..., view]
         @subscriptions.add view.onDidDestroy =>
           @blankRuntime.stop()
           @views = @views.filter (view) -> view.filePath != filePath
         @subscriptions.add view.onDidSave (ev) =>
           if atom.config.get 'magic-console.evaluateOnSave'
-            if view.editor.buffer.changeCount > changeCount
-              console.log 'onDidSave', @blankRuntime.observers[0].view.editor.buffer.changeCount, changeCount
-              changeCount = @blankRuntime.observers[0].view.editor.buffer.changeCount
-              @blankRuntime.stop()
-              @runBlank(view)
+            @toggle() unless @blankRuntime.observers?.length > 0
         view
 
   deactivate: ->
     @subscriptions.dispose()
-    @view.destroy()
 
   # serialize: ->
   #   view: @views.forEach (view) -> view.serialize()
@@ -85,26 +74,25 @@ module.exports = SampleScriptConsumer =
     atomPackage.activateNow()
 
   runBlank: (view) ->
-    # @activatePackage('script')
-    @blankRuntime?.observers.forEach (observer) -> observer.destroy()
-    @blankRuntime.observers = []
+    @activatePackage('script')
     @blankRuntime.addObserver(new ConsoleRuntimeObserver(view))
     @blankRuntime.execute()
 
   runDefault: ->
-    @activatePackage('script')
+    # @activatePackage('script')
     @defaultRuntime.execute()
 
   toggle: ->
     editor = atom.workspace.getActiveTextEditor()
     return unless editor?
-    uri = "hyper-console://editor/#{editor.id}"
+    uri = "magic-console://editor/#{editor.id}"
     previewPane = atom.workspace.paneForURI(uri)
     if previewPane
       # previewPane.destroyItem(previewPane.itemForURI(uri))
       previousActivePane = atom.workspace.getActivePane()
       previewPane.activateItemForURI(uri)
-      @blankRuntime.stop()
+      if @blankRuntime.observers?.length > 0
+        return @blankRuntime.stop()
       previousActivePane.activate()
       return @runBlank(previewPane.itemForURI(uri))
       # return @blankRuntime.execute()
