@@ -1,6 +1,6 @@
 # Runtimes
 
-Magic Console consumes the script Atom package which is responsible for mapping source code grammars to runtimes and evaluating the source code. script currently support 64 programming languages:
+Magic Console consumes the script Atom package which is responsible for mapping source code grammars to runtimes and evaluating the source code. script currently supports 64 programming languages:
 
 * 1C (BSL)
 * AppleScript
@@ -69,9 +69,9 @@ Magic Console consumes the script Atom package which is responsible for mapping 
 * Zsh
 * Prolog
 
-## Add a programming language
+## Add a runtime
 
-Additional programming languages can be added to script's [grammars.coffee](https://github.com/rgbkrk/atom-script/blob/master/lib/grammars.coffee).
+Additional runtimes can be added to script's [grammars.coffee](https://github.com/rgbkrk/atom-script/blob/master/lib/grammars.coffee).
 
 1. Fork the repo
 2. Add a new runtime

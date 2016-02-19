@@ -27,7 +27,10 @@ class ConsoleRuntimeView
     @element.classList.add('console')
 
   render: (output) ->
-    ReactDOM.render(React.createElement(OutputList, {outputs: [output]}), @element)
+    ReactDOM.render(React.createElement(OutputList, {output}), @element)
+
+  setStatus: (status) ->
+    ReactDOM.render(React.createElement(OutputList, {status}), @element)
 
   serialize: ->
     outputs: @outputs
@@ -75,7 +78,6 @@ class ConsoleRuntimeView
     if @editor?
       @editorSub.add @editor.onDidChangePath => console.log 'title-changed'
       @editorSub.add @editor.onDidSave (ev) =>
-        # if @status == 'stopped'
         @emitter.emit 'save', ev
       @editorSub.add @editor.onDidDestroy =>
         @destroy()
@@ -86,12 +88,12 @@ class ConsoleRuntimeView
 
   getTitle: ->
     if @editor?
-      "#{@editor.getTitle()} Console"
+      "#{@editor.getTitle()} Output"
     else
-      "Console"
+      "Output"
 
   getURI: ->
-    "hyper-console://editor/#{@editorId}"
+    "magic-console://editor/#{@editorId}"
 
   getPath: ->
     if @editor?
