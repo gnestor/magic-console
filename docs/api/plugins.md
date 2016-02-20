@@ -12,11 +12,11 @@ You can [create a new plugin](#create-a-plugin) and access the [plugin directory
 
 ### Create a plugin
 
-Search for "Magic Console: Create New Plugin"
+Search for **Magic Console: Create New Plugin**
 
 ### Open plugins directory
 
-Search for "Magic Console: Open plugins directory"
+Search for **Magic Console: Open plugins directory**
 
 ## Plugin template
 
