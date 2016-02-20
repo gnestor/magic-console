@@ -32,16 +32,18 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
   * `apm install script`
 * Install magic-console using Atom's in-app package manager or using apm
   * `apm install magic-console`
+* OS X: Install atom-fix-path to avoid $PATH issues
+  * `apm install atom-fix-path`
 
 ### Usage
 
-* "Magic Console: Toggle" to evaluate the current file
+* **Magic Console: Toggle** to evaluate the current file
   * The current file must be [supported](#supported-programming-languages) and the required runtime must be installed
   * If Atom isn't detecting the grammar (programming language) of the current file (look in the bottom-right corner for the name of the grammar), [install the grammar](https://atom.io/packages/search?utf8=%E2%9C%93&q=language) and try again
 * If the output panel is open, Magic Console will watch the file for changes and re-evaluate on save
   * This can be disabled in the package settings
-* The outputs panel displays a list of outputs
-  * Toggle between available visualization plugins using the plugin selector in the output
+* The output panel displays a list of outputs
+  * Toggle between available visualization plugins using the plugin selector
   * Edit the visualization plugin's source code using the <i class="octicon octicon-code"></i> button
   * Copy the outputs using the <i class="octicon octicon-clippy"></i> button at the top
   * Clear the outputs using the <i class="octicon octicon-trashcan"></i> button at the top
@@ -77,12 +79,9 @@ Use Magic Console to mix Markdown documentation with interactive code examples.
 
 ## Known bugs
 
-* Default visualization plugin is an arbitrary selection from the available plugins for that data type
-  * The default plugin should be the "richest" for the given data type (e.g. LineChart for valid data vs. ObjectTree)
+* Default visualization plugin is an arbitrary selection from the available plugins for that data type but should be the "richest" for the given data type (e.g. LineChart for valid data vs. ObjectTree)
   * Workaround: Manually select the richest visualization
-* ~~Selected visualization plugin is not preserved after re-evaluation~~
-* Re-evaluate on save doesn't work for long-running scripts (e.g. using a timer)
-  * Workaround: Force re-evaluate using `CMD+ENTER`
+* Plugin state is not preserved after plugin hot reload
 * Emojis don't display in Markdown plugin
   * [Github issue](https://github.com/jonschlinkert/remarkable/issues/62)
   * Workaround: Use Raw plugin
