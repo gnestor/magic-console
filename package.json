@@ -11,6 +11,9 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "scripts": {
+    "docs": "gitbook build && open _book/index.html"
+  },
   "consumedServices": {
     "default-script-runtime": {
       "versions": {

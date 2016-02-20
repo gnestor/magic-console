@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Payloads | Magic Console</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/api/plugins.html" />
+    
+    
+    <link rel="prev" href="../../docs/api/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1.1"
+        data-chapter-title="Payloads"
+        data-filepath="docs/api/payloads.md"
+        data-basepath="../.."
+        data-revision="Fri Feb 19 2016 18:32:01 GMT-0800 (PST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        API
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1" data-path="docs/api/payloads.html">
+            
+                
+                    <a href="../../docs/api/payloads.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Payloads
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/api/plugins.html">
+            
+                
+                    <a href="../../docs/api/plugins.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Plugins
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docs/api/runtimes.html">
+            
+                
+                    <a href="../../docs/api/runtimes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Runtimes
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/examples.html">
+            
+                
+                    <a href="../../docs/examples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Examples
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/glossary.html">
+            
+                
+                    <a href="../../docs/glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Glossary
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Magic Console</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="payloads">Payloads</h1>
+<p>Payload refers to the output data that is sent from the source code to the output panel. Payloads can be simple log statements or complex data structures:</p>
+<h2 id="simple-payload-example">Simple payload example</h2>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;This is a string payload&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="complex-payload-example">Complex payload example</h2>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;This is a line chart payload&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;LineChart&apos;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      y<span class="token punctuation">:</span> <span class="token string">&apos;(data) =&gt; Math.sin(2 * Math.PI * data.x)&apos;</span><span class="token punctuation">,</span>
+      style<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          stroke<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="stringification"><em>Stringification</em></h2>
+<p>Payloads can be native data types such as string, number, and array, but some data types will not survive the trip from source code to output (depending on the runtime), such as error, regex, and date. In such cases, we can stringify the payload and Magic Console will parse the payload and convert it to a Javascript-equivalent type.</p>
+<h3 id="nonstringified-example">Non-stringified example</h3>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The above payload will output a string:</p>
+<p><code>&apos;{ key: &#x2018;value&#x2019; }&apos;</code></p>
+<h3 id="stringified-example">Stringified example</h3>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>However, when stringified, the same payload will output an object:</p>
+<pre><code class="lang-js"><span class="token punctuation">{</span>
+  key<span class="token punctuation">:</span> &#x2018;value&#x2019;
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="form">Form</h2>
+<p>A payload can specify its key or type using the following form:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+<th>Data type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">key</td>
+<td style="text-align:left">Unique identifier</td>
+<td>String, number</td>
+<td>false</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Plugin name</td>
+<td>String</td>
+<td>false</td>
+</tr>
+<tr>
+<td style="text-align:left">data</td>
+<td style="text-align:left">Output data</td>
+<td>String, number, boolean, array, object, null</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  key<span class="token punctuation">:</span> <span class="token string">&apos;object1&apos;</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;ObjectTree&apos;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    parent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      child<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="key">Key</h3>
+<p>Key is a unique identifier that explicitly links a payload to a rendered output. If a payload has a key, it will be rendered once and any future outputs with the same key will replace the existing output with that key. If a payload doesn&apos;t have a key, it will be rendered multiple times.</p>
+<h4 id="using-consolerender">Using <code>console.render</code></h4>
+<p><code>console.render</code> will automatically key a payload if a label is provided.</p>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;This is a label&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  parent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    child<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="type">Type</h3>
+<p>Type refers to the name of specific plugin that should be used as the output&apos;s default plugin.</p>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;This is an object payload&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;ObjectTree&apos;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    parent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      child<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="magicconsolejs">magic-console-js</h2>
+<p><a href="https://github.com/gnestor/magic-console-js" target="_blank">magic-console-js</a> a Javascript library that provides syntactic sugar for payload generation. It provides 2 methods for the native <code>console</code> object.</p>
+<h3 id="consolerender"><code>console.render</code></h3>
+<p>Using <code>console.render</code> in lieu of <code>console.log</code> has a few advantages:</p>
+<ul>
+<li>Payloads are <a href="#form">formed</a></li>
+<li>Payloads are <a href="#stringification">stringified</a></li>
+<li>Payloads are <a href="#key">keyed</a></li>
+</ul>
+<h4 id="usage">Usage</h4>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;This is an object payload&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Notice that there is no need for <code>JSON.stringify()</code>. Additionally, providing a label, in this case <code>&apos;This is an object payload&apos;</code>, will automatically key any additional payload arguments using that label.</p>
+<h4 id="source-code">Source code</h4>
+<pre><code class="lang-js">console<span class="token punctuation">.</span>render <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>arg <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&apos;string&apos;</span><span class="token punctuation">)</span>
+  args<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> payload
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+        key<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>key <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>key <span class="token punctuation">:</span> key <span class="token operator">?</span> `$<span class="token punctuation">{</span>key<span class="token punctuation">}</span>$<span class="token punctuation">{</span>index<span class="token punctuation">}</span>` <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        type<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>type <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>type <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        data<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>data <span class="token operator">||</span> arg
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      payload <span class="token operator">=</span> arg
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>payload<span class="token punctuation">,</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="consoleassert"><code>console.assert</code></h3>
+<p>Using <code>console.assert</code> in lieu of Javascript&apos;s native <code>console.assert</code> or <code>console.render</code> has a few advantages:</p>
+<ul>
+<li>Payloads are wrapped in a try/catch statement</li>
+<li>Booleans, <code>null</code> values, and <code>undefined</code> are preserved</li>
+<li>Payloads are given &apos;Test&apos; type</li>
+</ul>
+<h4 id="usage">Usage</h4>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">assert</span><span class="token punctuation">(</span><span class="token string">&apos;should equal 4&apos;</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="source-code">Source code</h4>
+<pre><code class="lang-js">console<span class="token punctuation">.</span>assert <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> key <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>arg <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&apos;string&apos;</span><span class="token punctuation">)</span>
+  args<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> payload
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+          key<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>key <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>key <span class="token punctuation">:</span> key <span class="token operator">?</span> `$<span class="token punctuation">{</span>key<span class="token punctuation">}</span>$<span class="token punctuation">{</span>index<span class="token punctuation">}</span>` <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+          type<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>type <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>type <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+          data<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>data <span class="token operator">||</span> arg
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+          key<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>key <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>key <span class="token punctuation">:</span> key <span class="token operator">?</span> `$<span class="token punctuation">{</span>key<span class="token punctuation">}</span>$<span class="token punctuation">{</span>index<span class="token punctuation">}</span>` <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+          type<span class="token punctuation">:</span> arg<span class="token punctuation">.</span>type <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">.</span>data <span class="token operator">?</span> arg<span class="token punctuation">.</span>type <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+          data<span class="token punctuation">:</span> error
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      payload <span class="token operator">=</span> arg
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>payload<span class="token punctuation">,</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="support-for-other-languages">Support for other languages</h3>
+<p><code>magic-console-js</code> is a Javascript implementation written in 40 lines of code. I encourage others to write implementations for other languages and expand on this implementation.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/api/index.html" class="navigation navigation-prev " aria-label="Previous page: API"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/api/plugins.html" class="navigation navigation-next " aria-label="Next page: Plugins"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"edit-link":{"base":"https://github.com/gnestor/magic-console/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/gnestor/magic-console/"},"prism":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

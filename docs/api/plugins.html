@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Plugins | Magic Console</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/api/runtimes.html" />
+    
+    
+    <link rel="prev" href="../../docs/api/payloads.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1.2"
+        data-chapter-title="Plugins"
+        data-filepath="docs/api/plugins.md"
+        data-basepath="../.."
+        data-revision="Fri Feb 19 2016 18:32:01 GMT-0800 (PST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        API
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/api/payloads.html">
+            
+                
+                    <a href="../../docs/api/payloads.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Payloads
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="docs/api/plugins.html">
+            
+                
+                    <a href="../../docs/api/plugins.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Plugins
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docs/api/runtimes.html">
+            
+                
+                    <a href="../../docs/api/runtimes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Runtimes
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/examples.html">
+            
+                
+                    <a href="../../docs/examples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Examples
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/glossary.html">
+            
+                
+                    <a href="../../docs/glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Glossary
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Magic Console</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="plugins">Plugins</h1>
+<p>Plugins are <a href="https://facebook.github.io/react/docs/component-api.html" target="_blank">React components</a> with a single prop for input data (<code>this.props.data</code>) and a render method for rendering that input data into DOM. Plugins declare their own input data requirements using <a href="https://facebook.github.io/react/docs/reusable-components.html#prop-validation" target="_blank">React&apos;s PropTypes</a>.</p>
+<h2 id="creating-and-editing-plugins">Creating and editing plugins</h2>
+<p><img src="../live-edit.png" alt=""></p>
+<p>Plugins are edited live inline with their rendered output. Rendered output is &quot;hot reloaded&quot; whenever the plugin source changes. Any dependencies that are declared while editing will be installed automatically, relieving the author of any module or workspace management; simply create a React component to visualize your output data and viola, there it is.</p>
+<p>You can <a href="#create-a-plugin">create a new plugin</a> and access the <a href="#open-plugins-directory">plugin directory</a> using <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette" target="_blank">Atom&apos;s command palette</a>.</p>
+<h3 id="create-a-plugin">Create a plugin</h3>
+<p>Search for &quot;Magic Console: Create New Plugin&quot;</p>
+<h3 id="open-plugins-directory">Open plugins directory</h3>
+<p>Search for &quot;Magic Console: Open plugins directory&quot;</p>
+<h2 id="plugin-template">Plugin template</h2>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Use Atom&apos;s Babel</span>
+<span class="token string">&apos;use babel&apos;</span>
+
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> PropTypes<span class="token punctuation">}</span> from <span class="token string">&apos;react&apos;</span>
+
+<span class="token comment" spellcheck="true">// Create a React component</span>
+<span class="token keyword">class</span> <span class="token class-name">New</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">// The only required method for a React component</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">{</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Define the type of `this.props.data`</span>
+New<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Using React&apos;s provided PropTypes</span>
+  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>any<span class="token punctuation">.</span>isRequired
+  <span class="token comment" spellcheck="true">// Using a custom validation function</span>
+  <span class="token comment" spellcheck="true">// data: (props, propName, componentName) =&gt; {</span>
+  <span class="token comment" spellcheck="true">//   if (!/^(sequenceDiagram|graph|gantt)/.test(props[propName])) return new Error(&apos;Validation failed!&apos;)</span>
+  <span class="token comment" spellcheck="true">//   return null</span>
+  <span class="token comment" spellcheck="true">// }</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Export the plugin</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> New
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>render</strong>: All React components require a render method. The render method must return a valid React element using <code>React.createElement(type, props, children)</code> or <a href="https://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank">JSX</a>. Use the render method to declare how the plugin should render  output data. See <a href="http://facebook.github.io/react/docs/component-specs.html#render" target="_blank">React&apos;s component specs docs</a> for more info.</li>
+<li><strong>propTypes</strong>: Prop types are used to validate the type of incoming props. Use the propTypes method to declare which data types are accepted by the plugin. See <a href="http://facebook.github.io/react/docs/reusable-components.html#prop-validation" target="_blank">React&apos;s prop validation docs</a> for more info.<ul>
+<li>PropType functions must return <code>null</code> if passing and <code>Error</code> if not passing</li>
+</ul>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/api/payloads.html" class="navigation navigation-prev " aria-label="Previous page: Payloads"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/api/runtimes.html" class="navigation navigation-next " aria-label="Next page: Runtimes"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"edit-link":{"base":"https://github.com/gnestor/magic-console/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/gnestor/magic-console/"},"prism":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

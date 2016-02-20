@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Read Me | Magic Console</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Interactive programming for Atom">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./docs/api/index.html" />
+    
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="0"
+        data-chapter-title="Read Me"
+        data-filepath="README.md"
+        data-basepath="."
+        data-revision="Fri Feb 19 2016 18:32:01 GMT-0800 (PST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter active" data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/api/index.html">
+            
+                
+                    <a href="./docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        API
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/api/payloads.html">
+            
+                
+                    <a href="./docs/api/payloads.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Payloads
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/api/plugins.html">
+            
+                
+                    <a href="./docs/api/plugins.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Plugins
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docs/api/runtimes.html">
+            
+                
+                    <a href="./docs/api/runtimes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Runtimes
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/examples.html">
+            
+                
+                    <a href="./docs/examples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Examples
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/glossary.html">
+            
+                
+                    <a href="./docs/glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Glossary
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Magic Console</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="magic-console">Magic Console</h1>
+<blockquote>
+<p>Interactive programming for Atom</p>
+</blockquote>
+<p>Magic Console is a package for <a href="https://atom.io/" target="_blank">Atom</a> that evaluates code in <a href="#supported-programming-languages">pretty much any language</a> and renders the output alongside the source code. If that alone weren&apos;t good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there&apos;s more! Visualizations are entirely pluggable, you can take advantage of the <a href="about:blank" target="_blank">thousands of visualizations</a> (coming soon!) created by the community or create a completely custom visualization.</p>
+<p><img src="docs/live-edit.gif" alt=""></p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Visual</strong><ul>
+<li>Automatically visualize <a href="#supported-data-types">common data types</a></li>
+<li>Pluggable visualizations (using React components)</li>
+</ul>
+</li>
+<li><strong>Interactive</strong><ul>
+<li>Static and dynamic visualizations</li>
+<li>Re-evaluate source code on save</li>
+<li>Hot reload visualizations on save<ul>
+<li>Automatically install NPM dependencies when declared in visualization source</li>
+</ul>
+</li>
+<li>Scrub between past output states</li>
+</ul>
+</li>
+<li><strong>Universal</strong><ul>
+<li>Support for 64 programming languages (don&apos;t see your programming language, you can add support for it with a <a href="#add-a-programming-language">couple lines of code</a>)</li>
+<li>Atom is cross-platform (OS X, Windows, Linux) and open-source</li>
+</ul>
+</li>
+<li><strong>Plug and play</strong><ul>
+<li>No configuration necessary</li>
+<li>No (dev) server necessary</li>
+</ul>
+</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="install">Install</h3>
+<ul>
+<li>Install Atom</li>
+<li>Install script using Atom&apos;s in-app package manager or using apm<ul>
+<li><code>apm install script</code></li>
+</ul>
+</li>
+<li>Install magic-console using Atom&apos;s in-app package manager or using apm<ul>
+<li><code>apm install magic-console</code></li>
+</ul>
+</li>
+<li>OS X: Install atom-fix-path to avoid $PATH issues<ul>
+<li><code>apm install atom-fix-path</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<ul>
+<li><strong>Magic Console: Toggle</strong> to evaluate the current file<ul>
+<li>The current file must be <a href="#supported-programming-languages">supported</a> and the required runtime must be installed</li>
+<li>If Atom isn&apos;t detecting the grammar (programming language) of the current file (look in the bottom-right corner for the name of the grammar), <a href="https://atom.io/packages/search?utf8=%E2%9C%93&amp;q=language" target="_blank">install the grammar</a> and try again</li>
+</ul>
+</li>
+<li>If the output panel is open, Magic Console will watch the file for changes and re-evaluate on save<ul>
+<li>This can be disabled in the package settings</li>
+</ul>
+</li>
+<li>The output panel displays a list of outputs<ul>
+<li>Toggle between available visualization plugins using the plugin selector</li>
+<li>Edit the visualization plugin&apos;s source code using the <i class="octicon octicon-code"></i> button</li>
+<li>Copy the outputs using the <i class="octicon octicon-clippy"></i> button at the top</li>
+<li>Clear the outputs using the <i class="octicon octicon-trashcan"></i> button at the top</li>
+</ul>
+</li>
+</ul>
+<h4 id="commands">Commands</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Command</th>
+<th style="text-align:left">Mac OS X</th>
+<th style="text-align:left">Linux/Windows</th>
+<th style="text-align:left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Magic Console: Toggle</td>
+<td style="text-align:left"><kbd>CMD+ENTER</kbd></td>
+<td style="text-align:left"><kbd>CTRL+ENTER</kbd></td>
+<td style="text-align:left">If text is selected only the selected code will be evaluated</td>
+</tr>
+<tr>
+<td style="text-align:left">Magic Console: Open plugins directory</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Open the plugins directory in a new workspace</td>
+</tr>
+<tr>
+<td style="text-align:left">Magic Console: Create new plugin</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Create a new plugin and open it in the current workspace</td>
+</tr>
+</tbody>
+</table>
+<h2 id="practical-applications">Practical applications</h2>
+<h3 id="interactive-playground">Interactive playground</h3>
+<p><img src="docs/playground.png" alt=""></p>
+<p>Use Magic Console to try out code, explore data, run experiments, etc.</p>
+<h3 id="interactive-testing">Interactive testing</h3>
+<p><img src="docs/tests.png" alt=""></p>
+<p>Use Magic Console to test code as you write it. Since you are evaluating your code in real-time, you don&apos;t <em>need</em> to write tests. Nonetheless, you can write assertions against your code and render the outputs using the Test plugin.</p>
+<h3 id="interactive-documentation">Interactive documentation</h3>
+<p><img src="docs/docs.png" alt=""></p>
+<p>Use Magic Console to mix Markdown documentation with interactive code examples.</p>
+<h2 id="known-bugs">Known bugs</h2>
+<ul>
+<li>Default visualization plugin is an arbitrary selection from the available plugins for that data type but should be the &quot;richest&quot; for the given data type (e.g. LineChart for valid data vs. ObjectTree)<ul>
+<li>Workaround: Manually select the richest visualization</li>
+</ul>
+</li>
+<li>Plugin state is not preserved after plugin hot reload</li>
+<li>Emojis don&apos;t display in Markdown plugin<ul>
+<li><a href="https://github.com/jonschlinkert/remarkable/issues/62" target="_blank">Github issue</a></li>
+<li>Workaround: Use Raw plugin</li>
+</ul>
+</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>Use the Atom <a href="https://atom.io/docs/latest/contributing" target="_blank">contributing guidelines</a></p>
+<h3 id="setup">Setup</h3>
+<ul>
+<li>Clone the repo<ul>
+<li><code>apm develop script</code> will clone the <code>script</code> repository to <code>~/github</code></li>
+<li><code>git clone https://github.com/gnestor/magic-console.git</code></li>
+</ul>
+</li>
+<li>Install the dependencies<ul>
+<li><code>apm install</code></li>
+</ul>
+</li>
+<li>Link the directory<ul>
+<li><code>apm link</code><ul>
+<li>This will error if a previous version of magic-console exists, so remove the existing version and try again</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="workflow">Workflow</h3>
+<ul>
+<li>Run Atom in dev mode<ul>
+<li><code>atom --dev</code></li>
+</ul>
+</li>
+<li>Re-install dependencies after pulling upstream changes<ul>
+<li><code>apm install</code></li>
+</ul>
+</li>
+<li>Submit a pull request!</li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<h3 id="supported-programming-languages">Supported programming languages</h3>
+<ul>
+<li>1C (BSL)</li>
+<li>AppleScript</li>
+<li>Bash</li>
+<li>Behat Feature
+*</li>
+<li>C</li>
+<li>C++</li>
+<li>C#</li>
+<li>cript</li>
+<li>Clojure (via Leiningen)</li>
+<li>Coffeescript</li>
+<li>CoffeeScript (Literate)</li>
+<li>Crystal</li>
+<li>Cucumber (Gherkin)</li>
+<li>D</li>
+<li>DOT</li>
+<li>Elixir</li>
+<li>Erlang</li>
+<li>F#</li>
+<li>Forth (via GForth)</li>
+<li>Go</li>
+<li>Groovy</li>
+<li>Haskell</li>
+<li>Java</li>
+<li>Javascript</li>
+<li>JavaScript for Automation (JXA)</li>
+<li>Julia</li>
+<li>Kotlin</li>
+<li>LaTeX (via latexmk)</li>
+<li>LilyPond</li>
+<li>Lisp (via SBCL)</li>
+<li>Literate Haskell</li>
+<li>LiveScript</li>
+<li>Lua</li>
+<li>Makefile</li>
+<li>MoonScript</li>
+<li>MongoDB</li>
+<li>NCL#</li>
+<li>newLISP</li>
+<li>Nim (and NimScript)</li>
+<li>NSIS</li>
+<li>Objective-C</li>
+<li>Objective-C++</li>
+<li>OCaml</li>
+<li>Pandoc Markdown</li>
+<li>Perl</li>
+<li>Perl 6</li>
+<li>PHP</li>
+<li>PostgreSQL</li>
+<li>Python</li>
+<li>RSpec</li>
+<li>Racket</li>
+<li>RANT</li>
+<li>Ruby</li>
+<li>Ruby on Rails</li>
+<li>Rust</li>
+<li>Sage</li>
+<li>Sass/SCSS</li>
+<li>Scala</li>
+<li>Shell Script</li>
+<li>Swift</li>
+<li>TypeScript</li>
+<li>Dart</li>
+<li>Octave</li>
+<li>Zsh</li>
+<li>Prolog</li>
+</ul>
+<h3 id="supported-data-types">Supported data types</h3>
+<ul>
+<li>String<ul>
+<li>Markdown</li>
+<li>Raw</li>
+</ul>
+</li>
+<li>Number<ul>
+<li>Raw</li>
+</ul>
+</li>
+<li>Array<ul>
+<li>ObjectTree</li>
+<li>Raw</li>
+</ul>
+</li>
+<li>Object/dictionary<ul>
+<li>ObjectTree</li>
+<li>Raw</li>
+</ul>
+</li>
+<li>Regex<ul>
+<li>Raw</li>
+</ul>
+</li>
+<li>Boolean<ul>
+<li>Raw</li>
+</ul>
+</li>
+<li>HTML element<ul>
+<li>ReactComponent</li>
+<li>Markdown</li>
+<li>Raw</li>
+</ul>
+</li>
+<li>React component<ul>
+<li>ReactComponent</li>
+<li>ObjectTree</li>
+<li>Raw</li>
+</ul>
+</li>
+</ul>
+<h3 id="add-a-programming-language">Add a programming language</h3>
+<pre><code class="lang-coffeescript"><span class="token property">Clojure</span><span class="token punctuation">:</span>
+  <span class="token string">&quot;Selection Based&quot;</span><span class="token punctuation">:</span>
+    <span class="token property">command</span><span class="token punctuation">:</span> <span class="token string">&quot;lein&quot;</span>
+    <span class="token property">args</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">&apos;exec&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;-e&apos;</span><span class="token punctuation">,</span> context<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token string">&quot;File Based&quot;</span><span class="token punctuation">:</span>
+    <span class="token property">command</span><span class="token punctuation">:</span> <span class="token string">&quot;lein&quot;</span>
+    <span class="token property">args</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">&apos;exec&apos;</span><span class="token punctuation">,</span> context<span class="token punctuation">.</span>filepath<span class="token punctuation">]</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a href="./docs/api/index.html" class="navigation navigation-next navigation-unique" aria-label="Next page: API"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"edit-link":{"base":"https://github.com/gnestor/magic-console/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/gnestor/magic-console/"},"prism":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
