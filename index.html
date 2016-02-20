@@ -51,7 +51,7 @@
         data-chapter-title="Read Me"
         data-filepath="README.md"
         data-basepath="."
-        data-revision="Fri Feb 19 2016 18:32:01 GMT-0800 (PST)"
+        data-revision="Fri Feb 19 2016 23:23:48 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -163,15 +163,7 @@
     
         <li class="chapter " data-level="3" data-path="docs/glossary.html">
             
-                
-                    <a href="./docs/glossary.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        Glossary
-                    </a>
+            <span><b>3.</b> Glossary</span>
             
             
         </li>
@@ -213,7 +205,7 @@
 <blockquote>
 <p>Interactive programming for Atom</p>
 </blockquote>
-<p>Magic Console is a package for <a href="https://atom.io/" target="_blank">Atom</a> that evaluates code in <a href="#supported-programming-languages">pretty much any language</a> and renders the output alongside the source code. If that alone weren&apos;t good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there&apos;s more! Visualizations are entirely pluggable, you can take advantage of the <a href="about:blank" target="_blank">thousands of visualizations</a> (coming soon!) created by the community or create a completely custom visualization.</p>
+<p>Magic Console is a package for <a href="https://atom.io/" target="_blank">Atom</a> that evaluates code in <a href="#supported-programming-languages">pretty much any language</a> and renders the output alongside the source code. If that alone weren&apos;t good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there&apos;s more! Visualizations are entirely pluggable, you can take advantage of the <a href="#">thousands of visualizations</a> created by the community (coming soon!) or create a completely custom visualization.</p>
 <p><img src="docs/live-edit.gif" alt=""></p>
 <h2 id="features">Features</h2>
 <ul>
@@ -226,7 +218,7 @@
 <li>Static and dynamic visualizations</li>
 <li>Re-evaluate source code on save</li>
 <li>Hot reload visualizations on save<ul>
-<li>Automatically install NPM dependencies when declared in visualization source</li>
+<li>Automatically install NPM dependencies when declared in visualization source (coming soon!)</li>
 </ul>
 </li>
 <li>Scrub between past output states</li>
@@ -245,21 +237,14 @@
 </ul>
 <h2 id="getting-started">Getting started</h2>
 <h3 id="install">Install</h3>
-<ul>
-<li>Install Atom</li>
-<li>Install script using Atom&apos;s in-app package manager or using apm<ul>
-<li><code>apm install script</code></li>
-</ul>
-</li>
-<li>Install magic-console using Atom&apos;s in-app package manager or using apm<ul>
-<li><code>apm install magic-console</code></li>
-</ul>
-</li>
-<li>OS X: Install atom-fix-path to avoid $PATH issues<ul>
-<li><code>apm install atom-fix-path</code></li>
-</ul>
-</li>
-</ul>
+<p>See <a href="#setup">Contributing</a> for install instructions</p>
+<!-- * Install Atom
+* Install script using Atom's in-app package manager or using apm
+  * `apm install script`
+* Install magic-console using Atom's in-app package manager or using apm
+  * `apm install magic-console`
+* OS X: Install atom-fix-path to avoid $PATH issues
+  * `apm install atom-fix-path` -->
 <h3 id="usage">Usage</h3>
 <ul>
 <li><strong>Magic Console: Toggle</strong> to evaluate the current file<ul>
@@ -337,9 +322,14 @@
 <p>Use the Atom <a href="https://atom.io/docs/latest/contributing" target="_blank">contributing guidelines</a></p>
 <h3 id="setup">Setup</h3>
 <ul>
+<li>Install Atom</li>
+<li>Install script package<ul>
+<li><code>apm install script</code></li>
+</ul>
+</li>
 <li>Clone the repo<ul>
-<li><code>apm develop script</code> will clone the <code>script</code> repository to <code>~/github</code></li>
 <li><code>git clone https://github.com/gnestor/magic-console.git</code></li>
+<li><code>cd magin-console</code></li>
 </ul>
 </li>
 <li>Install the dependencies<ul>
@@ -372,8 +362,7 @@
 <li>1C (BSL)</li>
 <li>AppleScript</li>
 <li>Bash</li>
-<li>Behat Feature
-*</li>
+<li>Behat Feature</li>
 <li>C</li>
 <li>C++</li>
 <li>C#</li>
