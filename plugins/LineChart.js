@@ -9,7 +9,7 @@ class LineChart extends Component {
   render() {
     return (
       <VictoryChart>
-        {this.props.data.map(item => {
+        {this.props.data.map((item, index) => {
           let {
             data,
             y,
@@ -18,6 +18,7 @@ class LineChart extends Component {
           if (y) y = vm.runInNewContext(y)
           return (
             <VictoryLine
+              key={index}
               style={style}
               data={data}
               interpolation="basis"
