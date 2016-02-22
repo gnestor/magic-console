@@ -16,6 +16,7 @@
     "react-highlighter": "^0.3.0",
     "react-json-inspector": "^6.1.1",
     "react-json-tree": "^0.5.1",
+    "react-latex": "0.0.8",
     "react-object-inspector": "^0.2.1",
     "redbox-react": "^1.2.2",
     "remarkable": "^1.6.1",
