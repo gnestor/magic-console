@@ -14,11 +14,6 @@ class Markdown extends Component {
       quotes: '“”‘’',
       langPrefix: 'language-',
       highlight: function (str, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          try {
-            return hljs.highlight(lang, str).value
-          } catch (error) {}
-        }
         try {
           return hljs.highlightAuto(str).value
         } catch (error) {}

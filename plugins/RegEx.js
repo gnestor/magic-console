@@ -21,25 +21,29 @@ class RegEx extends Component {
     //   <span>{match}</span>
     // ))
     return (
-      <div>
+      <div style={{height: 40}}>
         <input
           value={this.state.input}
           onChange={this.handleChange}
           placeholder="Test regex here"
           style={{
             width: 'calc(100% - 142px)',
+            // height: 40,
             color: this.state.input.length > 0 ? 'transparent' : 'black',
+            // fontSize: 25,
             paddingLeft: 5
           }}
         />
         <div style={{
           marginTop: -24,
+          // marginTop: -38,
           marginLeft: 4
         }}>
           <Highlight
             search={regex}
             matchStyle={{
-              backgroundColor: 'yellow'
+              backgroundColor: 'yellow',
+              // fontSize: 25
             }}
           >
             {this.state.input}
