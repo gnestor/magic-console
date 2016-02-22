@@ -1,6 +1,6 @@
 # Runtimes
 
-Magic Console consumes the script Atom package which is responsible for mapping source code grammars to runtimes and evaluating the source code. script currently supports 64 programming languages:
+Magic Console consumes the [script Atom package](https://github.com/rgbkrk/atom-script) service which is responsible for mapping source code grammars to runtimes and evaluating the source code. script currently supports 64 programming languages:
 
 * 1C (BSL)
 * AppleScript

@@ -1,7 +1,7 @@
 # Magic Console
 > Interactive programming for Atom
 
-Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](about:blank) (coming soon!) created by the community or create a completely custom visualization.
+Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](#) created by the community (coming soon!) or create a completely custom visualization.
 
 ![](/docs/live-edit.gif)
 
@@ -14,7 +14,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
   * Static and dynamic visualizations
   * Re-evaluate source code on save
   * Hot reload visualizations on save
-    * Automatically install NPM dependencies when declared in visualization source
+    * Automatically install NPM dependencies when declared in visualization source (coming soon!)
   * Scrub between past output states
 * **Universal**
   * Support for 64 programming languages (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-programming-language))
@@ -27,13 +27,15 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
 
 ### Install
 
-* Install Atom
+See [Contributing](#setup) for install instructions
+
+<!-- * Install Atom
 * Install script using Atom's in-app package manager or using apm
   * `apm install script`
 * Install magic-console using Atom's in-app package manager or using apm
   * `apm install magic-console`
 * OS X: Install atom-fix-path to avoid $PATH issues
-  * `apm install atom-fix-path`
+  * `apm install atom-fix-path` -->
 
 ### Usage
 
@@ -92,9 +94,12 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 
 ### Setup
 
+* Install Atom
+* Install script package
+  * `apm install script`
 * Clone the repo
-  * `apm develop script` will clone the `script` repository to `~/github`
   * `git clone https://github.com/gnestor/magic-console.git`
+  * `cd magin-console`
 * Install the dependencies
   * `apm install`
 * Link the directory
@@ -117,7 +122,6 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * AppleScript
 * Bash
 * Behat Feature
-*
 * C
 * C++
 * C#
