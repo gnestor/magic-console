@@ -8,6 +8,9 @@
   ],
   "repository": "https://github.com/gnestor/magic-console",
   "license": "MIT",
+  "scripts": {
+    "docs": "gitbook build && open _book/index.html"
+  },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
@@ -24,9 +27,9 @@
     }
   },
   "dependencies": {
-    "react": ">=0.14.6",
+    "react": ">=0.14.7",
     "react-deep-force-update": ">=2.0.1",
-    "react-dom": ">=0.14.6",
+    "react-dom": ">=0.14.7",
     "redbox-react": ">=1.2.2"
   },
   "devDependencies": {

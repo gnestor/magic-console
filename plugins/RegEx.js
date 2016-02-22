@@ -16,10 +16,6 @@ class RegEx extends Component {
 
   render() {
     let regex = new RegExp(this.props.data.replace(/^\/(.*)\/$/, '$1'))
-    // let matches = this.state.input.match(regex)
-    // if (matches) matches = matches.map(match => (
-    //   <span>{match}</span>
-    // ))
     return (
       <div style={{height: 40}}>
         <input
