@@ -12,6 +12,7 @@
     "babel-core": "^6.5.1",
     "highlight.js": "^9.1.0",
     "mermaid": "^0.5.8",
+    "react-data-grid": "^0.14.11",
     "react-highlighter": "^0.3.0",
     "react-json-inspector": "^6.1.1",
     "react-json-tree": "^0.5.1",
