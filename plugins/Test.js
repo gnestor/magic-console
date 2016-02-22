@@ -53,11 +53,23 @@ class Test extends Component {
 
 Test.propTypes = {
   data: PropTypes.oneOfType([
-    PropTypes.error,
-    PropTypes.errorString,
+    (props, propName, componentName) => {
+      if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
+      return null
+    },
+    (props, propName, componentName) => {
+      if (!/Error/.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
     PropTypes.bool,
-    PropTypes.boolString,
-    PropTypes.undefined,
+    (props, propName, componentName) => {
+      if (!/true|false/i.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
+    (props, propName, componentName) => {
+      if (typeof props[propName] !== 'undefined' && props[propName] !== 'undefined') return new Error('Validation failed!')
+      return null
+    },
     PropTypes.shape({
       message: PropTypes.string.isRequired,
       stack: PropTypes.string.isRequired
@@ -66,23 +78,3 @@ Test.propTypes = {
 }
 
 export default Test
-
-PropTypes.error = (props, propName, componentName) => {
-  if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
-  return null
-}
-
-PropTypes.errorString = (props, propName, componentName) => {
-  if (!/Error/.test(props[propName])) return new Error('Validation failed!')
-  return null
-}
-
-PropTypes.boolString = (props, propName, componentName) => {
-  if (!/true|false/i.test(props[propName])) return new Error('Validation failed!')
-  return null
-}
-
-PropTypes.undefined = (props, propName, componentName) => {
-  if (typeof props[propName] !== 'undefined' && props[propName] !== 'undefined') return new Error('Validation failed!')
-  return null
-}

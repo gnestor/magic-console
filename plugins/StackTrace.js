@@ -28,8 +28,14 @@ class StackTrace extends Component {
 
 StackTrace.propTypes = {
   data: PropTypes.oneOfType([
-    PropTypes.error,
-    PropTypes.errorString,
+    (props, propName, componentName) => {
+      if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
+      return null
+    },
+    (props, propName, componentName) => {
+      if (!/Error/.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
     PropTypes.shape({
       message: PropTypes.string.isRequired,
       stack: PropTypes.string.isRequired
@@ -38,13 +44,3 @@ StackTrace.propTypes = {
 }
 
 export default StackTrace
-
-PropTypes.error = (props, propName, componentName) => {
-  if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
-  return null
-}
-
-PropTypes.errorString = (props, propName, componentName) => {
-  if (!/Error/.test(props[propName])) return new Error('Validation failed!')
-  return null
-}

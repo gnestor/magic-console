@@ -17,7 +17,10 @@ Color.propTypes = {
   //   return null
   // }
   data: PropTypes.oneOfType([
-    PropTypes.hexString,
+    (props, propName, componentName) => {
+      if (typeof props[propName] !== 'string' || !/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
     PropTypes.shape({
       r: PropTypes.number.isRequired,
       g: PropTypes.number.isRequired,
@@ -34,8 +37,3 @@ Color.propTypes = {
 }
 
 export default Color
-
-PropTypes.hexString = (props, propName, componentName) => {
-  if (typeof props[propName] !== 'string' || !/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(props[propName])) return new Error('Validation failed!')
-  return null
-}
