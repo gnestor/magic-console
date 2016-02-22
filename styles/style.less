@@ -31,12 +31,16 @@
       }
     }
     .plugin-container {
-      & > * {
-        position: relative !important;
-        z-index: 1 !important;
-      }
+      max-height: 100vh;
+      overflow: scroll;
       & .markdown {
         background-color: transparent;
+      }
+    }
+    .plugin-container.StackTrace, .plugin-container.Test {
+      & * {
+        position: relative !important;
+        z-index: 1 !important;
       }
     }
   }
