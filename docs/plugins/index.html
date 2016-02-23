@@ -37,7 +37,7 @@
         
     
     
-    <link rel="next" href="../../docs/examples.html" />
+    <link rel="next" href="../../docs/plugins/core.html" />
     
     
     <link rel="prev" href="../../index.html" />
@@ -53,7 +53,7 @@
         data-chapter-title="Plugins"
         data-filepath="docs/plugins/README.md"
         data-basepath="../.."
-        data-revision="Tue Feb 23 2016 11:48:19 GMT-0800 (PST)"
+        data-revision="Tue Feb 23 2016 12:41:58 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -94,6 +94,42 @@
                         Plugins
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/plugins/core.html">
+            
+                
+                    <a href="../../docs/plugins/core.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Core
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/plugins/community.html">
+            
+                
+                    <a href="../../docs/plugins/community.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Community
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -180,15 +216,7 @@
     
         <li class="chapter " data-level="4" data-path="docs/glossary.html">
             
-                
-                    <a href="../../docs/glossary.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        Glossary
-                    </a>
+            <span><b>4.</b> Glossary</span>
             
             
         </li>
@@ -228,242 +256,17 @@
                     
                         <h1 id="plugins">Plugins</h1>
 <ul>
-<li><a href="#color">Color</a></li>
-<li><a href="#latex">Latex</a></li>
-<li><a href="#linechart">LineChart</a></li>
-<li><a href="#markdown">Markdown</a></li>
-<li><a href="#mermaid">Mermaid</a></li>
-<li><a href="#reactcomponent">ReactComponent</a></li>
-<li><a href="#regex">Regex</a></li>
-<li><a href="#table">Table</a></li>
-<li><a href="#test">Test</a></li>
+<li><a href="core.html">Core plugins</a><!-- * [Color](/core.md#color)
+* [Latex](/core.md#latex)
+* [LineChart](/core.md#linechart)
+* [Markdown](/core.md#markdown)
+* [Mermaid](/core.md#mermaid)
+* [ReactComponent](/core.md#reactcomponent)
+* [Regex](/core.md#regex)
+* [Table](/core.md#table)
+* [Test](/core.md#test) --></li>
+<li><a href="community.html">Community plugins</a></li>
 </ul>
-<h2 id="color">Color</h2>
-<p><img src="Color.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Hex&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;#FF5300&apos;</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;RGB&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-  r<span class="token punctuation">:</span> <span class="token number">255</span><span class="token punctuation">,</span>
-  g<span class="token punctuation">:</span> <span class="token number">83</span><span class="token punctuation">,</span>
-  b<span class="token punctuation">:</span> <span class="token number">0</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;HSL&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-  h<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
-  s<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  l<span class="token punctuation">:</span> <span class="token number">0.5</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Color<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">!</span><span class="token operator">==</span> <span class="token string">&apos;string&apos;</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token regex">/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      r<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      g<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      b<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      a<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      h<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      s<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      l<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      a<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="latex">Latex</h2>
-<p><img src="Latex.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Square root&apos;</span><span class="token punctuation">,</span> `$$c <span class="token operator">=</span> \\sqrt<span class="token punctuation">{</span>a<span class="token operator">^</span><span class="token number">2</span> <span class="token operator">+</span> b<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">}</span>$$`<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Function&apos;</span><span class="token punctuation">,</span> `<span class="token function">$$F</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> \\int_<span class="token punctuation">{</span><span class="token operator">-</span>\\infty<span class="token punctuation">}</span><span class="token operator">^</span><span class="token punctuation">{</span>\\infty<span class="token punctuation">}</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> e<span class="token operator">^</span><span class="token punctuation">{</span><span class="token number">2</span>\pi i k<span class="token punctuation">}</span> dx$$`<span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Latex<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/\$\$[\s\S]+?\$\$|\$[\s\S]+?\$/g</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token keyword">null</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="linechart">LineChart</h2>
-<p><img src="LineChart.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Sine wave line chart&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">{</span>
-    y<span class="token punctuation">:</span> <span class="token string">&apos;(data) =&gt; Math.sin(2 * Math.PI * data.x)&apos;</span><span class="token punctuation">,</span>
-    style<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        stroke<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">LineChart<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>React<span class="token punctuation">.</span>PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      y<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      style<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span><span class="token function">objectOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      style<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="markdown">Markdown</h2>
-<p><img src="Markdown.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>`# h1 Heading
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
-`<span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Markdown<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="mermaid">Mermaid</h2>
-<p><img src="Mermaid.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Sequence diagram&apos;</span><span class="token punctuation">,</span> `sequenceDiagram
-  participant Alice
-  participant Bob
-  Alice<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span>John<span class="token punctuation">:</span> Hello John<span class="token punctuation">,</span> how are you<span class="token operator">?</span>
-  loop Healthcheck
-      John<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span>John<span class="token punctuation">:</span> Fight against hypochondria
-  end
-  Note right of John<span class="token punctuation">:</span> Rational thoughts <span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span>prevail<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-  John<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span>Alice<span class="token punctuation">:</span> Great<span class="token operator">!</span>
-  John<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span>Bob<span class="token punctuation">:</span> How about you<span class="token operator">?</span>
-  Bob<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span>John<span class="token punctuation">:</span> Jolly good<span class="token operator">!</span>`<span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Mermaid<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/^(sequenceDiagram|graph|gantt)/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token keyword">null</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="reactcomponent">ReactComponent</h2>
-<p><img src="ReactComponent.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">ReactComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;renderToString class component&apos;</span><span class="token punctuation">,</span> ReactDOM<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>ReactComponent text<span class="token operator">=</span><span class="token string">&quot;This is a class component&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Stringified composite component&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-  type<span class="token punctuation">:</span> <span class="token string">&apos;ReactComponent&apos;</span><span class="token punctuation">,</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    type<span class="token punctuation">:</span> `React<span class="token punctuation">.</span><span class="token function">createClass</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      render<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;span&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>children<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>`<span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      text<span class="token punctuation">:</span> <span class="token string">&apos;This is a composite component&apos;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">ReactComponent<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    type<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object<span class="token punctuation">.</span>isRequired
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="regex">Regex</h2>
-<p><img src="Regex.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;All characters&apos;</span><span class="token punctuation">,</span> <span class="token regex">/.*/</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;All alphanumeric characters&apos;</span><span class="token punctuation">,</span> <span class="token regex">/[A-z]+/</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Regex<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/^\/.*\/[gimy]?$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token keyword">null</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="table">Table</h2>
-<p><img src="Table.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Simple table&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">{</span>
-    key<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    value<span class="token punctuation">:</span> <span class="token string">&apos;one&apos;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">{</span>
-    key<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-    value<span class="token punctuation">:</span> <span class="token string">&apos;two&apos;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">{</span>
-    key<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
-    value<span class="token punctuation">:</span> <span class="token string">&apos;three&apos;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Table<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>object<span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="test">Test</h2>
-<p><img src="Test.png" alt=""></p>
-<h3 id="usage">Usage</h3>
-<pre><code class="lang-js"><span class="token keyword">try</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Passed&apos;</span><span class="token punctuation">,</span> <span class="token function">assert</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Failed&apos;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h4 id="prop-types">Prop types</h4>
-<pre><code class="lang-js">Test<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token comment" spellcheck="true">// Error type</span>
-    <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token keyword">instanceof</span> <span class="token class-name">Error</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// Error string</span>
-    <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/Error/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// Boolean string</span>
-    <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/true|false/i</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// Undefined type/string</span>
-    <span class="token punctuation">(</span>props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">!</span><span class="token operator">==</span> <span class="token string">&apos;undefined&apos;</span> <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">!</span><span class="token operator">==</span> <span class="token string">&apos;undefined&apos;</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;Validation failed!&apos;</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      message<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      stack<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
-<span class="token punctuation">}</span>
-</code></pre>
 
                     
                     </section>
@@ -477,7 +280,7 @@ console<span class="token punctuation">.</span><span class="token function">rend
         <a href="../../index.html" class="navigation navigation-prev " aria-label="Previous page: Read Me"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../docs/examples.html" class="navigation navigation-next " aria-label="Next page: Examples"><i class="fa fa-angle-right"></i></a>
+        <a href="../../docs/plugins/core.html" class="navigation navigation-next " aria-label="Next page: Core"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

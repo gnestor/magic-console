@@ -51,7 +51,7 @@
         data-chapter-title="Read Me"
         data-filepath="README.md"
         data-basepath="."
-        data-revision="Tue Feb 23 2016 11:48:19 GMT-0800 (PST)"
+        data-revision="Tue Feb 23 2016 12:41:58 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -92,6 +92,42 @@
                         Plugins
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/plugins/core.html">
+            
+                
+                    <a href="./docs/plugins/core.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Core
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/plugins/community.html">
+            
+                
+                    <a href="./docs/plugins/community.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Community
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -178,15 +214,7 @@
     
         <li class="chapter " data-level="4" data-path="docs/glossary.html">
             
-                
-                    <a href="./docs/glossary.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        Glossary
-                    </a>
+            <span><b>4.</b> Glossary</span>
             
             
         </li>
@@ -228,27 +256,24 @@
 <blockquote>
 <p>Interactive programming for Atom</p>
 </blockquote>
-<p>Magic Console is a package for <a href="https://atom.io/" target="_blank">Atom</a> that evaluates code in <a href="#supported-programming-languages">pretty much any language</a> and renders the output alongside the source code. If that alone weren&apos;t good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there&apos;s more! Visualizations are entirely pluggable, you can take advantage of the <a href="#">thousands of visualizations</a> created by the community (coming soon!) or create a completely custom visualization.</p>
+<p>Magic Console is a package for <a href="https://atom.io/" target="_blank">Atom</a> that evaluates code in <a href="#supported-runtimes">pretty much any language</a> and renders the output alongside the source code. If that alone weren&apos;t good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there&apos;s more! Visualizations are entirely pluggable, so you can take advantage of the <a href="http://gnestor.github.io/magic-console/docs/plugins/core.html" target="_blank">core plugins</a> and <a href="http://gnestor.github.io/magic-console/docs/plugins/community.html" target="_blank">plugins created by the community</a> or create a custom plugin for your specific application.</p>
 <p><img src="docs/live-edit.gif" alt=""></p>
 <h2 id="features">Features</h2>
 <ul>
 <li><strong>Visual</strong><ul>
-<li>Automatically visualize <a href="#supported-data-types">common data types</a></li>
-<li>Pluggable visualizations (using React components)</li>
+<li>Automatically visualize <a href="http://gnestor.github.io/magic-console/docs/plugins/core.html" target="_blank">common data types</a></li>
+<li>Pluggable visualizations (<a href="http://gnestor.github.io/magic-console/docs/api/plugins.html" target="_blank">using React components</a>)</li>
 </ul>
 </li>
 <li><strong>Interactive</strong><ul>
 <li>Static and dynamic visualizations</li>
 <li>Re-evaluate source code on save</li>
-<li>Hot reload visualizations on save<ul>
-<li>Automatically install NPM dependencies when declared in visualization source (coming soon!)</li>
-</ul>
-</li>
-<li>Scrub between past output states</li>
+<li>Hot reload visualizations on save<!-- * Automatically install NPM dependencies when declared in visualization source --></li>
+<li>Time-travel between past output states</li>
 </ul>
 </li>
 <li><strong>Universal</strong><ul>
-<li>Support for 64 programming languages (don&apos;t see your programming language, you can add support for it with a <a href="#add-a-programming-language">couple lines of code</a>)</li>
+<li>Support for <a href="#supported-runtimes">64 programming languages</a> (don&apos;t see your programming language, you can add support for it with a <a href="#add-a-runtime">couple lines of code</a>)</li>
 <li>Atom is cross-platform (OS X, Windows, Linux) and open-source</li>
 </ul>
 </li>
@@ -321,7 +346,7 @@
 <h2 id="practical-applications">Practical applications</h2>
 <h3 id="interactive-playground">Interactive playground</h3>
 <p><img src="docs/playground.png" alt=""></p>
-<p>Use Magic Console to try out code, explore data, run experiments, etc.</p>
+<p>Use Magic Console to try out code, explore results, run experiments, etc.</p>
 <h3 id="interactive-testing">Interactive testing</h3>
 <p><img src="docs/tests.png" alt=""></p>
 <p>Use Magic Console to test code as you write it. Since you are evaluating your code in real-time, you don&apos;t <em>need</em> to write tests. Nonetheless, you can write assertions against your code and render the outputs using the Test plugin.</p>
@@ -380,7 +405,7 @@
 <li>Submit a pull request!</li>
 </ul>
 <h2 id="appendix">Appendix</h2>
-<h3 id="supported-programming-languages">Supported programming languages</h3>
+<h3 id="supported-runtimes">Supported runtimes</h3>
 <ul>
 <li>1C (BSL)</li>
 <li>AppleScript</li>
@@ -448,49 +473,20 @@
 <li>Zsh</li>
 <li>Prolog</li>
 </ul>
-<h3 id="supported-data-types">Supported data types</h3>
-<ul>
-<li>String<ul>
-<li>Markdown</li>
-<li>Raw</li>
-</ul>
-</li>
-<li>Number<ul>
-<li>Raw</li>
-</ul>
-</li>
-<li>Array<ul>
-<li>ObjectTree</li>
-<li>Raw</li>
-</ul>
-</li>
-<li>Object/dictionary<ul>
-<li>ObjectTree</li>
-<li>Raw</li>
-</ul>
-</li>
-<li>Regex<ul>
-<li>Raw</li>
-</ul>
-</li>
-<li>Boolean<ul>
-<li>Raw</li>
-</ul>
-</li>
-<li>HTML element<ul>
-<li>ReactComponent</li>
-<li>Markdown</li>
-<li>Raw</li>
-</ul>
-</li>
-<li>React component<ul>
-<li>ReactComponent</li>
-<li>ObjectTree</li>
-<li>Raw</li>
-</ul>
-</li>
-</ul>
-<h3 id="add-a-programming-language">Add a programming language</h3>
+<!-- ### Supported data types
+
+| Plugin         | Data type                               | Notes                                               |
+|----------------|-----------------------------------------|-----------------------------------------------------|
+| Color          | object, string                          | hex string, rgb/hsl object                          |
+| Latex          | string                                  | wrapped in '$$'                                     |
+| LineChart      | array                                   | array of objects with either 'data' or 'y' property |
+| Markdown       | string                                  | any string                                          |
+| Mermaid        | string                                  | starts with 'sequenceDiagram', 'graph', or 'gantt'  |
+| ReactComponent | object                                  | with 'type' and 'props' properties                  |
+| Regex          | regex, string                           | wrapped in '/'                                      |
+| Table          | array                                   | array of objects                                    |
+| Test           | error, boolean, undefined, null, string | data types or their string equivalent               | -->
+<h3 id="add-a-runtime">Add a runtime</h3>
 <pre><code class="lang-coffeescript"><span class="token property">Clojure</span><span class="token punctuation">:</span>
   <span class="token string">&quot;Selection Based&quot;</span><span class="token punctuation">:</span>
     <span class="token property">command</span><span class="token punctuation">:</span> <span class="token string">&quot;lein&quot;</span>
