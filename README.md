@@ -1,4 +1,4 @@
-# Magic Console
+# Magic Console (alpha)
 > Interactive programming for Atom
 
 Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](#) created by the community (coming soon!) or create a completely custom visualization.
@@ -27,7 +27,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
 
 ### Install
 
-See [Contributing](#setup) for install instructions
+See [Contributing](#setup) for *alpha* install instructions
 
 <!-- * Install Atom
 * Install script using Atom's in-app package manager or using apm
@@ -95,16 +95,16 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 ### Setup
 
 * Install Atom
-* Install script package
-  * `apm install script`
 * Clone the repo
   * `git clone https://github.com/gnestor/magic-console.git`
-  * `cd magin-console`
+  * `cd magic-console`
 * Install the dependencies
-  * `apm install`
+  * `npm install`
+* Install script and fix-path packages
+  * `npm run apm` or `apm install script fix-path`
 * Link the directory
   * `apm link`
-    * This will error if a previous version of magic-console exists, so remove the existing version and try again
+    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again
 
 ### Workflow
 

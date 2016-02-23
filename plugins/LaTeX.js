@@ -12,7 +12,6 @@ class LaTeX extends Component {
 }
 
 LaTeX.propTypes = {
-  // data: PropTypes.string.isRequired
   data: (props, propName, componentName) => {
     if (!/\$\$[\s\S]+?\$\$|\$[\s\S]+?\$/g.test(props[propName])) return new Error('Validation failed!')
     return null

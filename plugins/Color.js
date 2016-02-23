@@ -12,10 +12,6 @@ class Color extends Component {
 }
 
 Color.propTypes = {
-  // data: (props, propName, componentName) => {
-  //   if (!runTests(props[propName], [isHexString, isRgbObject, isHslObject])) return new Error('Validation failed!')
-  //   return null
-  // }
   data: PropTypes.oneOfType([
     (props, propName, componentName) => {
       if (typeof props[propName] !== 'string' || !/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(props[propName])) return new Error('Validation failed!')
