@@ -2,9 +2,9 @@ console.render = (...args) => {
   let key = args.find(arg => typeof(arg) === 'string')
   args.forEach((arg, index) => {
     let payload = {
-      key: arg.key && arg.data ? arg.key : key ? `${key}${index}` : null,
-      type: arg instanceof Error || typeof arg === 'boolean' || arg === undefined ? 'Test': arg.type && arg.data ? arg.type : null,
-      data: arg === null || arg === undefined || arg === false ? `${arg}` : arg.data ? arg.data : arg
+      key: arg ? (arg.key && arg.data ? arg.key : (key ? `${key}${index}` : null) : null) : null,
+      type: arg ? (arg instanceof Error || typeof arg === 'boolean' || arg === undefined ? 'Test': (arg.type && arg.data ? arg.type : null) : null) : null,
+      data: arg === null || arg === undefined || arg === false ? `${arg}` : (arg.data ? arg.data : arg)
     }
     console.log(JSON.stringify(payload, (key, value) => {
       if (typeof value === 'function' || value instanceof RegExp || value instanceof Date) return value.toString()
