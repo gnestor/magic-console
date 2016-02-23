@@ -1,7 +1,7 @@
 import assert from 'assert'
 import './console'
 
-console.render('# Tests')
+console.render('# Test')
 
 console.render('### true', true)
 

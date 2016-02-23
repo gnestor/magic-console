@@ -2,10 +2,7 @@ import './console'
 
 console.render('# LaTeX')
 
-console.render('### Square root', {
-  type: 'LaTeX',
-  data: `$$c = \\sqrt{a^2 + b^2}$$`
-})
+console.render('### Square root', `$$c = \\sqrt{a^2 + b^2}$$`)
 
 console.render('### Function', {
   type: 'LaTeX',
