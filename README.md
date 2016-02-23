@@ -14,7 +14,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
   * Static and dynamic visualizations
   * Re-evaluate source code on save
   * Hot reload visualizations on save
-    <!-- * Automatically install NPM dependencies when declared in visualization source -->
+    * Automatically install NPM dependencies when declared in visualization source (coming soon!)
   * Time-travel between past output states
 * **Universal**
   * Support for [64 programming languages](#supported-runtimes) (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-runtime))
