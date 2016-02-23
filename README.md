@@ -52,7 +52,7 @@ See [Contributing](#setup) for *alpha* install instructions
 
 #### Commands
 
-| Command                               | Mac OS X             | Linux/Windows         | Notes                                                        |
+| Command                               | OS X                 | Linux/Windows         | Notes                                                        |
 |:--------------------------------------|:---------------------|:----------------------|:-------------------------------------------------------------|
 | Magic Console: Toggle                 | <kbd>CMD+ENTER</kbd> | <kbd>CTRL+ENTER</kbd> | If text is selected only the selected code will be evaluated |
 | Magic Console: Open plugins directory |                      |                       | Open the plugins directory in a new workspace                |

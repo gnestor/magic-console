@@ -1,5 +1,15 @@
 # Plugins
 
+* [Color](#color)
+* [Latex](#latex)
+* [LineChart](#linechart)
+* [Markdown](#markdown)
+* [Mermaid](#mermaid)
+* [ReactComponent](#reactcomponent)
+* [Regex](#regex)
+* [Table](#table)
+* [Test](#test)
+
 ## Color
 
 ![](/docs/plugins/Color.png)
