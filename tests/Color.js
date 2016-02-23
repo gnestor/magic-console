@@ -1,6 +1,6 @@
 import './console'
 
-console.render('# Colors')
+console.render('# Color')
 
 console.render('#FF5300')
 

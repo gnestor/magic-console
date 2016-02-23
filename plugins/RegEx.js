@@ -3,7 +3,7 @@
 import React, {Component, PropTypes} from 'react'
 import Highlight from 'react-highlighter'
 
-class RegEx extends Component {
+class Regex extends Component {
 
   constructor(props) {
     super(props)
@@ -55,11 +55,11 @@ class RegEx extends Component {
 
 }
 
-RegEx.propTypes = {
+Regex.propTypes = {
   data: (props, propName, componentName) => {
     if (!/^\/.*\/[gimy]?$/.test(props[propName])) return new Error('Validation failed!')
     return null
   }
 }
 
-export default RegEx
+export default Regex

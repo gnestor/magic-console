@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom/server'
 import './console'
 
-console.render('# React components')
+console.render('# ReactComponent')
 
 class ReactComponent extends React.Component {
   render() {
-    return <span>{this.props.name}</span>
+    return <span>{this.props.text}</span>
   }
 }
 
@@ -15,7 +15,7 @@ class ReactComponent extends React.Component {
 //     return <span>{this.props.name}</span>
 //   }
 // })
-
+//
 // const ReactComponent = (props) => ({
 //   type: 'span',
 //   props: {
@@ -24,25 +24,9 @@ class ReactComponent extends React.Component {
 //   $$typeof: Symbol.for('react.element')
 // })
 
-// console.render('### Class', ReactComponent)
-console.render('### renderToString', ReactDOM.renderToString(<ReactComponent name="Grant" />))
+console.render('### renderToString class component', ReactDOM.renderToString(<ReactComponent text="This is a class component" />))
 
-// Returns undefined when evaled vs. function
-console.render('### Stringified React class component', {
-  type: 'ReactComponent',
-  data: {
-    type: `class ReactComponent extends React.Component {
-      render() {
-        return <span>{this.props.name}</span>
-      }
-    }`,
-    props: {
-      name: 'Grant'
-    }
-  }
-})
-
-console.render('### Stringified React composite component', {
+console.render('### Stringified composite component', {
   type: 'ReactComponent',
   data: {
     type: `React.createClass({
@@ -51,20 +35,20 @@ console.render('### Stringified React composite component', {
       }
     })`,
     props: {
-      text: 'This is a React component'
+      text: 'This is a composite component'
     }
   }
 })
 
-console.render('### Stringified stateless React component', {
+console.render('### Stringified stateless component', {
   type: 'ReactComponent',
   data: {
-    type: `(props) => <span>{props.name}</span>`,
+    type: `(props) => <span>{props.text}</span>`,
     props: {
-      name: 'Grant'
+      text: 'This is a stateless component'
     },
     $$typeof: Symbol.for('react.element')
   }
 })
 
-console.render('### Input element', <input placeholder="Type something..."></input>)
+console.render('### Stringified input element', <input placeholder="Type something..."></input>)

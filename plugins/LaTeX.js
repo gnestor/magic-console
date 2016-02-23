@@ -1,21 +1,21 @@
 'use babel'
 
 import React, {Component, PropTypes} from 'react'
-import Latex from 'react-latex'
+import {default as ReactLatex} from 'react-latex'
 
-class LaTeX extends Component {
+class Latex extends Component {
 
   render() {
-    return <Latex>{this.props.data}</Latex>
+    return <ReactLatex>{this.props.data}</ReactLatex>
   }
 
 }
 
-LaTeX.propTypes = {
+Latex.propTypes = {
   data: (props, propName, componentName) => {
     if (!/\$\$[\s\S]+?\$\$|\$[\s\S]+?\$/g.test(props[propName])) return new Error('Validation failed!')
     return null
   }
 }
 
-export default LaTeX
+export default Latex
