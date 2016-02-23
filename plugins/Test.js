@@ -35,13 +35,13 @@ class Test extends Component {
         <span>{`${data}`}</span>
       </div>
     )
-    if (PropTypes.error(this.props, 'data') === null) result = <StackTrace data={data} />
+    if (data instanceof Error) result = <StackTrace data={data} />
     if (PropTypes.shape({
       message: PropTypes.string.isRequired,
       stack: PropTypes.string.isRequired
     })(this.props, 'data') === null) result = <StackTrace data={data} />
-    if (PropTypes.errorString(this.props, 'data') === null) result = <StackTrace data={data} />
-    if (PropTypes.undefined(this.props, 'data') === null || /true/i.test(data)) result = (
+    if (/Error/.test(data)) result = <StackTrace data={data} />
+    if (typeof data === 'undefined' || data === 'undefined' || data === true || data === 'true') result = (
       <div className="icon icon-check" style={Object.assign({}, this.styles.container, this.styles.pass)}>
         <span>{`${data}`}</span>
       </div>
@@ -53,19 +53,23 @@ class Test extends Component {
 
 Test.propTypes = {
   data: PropTypes.oneOfType([
+    // Error type
     (props, propName, componentName) => {
       if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
       return null
     },
+    // Error string
     (props, propName, componentName) => {
       if (!/Error/.test(props[propName])) return new Error('Validation failed!')
       return null
     },
     PropTypes.bool,
+    // Boolean string
     (props, propName, componentName) => {
       if (!/true|false/i.test(props[propName])) return new Error('Validation failed!')
       return null
     },
+    // Undefined type/string
     (props, propName, componentName) => {
       if (typeof props[propName] !== 'undefined' && props[propName] !== 'undefined') return new Error('Validation failed!')
       return null
