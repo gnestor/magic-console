@@ -1,23 +1,23 @@
 # Magic Console (alpha)
 > Interactive programming for Atom
 
-Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](#) created by the community (coming soon!) or create a completely custom visualization.
+Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-runtimes) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, so you can take advantage of the [core plugins](http://gnestor.github.io/magic-console/docs/plugins/core.html) and [plugins created by the community](http://gnestor.github.io/magic-console/docs/plugins/community.html) or create a custom plugin for your specific application.
 
 ![](/docs/live-edit.gif)
 
 ## Features
 
 * **Visual**
-  * Automatically visualize [common data types](#supported-data-types)
-  * Pluggable visualizations (using React components)
+  * Automatically visualize [common data types](http://gnestor.github.io/magic-console/docs/plugins/core.html)
+  * Pluggable visualizations ([using React components](http://gnestor.github.io/magic-console/docs/api/plugins.html))
 * **Interactive**
   * Static and dynamic visualizations
   * Re-evaluate source code on save
   * Hot reload visualizations on save
-    * Automatically install NPM dependencies when declared in visualization source (coming soon!)
-  * Scrub between past output states
+    <!-- * Automatically install NPM dependencies when declared in visualization source -->
+  * Time-travel between past output states
 * **Universal**
-  * Support for 64 programming languages (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-programming-language))
+  * Support for [64 programming languages](#supported-runtimes) (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-runtime))
   * Atom is cross-platform (OS X, Windows, Linux) and open-source
 * **Plug and play**
   * No configuration necessary
@@ -64,7 +64,7 @@ See [Contributing](#setup) for *alpha* install instructions
 
 ![](/docs/playground.png)
 
-Use Magic Console to try out code, explore data, run experiments, etc.
+Use Magic Console to try out code, explore results, run experiments, etc.
 
 ### Interactive testing
 
@@ -77,7 +77,6 @@ Use Magic Console to test code as you write it. Since you are evaluating your co
 ![](/docs/docs.png)
 
 Use Magic Console to mix Markdown documentation with interactive code examples.
-
 
 ## Known bugs
 
@@ -116,7 +115,7 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 
 ## Appendix
 
-### Supported programming languages
+### Supported runtimes
 
 * 1C (BSL)
 * AppleScript
@@ -184,33 +183,21 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * Zsh
 * Prolog
 
-### Supported data types
+<!-- ### Supported data types
 
-* String
-  * Markdown
-  * Raw
-* Number
-  * Raw
-* Array
-  * ObjectTree
-  * Raw
-* Object/dictionary
-  * ObjectTree
-  * Raw
-* Regex
-  * Raw
-* Boolean
-  * Raw
-* HTML element
-  * ReactComponent
-  * Markdown
-  * Raw
-* React component
-  * ReactComponent
-  * ObjectTree
-  * Raw
+| Plugin         | Data type                               | Notes                                               |
+|----------------|-----------------------------------------|-----------------------------------------------------|
+| Color          | object, string                          | hex string, rgb/hsl object                          |
+| Latex          | string                                  | wrapped in '$$'                                     |
+| LineChart      | array                                   | array of objects with either 'data' or 'y' property |
+| Markdown       | string                                  | any string                                          |
+| Mermaid        | string                                  | starts with 'sequenceDiagram', 'graph', or 'gantt'  |
+| ReactComponent | object                                  | with 'type' and 'props' properties                  |
+| Regex          | regex, string                           | wrapped in '/'                                      |
+| Table          | array                                   | array of objects                                    |
+| Test           | error, boolean, undefined, null, string | data types or their string equivalent               | -->
 
-### Add a programming language
+### Add a runtime
 
 ```coffeescript
 Clojure:
