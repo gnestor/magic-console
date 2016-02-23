@@ -8,15 +8,13 @@
   ],
   "repository": "https://github.com/gnestor/magic-console",
   "license": "MIT",
-  "scripts": {
-    "docs": "gitbook build && open _book/index.html"
-  },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
     "docs": "gitbook build && open _book/index.html",
-    "postinstall": "npm install plugins"
+    "postinstall": "npm install plugins",
+    "apm": "apm install script fix-path"
   },
   "consumedServices": {
     "default-script-runtime": {
