@@ -1,23 +1,23 @@
-# Magic Console
+# Magic Console (alpha)
 > Interactive programming for Atom
 
-Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-programming-languages) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, you can take advantage of the [thousands of visualizations](about:blank) (coming soon!) created by the community or create a completely custom visualization.
+Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [pretty much any language](#supported-runtimes) and renders the output alongside the source code. If that alone weren't good enough, it also visualizes the outputs in a human-friendly way (e.g. string as Markdown, array as table, object/dictionary as tree). Wait there's more! Visualizations are entirely pluggable, so you can take advantage of the [core plugins](http://gnestor.github.io/magic-console/docs/plugins/core.html) and [plugins created by the community](http://gnestor.github.io/magic-console/docs/plugins/community.html) or create a custom plugin for your specific application.
 
 ![](/docs/live-edit.gif)
 
 ## Features
 
 * **Visual**
-  * Automatically visualize [common data types](#supported-data-types)
-  * Pluggable visualizations (using React components)
+  * Automatically visualize [common data types](http://gnestor.github.io/magic-console/docs/plugins/core.html)
+  * Pluggable visualizations ([using React components](http://gnestor.github.io/magic-console/docs/api/plugins.html))
 * **Interactive**
   * Static and dynamic visualizations
   * Re-evaluate source code on save
   * Hot reload visualizations on save
-    * Automatically install NPM dependencies when declared in visualization source
-  * Scrub between past output states
+    * Automatically install NPM dependencies when declared in visualization source (coming soon!)
+  * Time-travel between past output states
 * **Universal**
-  * Support for 64 programming languages (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-programming-language))
+  * Support for [64 programming languages](#supported-runtimes) (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-runtime))
   * Atom is cross-platform (OS X, Windows, Linux) and open-source
 * **Plug and play**
   * No configuration necessary
@@ -27,13 +27,15 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
 
 ### Install
 
-* Install Atom
+See [Contributing](#setup) for *alpha* install instructions
+
+<!-- * Install Atom
 * Install script using Atom's in-app package manager or using apm
   * `apm install script`
 * Install magic-console using Atom's in-app package manager or using apm
   * `apm install magic-console`
 * OS X: Install atom-fix-path to avoid $PATH issues
-  * `apm install atom-fix-path`
+  * `apm install atom-fix-path` -->
 
 ### Usage
 
@@ -50,7 +52,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
 
 #### Commands
 
-| Command                               | Mac OS X             | Linux/Windows         | Notes                                                        |
+| Command                               | OS X                 | Linux/Windows         | Notes                                                        |
 |:--------------------------------------|:---------------------|:----------------------|:-------------------------------------------------------------|
 | Magic Console: Toggle                 | <kbd>CMD+ENTER</kbd> | <kbd>CTRL+ENTER</kbd> | If text is selected only the selected code will be evaluated |
 | Magic Console: Open plugins directory |                      |                       | Open the plugins directory in a new workspace                |
@@ -62,7 +64,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
 
 ![](/docs/playground.png)
 
-Use Magic Console to try out code, explore data, run experiments, etc.
+Use Magic Console to try out code, explore results, run experiments, etc.
 
 ### Interactive testing
 
@@ -75,7 +77,6 @@ Use Magic Console to test code as you write it. Since you are evaluating your co
 ![](/docs/docs.png)
 
 Use Magic Console to mix Markdown documentation with interactive code examples.
-
 
 ## Known bugs
 
@@ -92,14 +93,17 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 
 ### Setup
 
+* Install Atom
 * Clone the repo
-  * `apm develop script` will clone the `script` repository to `~/github`
   * `git clone https://github.com/gnestor/magic-console.git`
+  * `cd magic-console`
 * Install the dependencies
-  * `apm install`
+  * `npm install`
+* Install script and fix-path packages
+  * `npm run apm` or `apm install script fix-path`
 * Link the directory
   * `apm link`
-    * This will error if a previous version of magic-console exists, so remove the existing version and try again
+    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again
 
 ### Workflow
 
@@ -109,15 +113,22 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `apm install`
 * Submit a pull request!
 
+### Thanks
+
+* [@nodejs](https://github.com/nodejs) for enabling all of this innovation
+* [@atom](https://github.com/atom) for providing the first truly hackable text editor and IDE
+* [@facebook/react](https://github.com/facebook/react) for providing a much better way to do UI
+* [@rgbkrk](https://github.com/rgbkrk) and community for [atom-script](https://github.com/rgbkrk/atom-script)
+* [@jupyter](https://github.com/jupyter) and [@nteract](https://github.com/nteract) communities for inspiration
+
 ## Appendix
 
-### Supported programming languages
+### Supported runtimes
 
 * 1C (BSL)
 * AppleScript
 * Bash
 * Behat Feature
-*
 * C
 * C++
 * C#
@@ -180,33 +191,21 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * Zsh
 * Prolog
 
-### Supported data types
+<!-- ### Supported data types
 
-* String
-  * Markdown
-  * Raw
-* Number
-  * Raw
-* Array
-  * ObjectTree
-  * Raw
-* Object/dictionary
-  * ObjectTree
-  * Raw
-* Regex
-  * Raw
-* Boolean
-  * Raw
-* HTML element
-  * ReactComponent
-  * Markdown
-  * Raw
-* React component
-  * ReactComponent
-  * ObjectTree
-  * Raw
+| Plugin         | Data type                               | Notes                                               |
+|----------------|-----------------------------------------|-----------------------------------------------------|
+| Color          | object, string                          | hex string, rgb/hsl object                          |
+| Latex          | string                                  | wrapped in '$$'                                     |
+| LineChart      | array                                   | array of objects with either 'data' or 'y' property |
+| Markdown       | string                                  | any string                                          |
+| Mermaid        | string                                  | starts with 'sequenceDiagram', 'graph', or 'gantt'  |
+| ReactComponent | object                                  | with 'type' and 'props' properties                  |
+| Regex          | regex, string                           | wrapped in '/'                                      |
+| Table          | array                                   | array of objects                                    |
+| Test           | error, boolean, undefined, null, string | data types or their string equivalent               | -->
 
-### Add a programming language
+### Add a runtime
 
 ```coffeescript
 Clojure:

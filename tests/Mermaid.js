@@ -1,5 +1,7 @@
 import './console'
 
+console.render('# Mermaid')
+
 console.render({
   type: 'Mermaid',
   data: `sequenceDiagram
