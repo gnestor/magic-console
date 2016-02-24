@@ -113,6 +113,14 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `apm install`
 * Submit a pull request!
 
+### Thanks
+
+* [@nodejs](https://github.com/nodejs) for enabling all of this innovation
+* [@atom](https://github.com/atom) for providing the first truly hackable text editor and IDE
+* [@facebook/react](https://github.com/facebook/react) for providing a much better way to do UI
+* [@rgbkrk](https://github.com/rgbkrk) and community for [atom-script](https://github.com/rgbkrk/atom-script)
+* [@jupyter](https://github.com/jupyter) and [@nteract](https://github.com/nteract) communities for inspiration
+
 ## Appendix
 
 ### Supported runtimes

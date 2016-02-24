@@ -13,6 +13,7 @@
   },
   "scripts": {
     "docs": "gitbook build && open _book/index.html",
+    "docs:watch": "gitbook serve",
     "postinstall": "npm install plugins",
     "apm": "apm install script fix-path"
   },
@@ -40,6 +41,7 @@
     "babel-preset-es2015": ">=6.3.13",
     "babel-preset-react": ">=6.3.13",
     "babel-preset-stage-0": ">=6.3.13",
-    "eslint": "^1.10.3"
+    "eslint": "^1.10.3",
+    "gitbook-cli": "^1.0.1"
   }
 }

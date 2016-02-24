@@ -10,8 +10,8 @@ console.render = function () {
   });
   args.forEach(function (arg, index) {
     var payload = {
-      key: arg.key && arg.data ? arg.key : key ? '' + key + index : null,
-      type: arg instanceof Error || typeof arg === 'boolean' || arg === undefined ? 'Test' : arg.type && arg.data ? arg.type : null,
+      key: arg ? arg.key && arg.data ? arg.key : key ? '' + key + index : null : null,
+      type: arg ? arg instanceof Error || typeof arg === 'boolean' || arg === undefined ? 'Test' : arg.type && arg.data ? arg.type : null : null,
       data: arg === null || arg === undefined || arg === false ? '' + arg : arg.data ? arg.data : arg
     };
     console.log(JSON.stringify(payload, function (key, value) {
