@@ -1,3 +1,4 @@
 node_modules
 plugins/node_modules
 _book
+book.json
