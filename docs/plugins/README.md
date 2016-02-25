@@ -1,7 +1,10 @@
 # Plugins
 
 * [Core plugins](/core.md)
-  <!-- * [Color](/core.md#color)
+* [Community plugins](/community.md)
+
+<!-- * [Core plugins](/core.md)
+  * [Color](/core.md#color)
   * [Latex](/core.md#latex)
   * [LineChart](/core.md#linechart)
   * [Markdown](/core.md#markdown)
@@ -9,5 +12,5 @@
   * [ReactComponent](/core.md#reactcomponent)
   * [Regex](/core.md#regex)
   * [Table](/core.md#table)
-  * [Test](/core.md#test) -->
-* [Community plugins](/community.md)
+  * [Test](/core.md#test)
+* [Community plugins](/community.md) -->

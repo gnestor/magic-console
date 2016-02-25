@@ -23,41 +23,6 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
   * No configuration necessary
   * No (dev) server necessary
 
-## Getting started
-
-### Install
-
-See [Contributing](#setup) for *alpha* install instructions
-
-<!-- * Install Atom
-* Install script using Atom's in-app package manager or using apm
-  * `apm install script`
-* Install magic-console using Atom's in-app package manager or using apm
-  * `apm install magic-console`
-* OS X: Install atom-fix-path to avoid $PATH issues
-  * `apm install atom-fix-path` -->
-
-### Usage
-
-* **Magic Console: Toggle** to evaluate the current file
-  * The current file must be [supported](#supported-programming-languages) and the required runtime must be installed
-  * If Atom isn't detecting the grammar (programming language) of the current file (look in the bottom-right corner for the name of the grammar), [install the grammar](https://atom.io/packages/search?utf8=%E2%9C%93&q=language) and try again
-* If the output panel is open, Magic Console will watch the file for changes and re-evaluate on save
-  * This can be disabled in the package settings
-* The output panel displays a list of outputs
-  * Toggle between available visualization plugins using the plugin selector
-  * Edit the visualization plugin's source code using the <i class="octicon octicon-code"></i> button
-  * Copy the outputs using the <i class="octicon octicon-clippy"></i> button at the top
-  * Clear the outputs using the <i class="octicon octicon-trashcan"></i> button at the top
-
-#### Commands
-
-| Command                               | OS X                 | Linux/Windows         | Notes                                                        |
-|:--------------------------------------|:---------------------|:----------------------|:-------------------------------------------------------------|
-| Magic Console: Toggle                 | <kbd>CMD+ENTER</kbd> | <kbd>CTRL+ENTER</kbd> | If text is selected only the selected code will be evaluated |
-| Magic Console: Open plugins directory |                      |                       | Open the plugins directory in a new workspace                |
-| Magic Console: Create new plugin      |                      |                       | Create a new plugin and open it in the current workspace     |
-
 ## Practical applications
 
 ### Interactive playground
@@ -78,14 +43,50 @@ Use Magic Console to test code as you write it. Since you are evaluating your co
 
 Use Magic Console to mix Markdown documentation with interactive code examples.
 
-## Known bugs
+## Getting started
 
-* Default visualization plugin is an arbitrary selection from the available plugins for that data type but should be the "richest" for the given data type (e.g. LineChart for valid data vs. ObjectTree)
-  * Workaround: Manually select the richest visualization
-* Plugin state is not preserved after plugin hot reload
-* Emojis don't display in Markdown plugin
-  * [Github issue](https://github.com/jonschlinkert/remarkable/issues/62)
-  * Workaround: Use Raw plugin
+### Install
+
+See [Contributing](#setup) for *alpha* install instructions
+
+<!-- * Install Atom
+* Install Magic Console using Atom's in-app package manager or using apm
+  * `apm install magic-console`
+* Install script and fix-path (OS X only) packages using Atom's in-app package manager or using apm
+  * `apm install script fix-path`
+* Link the directory
+  * `apm link`
+    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again -->
+
+#### Commands
+
+| Command                               | OS X                 | Linux/Windows         | Notes                                                        |
+|:--------------------------------------|:---------------------|:----------------------|:-------------------------------------------------------------|
+| Magic Console: Toggle                 | <kbd>CMD+ENTER</kbd> | <kbd>CTRL+ENTER</kbd> | Evaluate current file or selected text |
+| Magic Console: Open plugins directory |                      |                       | Open the plugins directory in a new workspace                |
+| Magic Console: Create new plugin      |                      |                       | Create a new plugin and open it in the current workspace     |
+
+## FAQ
+
+> I don't see any output...
+
+The runtime for the source code must be [supported by Magic Console](#supported-runtimes) and installed. For example, if your source code is a CoffeeScript file, then as long as the [coffee-script runtime](https://www.npmjs.com/package/coffee-script) is installed, you're good to go because CoffeeScript is supported. If your source code is a [Dogescript](https://dogescript.com/) file, then you would need to [add that runtime](#add-a-runtime) because it's not supported yet and have [dogescript runtime](https://www.npmjs.com/package/dogescript) installed.
+
+> I'm getting compilation errors...
+
+Check out the active grammar for your source code in the lower-right side of the bottom status bar and make sure that it matches the programming language you are using. For example, if you are writing ES6 Javascript and you are seeing "Javascript" and not "Babel ES6 Javascript," you need to [install](https://atom.io/packages/search?utf8=%E2%9C%93&q=language) the "Babel ES6 Javascript" grammar and use it instead.
+
+> I'm getting "[runtime command] not found" error...
+
+Make sure that the path to your runtime binary is in Atom's $PATH. You can do this by opening Atom's Dev Tools and typing `process.env.PATH` in the console. If you don't see the path to your runtime binary, then you can use the [fix-path Atom package](https://atom.io/packages/atom-fix-path) to add it or move your binary to one of the available paths.
+
+> How do I?
+
+* **Watch a file:** Enable "Evaluate on save" in Magic Console's package settings
+* **Toggle between visualizations/plugins?:** Hover over an output and use the drop-down selector to toggle between plugins available for that data type
+* **Edit a plugin's source code:** Hover over the plugin and click the <i class="octicon octicon-code">code</i> button. The plugin source code will open in a new editor panel and allow you to edit the source code inline with its rendering. When the source code is saved, it will be hot reloaded and the rendering will be updated instantly.
+* **Clear the outputs:** Hover out the outputs and click the <i class="octicon octicon-trash">clear</i> button at the top.
+* **Copy/paste output:** Hover over the outputs and click the <i class="octicon octicon-clippy">copy</i> button at the top to copy the raw output data to the clipboard.
 
 ## Contributing
 
@@ -99,11 +100,11 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `cd magic-console`
 * Install the dependencies
   * `npm install`
-* Install script and fix-path packages
-  * `npm run apm` or `apm install script fix-path`
+* Install script (**required**) and fix-path (for OS X) Atom packages
+  * `npm run apm:install` or `apm install script fix-path`
 * Link the directory
   * `apm link`
-    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again
+    * This will throw an error if a previous version of magic-console exists, in which case remove the existing version and try again
 
 ### Workflow
 
@@ -115,9 +116,7 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 
 ### Thanks
 
-* [@nodejs](https://github.com/nodejs) for enabling all of this innovation
-* [@atom](https://github.com/atom) for providing the first truly hackable text editor and IDE
-* [@facebook/react](https://github.com/facebook/react) for providing a much better way to do UI
+* [@nodejs](https://github.com/nodejs), [@atom](https://github.com/atom),  [@facebook/react](https://github.com/facebook/react) for laying the foundation
 * [@rgbkrk](https://github.com/rgbkrk) and community for [atom-script](https://github.com/rgbkrk/atom-script)
 * [@jupyter](https://github.com/jupyter) and [@nteract](https://github.com/nteract) communities for inspiration
 
