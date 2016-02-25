@@ -12,10 +12,14 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
-    "docs": "gitbook build && open _book/index.html",
-    "docs:watch": "gitbook serve",
+    "start": "atom --dev .",
     "postinstall": "npm install plugins",
-    "apm": "apm install script fix-path"
+    "docs": "node node_modules/gitbook-cli/bin/gitbook.js build && open _book/index.html",
+    "docs:install": "node node_modules/gitbook-cli/bin/gitbook.js install",
+    "docs:build": "node node_modules/gitbook-cli/bin/gitbook.js build",
+    "docs:watch": "node node_modules/gitbook-cli/bin/gitbook.js serve",
+    "apm": "apm install script fix-path",
+    "apm:install": "apm install script fix-path"
   },
   "consumedServices": {
     "default-script-runtime": {

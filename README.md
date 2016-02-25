@@ -100,11 +100,11 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `cd magic-console`
 * Install the dependencies
   * `npm install`
-* Install script and fix-path packages
-  * `npm run apm` or `apm install script fix-path`
+* Install script (**required**) and fix-path (for OS X) Atom packages
+  * `npm run apm:install` or `apm install script fix-path`
 * Link the directory
   * `apm link`
-    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again
+    * This will throw an error if a previous version of magic-console exists, in which case remove the existing version and try again
 
 ### Workflow
 
