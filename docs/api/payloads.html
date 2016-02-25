@@ -8,7 +8,7 @@
         <title>Payloads | Magic Console (alpha)</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.4.3">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -21,15 +21,11 @@
     <link rel="stylesheet" href="../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
-        
-    
-        
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
         
     
     
@@ -48,10 +44,13 @@
     <body>
         
         
-    <div class="book" data-level="3.1" data-chapter-title="Payloads" data-filepath="docs/api/payloads.md" data-basepath="../.." data-revision="Wed Feb 24 2016 18:12:14 GMT-0800 (PST)">
+    <div class="book" data-level="3.1" data-basepath="../.." data-revision="Thu Feb 25 2016 14:50:04 GMT-0800 (PST)">
     
 
 <div class="book-summary">
+    <div class="book-search" role="search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
     <nav role="navigation">
         <ul class="summary">
             
@@ -210,7 +209,15 @@
     
         <li class="chapter " data-level="4" data-path="docs/glossary.html">
             
-            <span><b>4.</b> Glossary</span>
+                
+                    <a href="../../docs/glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Glossary
+                    </a>
             
             
         </li>
@@ -233,7 +240,80 @@
         <div class="body-inner">
             <div class="book-header" role="navigation">
     <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
     
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
 
     <!-- Title -->
     <h1>
@@ -248,7 +328,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="payloads">Payloads</h1>
+                        <a id="edit-link" href="https://github.com/gnestor/magic-console/tree/master/docs/api/payloads.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="payloads">Payloads</h1>
 <p>Payload refers to the output data that is sent from the source code to the output panel. Payloads can be simple log statements or complex data structures:</p>
 <h2 id="simple-payload-example">Simple payload example</h2>
 <pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;This is a string payload&apos;</span><span class="token punctuation">)</span>
@@ -268,9 +348,9 @@
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="stringification"><em>Stringification</em></h2>
+<h2 id="-stringification"><em>Stringification</em></h2>
 <p>Payloads can be native data types such as string, number, and array, but some data types will not survive the trip from source code to output (depending on the runtime), such as error, regex, and date. In such cases, we can stringify the payload and Magic Console will parse the payload and convert it to a Javascript-equivalent type.</p>
-<h3 id="nonstringified-example">Non-stringified example</h3>
+<h3 id="non-stringified-example">Non-stringified example</h3>
 <pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token string">&apos;value&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <p>The above payload will output a string:</p>
@@ -328,7 +408,7 @@
 </code></pre>
 <h3 id="key">Key</h3>
 <p>Key is a unique identifier that explicitly links a payload to a rendered output. If a payload has a key, it will be rendered once and any future outputs with the same key will replace the existing output with that key. If a payload doesn&apos;t have a key, it will be rendered multiple times.</p>
-<h4 id="using-consolerender">Using <code>console.render</code></h4>
+<h4 id="using-console-render">Using <code>console.render</code></h4>
 <p><code>console.render</code> will automatically key a payload if a label is provided.</p>
 <pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;This is a label&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
   parent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -347,9 +427,9 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="magicconsolejs">magic-console-js</h2>
+<h2 id="magic-console-js">magic-console-js</h2>
 <p><a href="https://github.com/gnestor/magic-console-js" target="_blank">magic-console-js</a> a Javascript library that provides syntactic sugar for payload generation. It provides 2 methods for the native <code>console</code> object.</p>
-<h3 id="consolerender"><code>console.render</code></h3>
+<h3 id="-console-render"><code>console.render</code></h3>
 <p>Using <code>console.render</code> in lieu of <code>console.log</code> has a few advantages:</p>
 <ul>
 <li>Payloads are <a href="#form">formed</a></li>
@@ -381,7 +461,7 @@
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="consoleassert"><code>console.assert</code></h3>
+<h3 id="-console-assert"><code>console.assert</code></h3>
 <p>Using <code>console.assert</code> in lieu of Javascript&apos;s native <code>console.assert</code> or <code>console.render</code> has a few advantages:</p>
 <ul>
 <li>Payloads are wrapped in a try/catch statement</li>
@@ -451,25 +531,9 @@
     <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
     
 
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"edit-link":{"base":"https://github.com/gnestor/magic-console/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/gnestor/magic-console/"},"prism":{},"search":{},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"}};
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/gnestor/magic-console/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/gnestor/magic-console/"}};
     gitbook.start(config);
 });
 </script>
