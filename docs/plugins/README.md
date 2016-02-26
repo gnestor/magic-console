@@ -1,7 +1,7 @@
 # Plugins
 
-* [Core plugins](/core.md)
-* [Community plugins](/community.md)
+* [Core plugins](core.md)
+* [Community plugins](community.md)
 
 <!-- * [Core plugins](/core.md)
   * [Color](/core.md#color)
