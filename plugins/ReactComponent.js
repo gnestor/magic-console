@@ -11,12 +11,7 @@ class ReactComponent extends Component {
     let {type, props = {}} = this.props.data
     if (type) {
       if (React.DOM[type]) return React.createElement(type, props)
-      let transpiled = babel.transform(type, {
-        presets: [
-          require.resolve('babel-preset-es2015-without-strict'),
-          require.resolve('babel-preset-react'),
-          require.resolve('babel-preset-stage-0')]
-      }).code
+      let transpiled = babel.transform(type).code
       let evaluated = vm.runInNewContext(transpiled, {React})
       // return React.createElement(vm.runInNewContext(type, {React}), props)
       return React.createElement(evaluated, props)
