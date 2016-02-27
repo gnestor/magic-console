@@ -13,11 +13,12 @@
   },
   "scripts": {
     "start": "atom -- --dev .",
-    "postinstall": "npm install plugins",
+    "postinstall": "cd plugins && npm install",
     "docs": "node node_modules/gitbook-cli/bin/gitbook.js build && open _book/index.html",
     "docs:install": "node node_modules/gitbook-cli/bin/gitbook.js install",
     "docs:build": "node node_modules/gitbook-cli/bin/gitbook.js build",
     "docs:serve": "node node_modules/gitbook-cli/bin/gitbook.js serve",
+    "docs:print": "node node_modules/gitbook-cli/bin/gitbook.js pdf . magic-console.pdf",
     "apm": "apm install script fix-path",
     "apm:install": "apm install script fix-path"
   },
