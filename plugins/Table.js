@@ -24,25 +24,33 @@ class Table extends Component {
   render() {
     let columns = this.state.rows.reduce((columns, row) => {
       if (typeof row === 'object') {
-        Object.keys(row).forEach(key => {
-          if (!columns.find(column => column.key === key)) columns.push({
-            key,
-            name: key,
-            resizable: true,
-            sortable: true
-          })
-        })
+        return Object.keys(row).reduce((columns, key) => ([...columns.filter(column => column.key !== key), {
+          key,
+          name: key,
+          resizable: true,
+          sortable: true
+        }]), columns)
       } else {
-        columns = {
+        return {
           key: 'default',
           name: ''
         }
       }
-      return columns
     }, [])
+    let rows = this.state.rows.map(row => (
+      columns.reduce((row, column) => {
+        let value = row[column.key]
+        if (typeof row[column.key] === 'object') value = `${row[column.key]}`
+        if (!row[column.key]) value = ''
+        return {
+          ...row,
+          [column.key]: value
+        }
+      }, row)
+    ))
     return <ReactDataGrid
       columns={columns}
-      rowGetter={index => this.state.rows[index]}
+      rowGetter={index => rows[index]}
       rowsCount={this.state.rows.length}
       minHeight={(this.state.rows.length + 1) * 35}
       onGridSort={this.handleSort}
