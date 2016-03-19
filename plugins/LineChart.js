@@ -10,20 +10,13 @@ class LineChart extends Component {
     return (
       <VictoryChart>
         {this.props.data.map((item, index) => {
-          let {
-            data,
-            y,
-            style
-          } = item
-          if (y) y = vm.runInNewContext(y)
+          if (item.y) item.y = vm.runInNewContext(item.y)
           return (
             <VictoryLine
               key={index}
-              style={style}
-              data={data}
               interpolation="basis"
               animate={{velocity: 0.02}}
-              y={y}
+              {...item}
             />
           )
         })}
@@ -36,12 +29,10 @@ class LineChart extends Component {
 LineChart.propTypes = {
   data: PropTypes.arrayOf(React.PropTypes.oneOfType([
     PropTypes.shape({
-      y: PropTypes.string.isRequired,
-      style: PropTypes.object
+      y: PropTypes.string.isRequired
     }),
     PropTypes.shape({
-      data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)).isRequired,
-      style: PropTypes.object
+      data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)).isRequired
     })
   ])).isRequired
 }
