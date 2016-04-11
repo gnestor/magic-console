@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "atom -- --dev .",
-    "postinstall": "cd plugins && npm install",
+    "postinstall": "cd plugins & npm install",
     "docs": "node node_modules/gitbook-cli/bin/gitbook.js build && open _book/index.html",
     "docs:install": "node node_modules/gitbook-cli/bin/gitbook.js install",
     "docs:build": "node node_modules/gitbook-cli/bin/gitbook.js build",
@@ -36,9 +36,9 @@
     }
   },
   "dependencies": {
-    "react": ">=0.14.7",
+    "react": "^15",
     "react-deep-force-update": ">=2.0.1",
-    "react-dom": ">=0.14.7",
+    "react-dom": "^15",
     "redbox-react": ">=1.2.2"
   },
   "devDependencies": {
