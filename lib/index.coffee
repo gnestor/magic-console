@@ -22,7 +22,7 @@ module.exports = SampleScriptConsumer =
     @subscriptions.add atom.commands.add 'atom-workspace', 'magic-console:create-new-plugin':
       => @createNewPlugin()
     @views = []
-    @blankRuntime = null
+    # @blankRuntime = null
     atom.workspace.addOpener (uriToOpen) =>
       try
         {protocol, host, pathname} = url.parse(uriToOpen)
@@ -34,36 +34,40 @@ module.exports = SampleScriptConsumer =
       catch error
         return
       if host is 'editor'
-        editorId = pathname.substring(1)
-        view = new ConsoleRuntimeView({editorId})
-        @views = [@views..., view]
-        @subscriptions.add view.onDidDestroy =>
-          @blankRuntime.stop()
-          @views = @views.filter (view) -> view.editorId != editorId
-        @subscriptions.add view.onDidSave (ev) =>
-          if atom.config.get 'magic-console.evaluateOnSave'
-            @toggle() unless @blankRuntime.observers?.length > 0
-        view
+        @createView({editorId: pathname.substring(1)})
       else
-        filePath = pathname
-        view = new ConsoleRuntimeView({filePath})
-        @views = [@views..., view]
-        @subscriptions.add view.onDidDestroy =>
-          @blankRuntime.stop()
+        @createView({filePath: pathname})
+    atom.deserializers.add(this)
+    if state.views
+      console.log('deserialize', state)
+      @deserialize(state)
+
+  createView: ({editorId, filePath, data}) ->
+    if editorId or filePath
+      view = new ConsoleRuntimeView({editorId, filePath, data})
+      @views = [@views..., view]
+      @subscriptions.add view.onDidDestroy =>
+        if editorId
+          @views = @views.filter (view) -> view.editorId != editorId
+        else if filePath
           @views = @views.filter (view) -> view.filePath != filePath
-        @subscriptions.add view.onDidSave (ev) =>
-          if atom.config.get 'magic-console.evaluateOnSave'
-            @toggle() unless @blankRuntime.observers?.length > 0
-        view
+        @blankRuntime.stop() if @blankRuntime
+      @subscriptions.add view.onDidSave (ev) =>
+        if atom.config.get 'magic-console.evaluateOnSave'
+          @toggle() unless @blankRuntime.observers?.length > 0
+      view
 
   deactivate: ->
     @subscriptions.dispose()
 
-  # serialize: ->
-  #   view: @views.forEach (view) -> view.serialize()
+  serialize: ->
+    deserializer: 'magic-console'
+    views: @views.map (view) -> view.dehydrate()
 
-  # deserialize: ->
-  #   view: @view.deserialize()
+  deserialize: ({views}) ->
+    views.forEach (view) =>
+      @createView(view)
+      atom.workspace.open("magic-console://editor/#{view.editorId}", split: 'right', searchAllPanes: true)
 
   consumeBlankRuntime: (runtime) ->
     @blankRuntime = runtime
@@ -82,9 +86,9 @@ module.exports = SampleScriptConsumer =
     @blankRuntime.addObserver(new ConsoleRuntimeObserver(view))
     @blankRuntime.execute()
 
-  runDefault: ->
-    # @activatePackage('script')
-    @defaultRuntime.execute()
+  # runDefault: ->
+  #   # @activatePackage('script')
+  #   @defaultRuntime.execute()
 
   toggle: ->
     editor = atom.workspace.getActiveTextEditor()
@@ -113,4 +117,3 @@ module.exports = SampleScriptConsumer =
     template = fs.readFileSync(path.join(__dirname, '..', 'utils', 'plugin-template.js'), encoding: 'utf-8')
     atom.workspace.open(path.join(__dirname, '..', 'plugins', 'New.js')).then (textEditor) =>
       textEditor.setText(template)
-

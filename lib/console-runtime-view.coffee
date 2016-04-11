@@ -1,4 +1,5 @@
 {CompositeDisposable, Disposable, Emitter} = require 'atom'
+fs = require 'fs'
 React = require 'react'
 ReactDOM = require 'react-dom'
 OutputList = require './OutputList'
@@ -6,34 +7,37 @@ OutputList = require './OutputList'
 module.exports =
 class ConsoleRuntimeView
 
-  editor: null
-  editorSub: null
-
-  constructor: (state) ->
-    if state.editorId?
-      @editorId = state.editorId
-      @resolveEditor(@editorId)
-      @tmpPath = @getPath()
-    else if state.filePath?
-      @filePath = state.filePath
-      if atom.workspace?
-        @subscribeToFilePath(@filePath)
-      else
-        atom.packages.onDidActivatePackage =>
-          @subscribeToFilePath(@filePath)
+  constructor: ({@filePath, @editorId, data}) ->
     @emitter = new Emitter
-    # @status = 'stopped'
     @element = document.createElement('div')
     @element.classList.add('console')
+    if @editorId?
+      @resolveEditor(@editorId)
+    else if @filePath?
+      @handleEvents()
+    if data?
+      @hydrate(data)
+    else
+      try
+        data = require(@getPath().replace(/([^\/]+)\.([^\/]+$)/g, '.$1.json'))
+        @hydrate(data)
+      catch error
+        console.log(error)
 
   render: (output) ->
-    ReactDOM.render(React.createElement(OutputList, {output}), @element)
+    @react = ReactDOM.render(React.createElement(OutputList, {output}), @element)
+    fs.writeFile(@getPath().replace(/([^\/]+)\.([^\/]+$)/g, '.$1.json'), JSON.stringify(@react.state))
 
   setStatus: (status) ->
-    ReactDOM.render(React.createElement(OutputList, {status}), @element)
+    @react = ReactDOM.render(React.createElement(OutputList, {status}), @element)
 
-  serialize: ->
-    outputs: @outputs
+  hydrate: (state) ->
+    @react = ReactDOM.render(React.createElement(OutputList, {state}), @element)
+
+  dehydrate: ->
+    filePath: @getPath() ? @filePath
+    editorId: @editorId
+    data: @react.state
 
   destroy: ->
     @emitter.emit 'destroy'
@@ -53,14 +57,11 @@ class ConsoleRuntimeView
     resolve = =>
       @editor = @editorForId(editorId)
       if @editor?
-        # @trigger 'title-changed' if @editor?
-        # console.log 'title-changed' if @editor?
         @handleEvents()
       else
         # The editor this preview was created for has been closed so close
         # this preview since a preview cannot be rendered without an editor
         atom.workspace?.paneForItem(this)?.destroyItem(this)
-
     if atom.workspace?
       resolve()
     else
@@ -76,15 +77,12 @@ class ConsoleRuntimeView
   handleEvents: =>
     @editorSub = new CompositeDisposable
     if @editor?
-      @editorSub.add @editor.onDidChangePath => console.log 'title-changed'
+      @editorSub.add @editor.onDidChangePath (ev) =>
+        @filePath = @editor.getPath
       @editorSub.add @editor.onDidSave (ev) =>
         @emitter.emit 'save', ev
       @editorSub.add @editor.onDidDestroy =>
         @destroy()
-
-  subscribeToFilePath: (filePath) ->
-    # @trigger 'title-changed'
-    @handleEvents()
 
   getTitle: ->
     if @editor?

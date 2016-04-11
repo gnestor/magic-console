@@ -3,7 +3,6 @@
 module.exports =
 class ConsoleRuntimeObserver
   constructor: (@view, @subscriptions = new CompositeDisposable) ->
-    @runtime = null
 
   observe: (runtime) ->
     console.log runtime
