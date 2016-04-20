@@ -52,8 +52,6 @@ See [Contributing](#setup) for *alpha* install instructions
 <!-- * Install Atom
 * Install Magic Console using Atom's in-app package manager or using apm
   * `apm install magic-console`
-* Install script and fix-path (OS X only) packages using Atom's in-app package manager or using apm
-  * `apm install script fix-path`
 * Link the directory
   * `apm link`
     * This will error if a previous version of magic-console exists, in which case remove the existing version and try again -->
@@ -78,7 +76,12 @@ Check out the active grammar for your source code in the lower-right side of the
 
 > I'm getting "[runtime command] not found" error...
 
-Make sure that the path to your runtime binary is in Atom's $PATH. You can do this by opening Atom's Dev Tools and typing `process.env.PATH` in the console. If you don't see the path to your runtime binary, then you can use the [fix-path Atom package](https://atom.io/packages/atom-fix-path) to add it or move your binary to one of the available paths.
+Make sure that the path to your runtime binary is in Atom's $PATH. You can do this by opening Atom's dev tools and typing `process.env.PATH` in the console. If you don't see the path to your runtime binary, edit Atom's init script to include the path to your binary () or move your binary to one of the available paths.
+
+```coffeescript
+path = require 'path'
+process.env.PATH = process.env.PATH.split(path.delimiter).concat(NEW_PATH).join(path.delimiter)
+```
 
 > How do I?
 
@@ -100,18 +103,18 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `cd magic-console`
 * Install the dependencies
   * `npm install`
-* Install script (**required**) and fix-path (for OS X) Atom packages
-  * `npm run apm:install` or `apm install script fix-path`
+* Install script Atom package (**required**)
+  * `npm run apm:install` or `apm install script`
 * Link the directory
-  * `apm link`
+  * `npm run apm:link` or 'apm link'
     * This will throw an error if a previous version of magic-console exists, in which case remove the existing version and try again
 
 ### Workflow
 
-* Run Atom in dev mode
-  * `atom --dev`
 * Re-install dependencies after pulling upstream changes
   * `apm install`
+* Run Atom in dev mode
+  * `atom --dev .`
 * Submit a pull request!
 
 ### Thanks
@@ -143,12 +146,15 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * Erlang
 * F#
 * Forth (via GForth)
+* Gnuplot
 * Go
 * Groovy
 * Haskell
+* ioLanguage
 * Java
 * Javascript
 * JavaScript for Automation (JXA)
+* Jolie
 * Julia
 * Kotlin
 * LaTeX (via latexmk)
@@ -172,6 +178,7 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * Perl 6
 * PHP
 * PostgreSQL
+* Prolog
 * Python
 * RSpec
 * Racket
@@ -188,7 +195,6 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
 * Dart
 * Octave
 * Zsh
-* Prolog
 
 <!-- ### Supported data types
 
