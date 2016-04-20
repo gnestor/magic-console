@@ -19,8 +19,8 @@
     "docs:build": "node node_modules/gitbook-cli/bin/gitbook.js build",
     "docs:serve": "node node_modules/gitbook-cli/bin/gitbook.js serve",
     "docs:print": "node node_modules/gitbook-cli/bin/gitbook.js pdf . magic-console.pdf",
-    "apm": "apm install script",
-    "apm:install": "apm install script",
+    "apm": "apm link",
+    "apm:script": "apm install script",
     "apm:link": "apm link"
   },
   "consumedServices": {

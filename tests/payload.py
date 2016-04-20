@@ -1,3 +1,5 @@
+import json
+
 print 'String'
 print 'true'
 
@@ -11,4 +13,4 @@ print 'Array'
 print [1,2,3]
 
 print 'Object/Hashmap'
-print {'key': 'value'}
+print json.dumps({'key': 'value'})

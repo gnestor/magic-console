@@ -1,4 +1,4 @@
-import {outputs} from './.helloWorld.json'
+import {outputs} from './.helloWorld.js.json'
 import './console'
 
 console.render(outputs)

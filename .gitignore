@@ -3,3 +3,5 @@ npm-debug.log
 plugins/node_modules
 _book
 *.pdf
+tests/.*
+examples/.*
