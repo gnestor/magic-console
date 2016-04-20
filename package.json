@@ -34,6 +34,7 @@
     "react": "^15",
     "react-deep-force-update": ">=2.0.1",
     "react-dom": "^15",
+    "react-flip-move": "^2.1.0",
     "redbox-react": ">=1.2.2"
   },
   "devDependencies": {
