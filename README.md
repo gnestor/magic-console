@@ -47,14 +47,12 @@ Use Magic Console to mix Markdown documentation with interactive code examples.
 
 ### Install
 
-See [Contributing](#setup) for *alpha* install instructions
-
-<!-- * Install Atom
-* Install Magic Console using Atom's in-app package manager or using apm
-  * `apm install magic-console`
-* Link the directory
-  * `apm link`
-    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again -->
+* [Install Atom](https://atom.io/)
+* Clone the repo
+  * `git clone https://github.com/gnestor/magic-console.git`
+  * `cd magic-console`
+* Install Atom package
+  * `apm install`
 
 #### Commands
 
@@ -110,10 +108,8 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `cd magic-console`
 * Install the dependencies
   * `npm install`
-* Install script Atom package (**required**)
-  * `npm run apm:install` or `apm install script`
 * Link the directory
-  * `npm run apm:link` or 'apm link'
+  * `apm link`
 
 ### Workflow
 

@@ -12,16 +12,13 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
-    "start": "atom -- --dev .",
-    "postinstall": "cd plugins && npm install",
+    "start": "atom --dev .",
+    "postinstall": "apm install script && cd plugins && npm install && npm uninstall react react-dom",
     "docs": "node node_modules/gitbook-cli/bin/gitbook.js build && open _book/index.html",
     "docs:install": "node node_modules/gitbook-cli/bin/gitbook.js install",
     "docs:build": "node node_modules/gitbook-cli/bin/gitbook.js build",
     "docs:serve": "node node_modules/gitbook-cli/bin/gitbook.js serve",
-    "docs:print": "node node_modules/gitbook-cli/bin/gitbook.js pdf . magic-console.pdf",
-    "apm": "apm link",
-    "apm:script": "apm install script",
-    "apm:link": "apm link"
+    "docs:print": "node node_modules/gitbook-cli/bin/gitbook.js pdf . magic-console.pdf"
   },
   "consumedServices": {
     "provide-blank-runtime": {
