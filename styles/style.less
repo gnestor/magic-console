@@ -31,12 +31,16 @@
       }
     }
     .plugin-container {
-      & > * {
-        position: relative !important;
-        z-index: 1 !important;
-      }
+      max-height: 100vh;
+      overflow: scroll;
       & .markdown {
         background-color: transparent;
+      }
+    }
+    .plugin-container.StackTrace, .plugin-container.Test {
+      & * {
+        position: relative !important;
+        z-index: 1 !important;
       }
     }
   }
@@ -53,13 +57,13 @@
     select, button {
       font-size: 1.15rem;
       font-family: -apple-system, 'BlinkMacSystemFont', Helvetica, Arial, sans-serif;
-      border-color: @input-border-color;
-      border-radius: @border-radius--base;
-      background: @text-color-selected;
-      transition: box-shadow @transition--default;
+      border-color: rgba(199, 199, 199, 0.9);
+      border-radius: 4px;
+      background: #ffffff;
+      transition: box-shadow 0.15s ease-out;
       height: 27px;
-      border: 1px solid @button-border-color;
-      border-bottom: 1px solid @button-border-color--bottom;
+      border: 1px solid #d3d3d3;
+      border-bottom: 1px solid #b4b4b4;
       margin-right: 5px;
     }
   }
@@ -178,4 +182,1016 @@
 
 .json-inspector__show-original:hover:after {
     content: ' expand'
+}
+
+// ReactDataGrid
+.react-grid-Container {
+  clear: both;
+  margin-top: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.react-grid-Toolbar {
+  background-color: #ffffff;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 4px 1px 1px 1px;
+  color: inherit;
+  margin-bottom: 0;
+  padding: 14px 15px 7px;
+  height: 48px;
+}
+
+.react-grid-Toolbar .btn{
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  color: inherit;
+  background: white;
+  border: 1px solid #e7eaec;
+}
+
+.react-grid-Toolbar .btn:hover {
+  color: inherit;
+  border: 1px solid #d2d2d2;
+}
+
+
+.react-grid-Toolbar .tools {
+  display: inline-block;
+  float: right;
+  margin-top: 0;
+  position: relative;
+  padding: 0;
+  margin-top: -6px;
+}
+
+.react-grid-Main {
+  background-color: #ffffff;
+  color: inherit;
+  padding: 0px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px;
+  clear : both;
+}
+
+.react-grid-Grid {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+.react-grid-Canvas {
+  background-color: #ffffff;
+}
+.react-grid-Cell {
+  background-color: #ffffff;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-top: 1px solid #dddddd;
+}
+.react-grid-Cell:not(.editing) .react-grid-Cell__value {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.react-grid-Canvas.opaque .react-grid-Cell:not(.editing) {
+  opacity: 0.4;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+.react-grid-Cell__value ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.react-grid-Cell__value .btn-sm {
+  padding: 0;
+}
+.react-grid-Cell.copied {
+  background: rgba(0, 0, 255, 0.2) !important;
+  -webkit-transition: 0.5s background;
+}
+.react-grid-Row:hover .react-grid-Cell {
+  background-color: #f2f2f2;
+}
+
+.react-grid-Cell.editing {
+  padding: 0;
+  overflow: visible !important;
+}
+.react-grid-Cell.editing .has-error input {
+  border: 2px red solid !important;
+  border-radius: 2px !important;
+}
+.react-grid-Cell input.editor-main,
+select.editor-main {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.react-grid-Cell input.editor-main:focus,
+select.editor-main:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.react-grid-Cell input.editor-main::-moz-placeholder,
+select.editor-main::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.react-grid-Cell input.editor-main:-ms-input-placeholder,
+select.editor-main:-ms-input-placeholder {
+  color: #999999;
+}
+.react-grid-Cell input.editor-main::-webkit-input-placeholder,
+select.editor-main::-webkit-input-placeholder {
+  color: #999999;
+}
+.react-grid-Cell input.editor-main[disabled],
+select.editor-main[disabled],
+.react-grid-Cell input.editor-main[readonly],
+select.editor-main[readonly],
+fieldset[disabled] .react-grid-Cell input.editor-main,
+fieldset[disabled] select.editor-main {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textarea.react-grid-Cell input.editor-main,
+textareaselect.editor-main {
+  height: auto;
+}
+
+.react-grid-checkbox-container {
+    cursor: pointer;
+}
+
+.react-grid-checkbox, .radio-custom {
+    opacity: 0;
+    position: absolute;
+}
+
+.react-grid-checkbox, .react-grid-checkbox-label, .radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.react-grid-checkbox-label, .radio-custom-label {
+    position: relative;
+}
+
+.react-grid-checkbox + .react-grid-checkbox-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.react-grid-checkbox:checked + .react-grid-checkbox-label:before {
+    background: rebeccapurple;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+}
+
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    background: #ccc;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+}
+
+
+.react-grid-checkbox:focus + .react-grid-checkbox-label, .radio-custom:focus + .radio-custom-label {
+  outline: 1px solid #ddd; /* focus style */
+}
+
+
+.react-grid-HeaderCell input[type='checkbox'] {
+  display: block;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.react-grid-Header {
+  box-shadow: 0px 0px 4px 0px #dddddd;
+  background: #f9f9f9;
+}
+.react-grid-Header--resizing {
+  cursor: ew-resize;
+}
+.react-grid-HeaderRow {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.react-grid-HeaderCell {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #f9f9f9;
+  padding: 8px;
+  font-weight: bold;
+  border-right: 1px solid #dddddd;
+}
+.react-grid-HeaderCell__value {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.react-grid-HeaderCell__resizeHandle:hover {
+  cursor: ew-resize;
+  background: #dddddd;
+}
+.react-grid-HeaderCell--locked:last-of-type {
+  box-shadow: none;
+}
+.react-grid-HeaderCell--resizing .react-grid-HeaderCell__resizeHandle {
+  background: #dddddd;
+}
+.react-grid-HeaderCell__draggable {
+    cursor: col-resize
+}
+.react-grid-ScrollShim {
+  z-index: 10002;
+}
+.react-grid-Cell.selected-draggable {
+  border: 1px solid #66afe9;
+  background: #eee;
+}
+.react-grid-cell .form-control-feedback {
+  color: #a94442;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 1000000;
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+.react-grid-Cell.was-dragged-over {
+  border-right: 1px dashed black;
+  border-left: 1px dashed black;
+}
+.react-grid-Cell.active-drag-cell {
+  overflow: visible !important;
+}
+.react-grid-Cell.active-drag-cell .drag-handle {
+  position: absolute;
+  bottom: -5px;
+  right: -4px;
+  background: #66afe9;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #fff;
+  border-right: 0px;
+  border-bottom: 0px;
+  z-index: 8;
+  cursor: crosshair;
+  cursor: -webkit-grab;
+}
+
+.react-grid-Cell.active-drag-cell:hover .drag-handle {
+  position: absolute;
+  bottom: -8px;
+  right: -7px;
+  background: white;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #66afe9;
+  /* border-right: 0px; */
+  /* border-bottom: 0px; */
+  z-index: 8;
+  cursor: crosshair;
+  cursor: -webkit-grab;
+}
+
+.react-grid-Cell.active-drag-cell:hover .drag-handle .glyphicon-arrow-down {
+  display: 'block'
+}
+
+.react-grid-Cell.is-dragged-over-down {
+  border-right: 1px dashed black;
+  border-left: 1px dashed black;
+  border-bottom: 1px dashed black;
+}
+.react-grid-Cell.is-dragged-over-up {
+  border-right: 1px dashed black;
+  border-left: 1px dashed black;
+  border-top: 1px dashed black;
+}
+.react-grid-Cell.is-dragged-over-up .drag-handle {
+  top: -5px;
+}
+.react-grid-Cell {
+  border-right: 1px solid #eee;
+}
+
+.react-grid-Cell:hover {
+  background: #eee;
+}
+.react-grid-Cell.selected {
+  border: 2px solid #66afe9;
+  background: #eee;
+  border-radius: 4px;
+}
+.react-grid-Cell:focus {
+  outline: none;
+}
+
+.react-grid-Row.row-selected .react-grid-Cell{
+ background-color: rgba(16, 126, 219, 0.15);
+}
+
+
+.react-grid-Cell--locked:last-of-type {
+  border-right: 1px solid #dddddd;
+  box-shadow: none;
+}
+
+.react-grid-image {
+  background: #efefef;
+  background-size: 100%;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+.react-autocomplete-Autocomplete__search {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555555;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.react-autocomplete-Autocomplete__search:focus {
+  border-color: #a21618;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(162, 22, 24, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(162, 22, 24, 0.6);
+}
+.react-autocomplete-Autocomplete__search::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+.react-autocomplete-Autocomplete__search:-ms-input-placeholder {
+  color: #777777;
+}
+.react-autocomplete-Autocomplete__search::-webkit-input-placeholder {
+  color: #777777;
+}
+.react-autocomplete-Autocomplete__search[disabled],
+.react-autocomplete-Autocomplete__search[readonly],
+fieldset[disabled] .react-autocomplete-Autocomplete__search {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textarea.react-autocomplete-Autocomplete__search {
+  height: auto;
+}
+.react-autocomplete-Autocomplete__results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  min-width: 250px;
+  width: 100%;
+  max-height: 200px;
+  overflow: auto;
+}
+.react-autocomplete-Autocomplete__results.pull-right {
+  right: 0;
+  left: auto;
+}
+.react-autocomplete-Autocomplete__results .divider {
+  height: 1px;
+  margin: 10px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.react-autocomplete-Autocomplete__results > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.6;
+  color: #333333;
+  white-space: nowrap;
+}
+.react-autocomplete-Autocomplete__results div.action-button {
+  display: block !important;
+  padding: 4px;
+}
+.react-autocomplete-Result {
+  cursor: pointer;
+}
+.react-autocomplete-Result > a {
+  text-decoration: none;
+}
+.react-autocomplete-Result--active {
+  color: #262626;
+  background-color: whitesmoke;
+}
+
+.react-grid-Cell.readonly {
+  background-color : black;
+}
+
+// react-latex
+// @import "fonts.less";
+
+// The mu unit is defined as 1/18 em
+@mu: 1.0/18.0em;
+
+.katex-display {
+    display: block;
+    margin: 1em 0;
+    text-align: center;
+
+    > .katex {
+        display: inline-block;
+    }
+}
+
+.katex {
+    font: normal 1.5em KaTeX_Main;
+    line-height: 1.5;
+    white-space: nowrap;
+
+    // Protect elements inside .katex from inheriting text-indent.
+    text-indent: 0;
+
+    .katex-html {
+        // Making .katex inline-block allows line breaks before and after,
+        // which is undesireable ("to $x$,"). Instead, adjust the .katex-html
+        // style and put nowrap on the inline .katex element.
+        display: inline-block;
+    }
+
+    .katex-mathml {
+        // Accessibility hack to only show to screen readers
+        // Found at: http://a11yproject.com/posts/how-to-hide-content/
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+    }
+
+    .base {
+        display: inline-block;
+    }
+
+    .strut {
+        display: inline-block;
+    }
+
+    .mathit {
+        font-family: KaTeX_Main;
+        font-style: italic;
+    }
+
+    .mathbf {
+        font-family: KaTeX_Main;
+        font-weight: bold;
+    }
+
+    .amsrm {
+        font-family: KaTeX_AMS;
+    }
+
+    .mathbb {
+        font-family: KaTeX_AMS;
+    }
+
+    .mathcal {
+        font-family: KaTeX_Caligraphic;
+    }
+
+    .mathfrak {
+        font-family: KaTeX_Fraktur;
+    }
+
+    .mathtt {
+        font-family: KaTeX_Typewriter;
+    }
+
+    .mathscr {
+        font-family: KaTeX_Script;
+    }
+
+    .mathsf {
+        font-family: KaTeX_SansSerif;
+    }
+
+    .mainit {
+        font-family: KaTeX_Main;
+        font-style: italic;
+    }
+
+    // This value is also used in fontMetrics.js, if you change it make sure the
+    // values match.
+    @ptperem: 10.0;
+    @nulldelimiterspace: 1.2em / @ptperem;
+
+    @thinspace: 0.16667em;
+    @mediumspace: 0.22222em;
+    @thickspace: 0.27778em;
+
+    .textstyle {
+        > .mord {
+            & + .mord {}
+            & + .mop { margin-left: @thinspace; }
+            & + .mbin { margin-left: @mediumspace; }
+            & + .mrel { margin-left: @thickspace; }
+            & + .mopen {}
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner { margin-left: @thinspace; }
+        }
+
+        > .mop {
+            & + .mord { margin-left: @thinspace; }
+            & + .mop { margin-left: @thinspace; }
+            & + .mbin {}
+            & + .mrel { margin-left: @thickspace; }
+            & + .mopen {}
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner { margin-left: @thinspace; }
+        }
+
+        > .mbin {
+            & + .mord { margin-left: @mediumspace; }
+            & + .mop { margin-left: @mediumspace; }
+            & + .mbin {}
+            & + .mrel {}
+            & + .mopen { margin-left: @mediumspace; }
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner { margin-left: @mediumspace; }
+        }
+
+        > .mrel {
+            & + .mord { margin-left: @thickspace; }
+            & + .mop { margin-left: @thickspace; }
+            & + .mbin {}
+            & + .mrel {}
+            & + .mopen { margin-left: @thickspace; }
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner { margin-left: @thickspace; }
+        }
+
+        > .mopen {
+            & + .mord {}
+            & + .mop {}
+            & + .mbin {}
+            & + .mrel {}
+            & + .mopen {}
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner {}
+        }
+
+        > .mclose {
+            & + .mord {}
+            & + .mop { margin-left: @thinspace; }
+            & + .mbin { margin-left: @mediumspace; }
+            & + .mrel { margin-left: @thickspace; }
+            & + .mopen {}
+            & + .mclose {}
+            & + .mpunct {}
+            & + .minner { margin-left: @thinspace; }
+        }
+
+        > .mpunct {
+            & + .mord { margin-left: @thinspace; }
+            & + .mop { margin-left: @thinspace; }
+            & + .mbin {}
+            & + .mrel { margin-left: @thinspace; }
+            & + .mopen { margin-left: @thinspace; }
+            & + .mclose { margin-left: @thinspace; }
+            & + .mpunct { margin-left: @thinspace; }
+            & + .minner { margin-left: @thinspace; }
+        }
+
+        > .minner {
+            & + .mord { margin-left: @thinspace; }
+            & + .mop { margin-left: @thinspace; }
+            & + .mbin { margin-left: @mediumspace; }
+            & + .mrel { margin-left: @thickspace; }
+            & + .mopen { margin-left: @thinspace; }
+            & + .mclose {}
+            & + .mpunct { margin-left: @thinspace; }
+            & + .minner { margin-left: @thinspace; }
+        }
+    }
+
+    .mord {
+        & + .mop { margin-left: @thinspace; }
+    }
+
+    .mop {
+        & + .mord { margin-left: @thinspace; }
+        & + .mop { margin-left: @thinspace; }
+    }
+
+    .mclose {
+        & + .mop { margin-left: @thinspace; }
+    }
+
+    .minner {
+        & + .mop { margin-left: @thinspace; }
+    }
+
+    .reset-textstyle.textstyle { font-size: 1em; }
+    .reset-textstyle.scriptstyle { font-size: 0.7em; }
+    .reset-textstyle.scriptscriptstyle { font-size: 0.5em; }
+
+    .reset-scriptstyle.textstyle { font-size: 1.42857em; }
+    .reset-scriptstyle.scriptstyle { font-size: 1em; }
+    .reset-scriptstyle.scriptscriptstyle { font-size: 0.71429em; }
+
+    .reset-scriptscriptstyle.textstyle { font-size: 2em; }
+    .reset-scriptscriptstyle.scriptstyle { font-size: 1.4em; }
+    .reset-scriptscriptstyle.scriptscriptstyle { font-size: 1em; }
+
+    .style-wrap {
+        position: relative;
+    }
+
+    .vlist {
+        display: inline-block;
+
+        > span {
+            display: block;
+            height: 0;
+            position: relative;
+
+            > span {
+                display: inline-block;
+            }
+        }
+
+        .baseline-fix {
+            display: inline-table;
+            table-layout: fixed;
+        }
+    }
+
+    .msupsub {
+        text-align: left;
+    }
+
+    .mfrac {
+        > span > span {
+            text-align: center;
+        }
+
+       .frac-line {
+            width: 100%;
+
+            &:before {
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                content: "";
+                display: block;
+            }
+
+            &:after {
+                border-bottom-style: solid;
+                border-bottom-width: 0.04em;
+                content: "";
+                display: block;
+                margin-top: -1px;
+            }
+        }
+    }
+
+    .mspace {
+        display: inline-block;
+
+        &.negativethinspace {
+            margin-left: -@thinspace;
+        }
+
+        &.thinspace {
+            width: @thinspace;
+        }
+
+        &.mediumspace {
+            width: @mediumspace;
+        }
+
+        &.thickspace {
+            width: @thickspace;
+        }
+
+        &.enspace {
+            width: 0.5em;
+        }
+
+        &.quad {
+            width: 1em;
+        }
+
+        &.qquad {
+            width: 2em;
+        }
+    }
+
+    .llap,
+    .rlap {
+        width: 0;
+        position: relative;
+
+        > .inner {
+            position: absolute;
+        }
+
+        > .fix {
+            display: inline-block;
+        }
+    }
+
+    .llap > .inner {
+        right: 0;
+    }
+
+    .rlap > .inner {
+        left: 0;
+    }
+
+    .katex-logo {
+        .a {
+            font-size: 0.75em;
+            margin-left: -0.32em;
+            position: relative;
+            top: -0.2em;
+        }
+        .t {
+            margin-left: -0.23em;
+        }
+        .e {
+            margin-left: -0.1667em;
+            position: relative;
+            top: 0.2155em;
+        }
+        .x {
+            margin-left: -0.125em;
+        }
+    }
+
+    .rule {
+        display: inline-block;
+        border: solid 0;
+        position: relative;
+    }
+
+    .overline {
+
+        .overline-line {
+            width: 100%;
+
+            &:before {
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                content: "";
+                display: block;
+            }
+
+            &:after {
+                border-bottom-style: solid;
+                border-bottom-width: 0.04em;
+                content: "";
+                display: block;
+                margin-top: -1px;
+            }
+        }
+    }
+
+    .sqrt {
+        > .sqrt-sign {
+            position: relative;
+        }
+
+        .sqrt-line {
+            width: 100%;
+
+            &:before {
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                content: "";
+                display: block;
+            }
+
+            &:after {
+                border-bottom-style: solid;
+                border-bottom-width: 0.04em;
+                content: "";
+                display: block;
+                margin-top: -1px;
+            }
+        }
+
+        > .root {
+            // These values are taken from the definition of `\r@@t`,
+            // `\mkern 5mu` and `\mkern -10mu`.
+            margin-left: 5*@mu;
+            margin-right: -10*@mu;
+        }
+    }
+
+    .sizing, .fontsize-ensurer {
+        display: inline-block;
+
+        @size1: 0.5;
+        @size2: 0.7;
+        @size3: 0.8;
+        @size4: 0.9;
+        @size5: 1.0;
+        @size6: 1.2;
+        @size7: 1.44;
+        @size8: 1.73;
+        @size9: 2.07;
+        @size10: 2.49;
+
+        .generate-size-change(@from, @to) {
+            &.reset-size@{from}.size@{to} {
+                @sizeFromVariable: ~"size@{from}";
+                @sizeToVariable: ~"size@{to}";
+                font-size: (@@sizeToVariable / @@sizeFromVariable) * 1em;
+            }
+        }
+
+        .generate-to-size-change(@from, @currTo) when (@currTo =< 10) {
+            .generate-size-change(@from, @currTo);
+
+            .generate-to-size-change(@from, (@currTo + 1));
+        }
+
+        .generate-from-size-change(@currFrom) when (@currFrom =< 10) {
+            .generate-to-size-change(@currFrom, 1);
+
+            .generate-from-size-change((@currFrom + 1));
+        }
+
+        .generate-from-size-change(1);
+    }
+
+    .delimsizing {
+        &.size1 { font-family: KaTeX_Size1; }
+        &.size2 { font-family: KaTeX_Size2; }
+        &.size3 { font-family: KaTeX_Size3; }
+        &.size4 { font-family: KaTeX_Size4; }
+
+        &.mult {
+            .delim-size1 > span {
+                font-family: KaTeX_Size1;
+            }
+            .delim-size4 > span {
+                font-family: KaTeX_Size4;
+            }
+        }
+    }
+
+    .nulldelimiter {
+        display: inline-block;
+        width: @nulldelimiterspace;
+    }
+
+    .op-symbol {
+        position: relative;
+
+        &.small-op {
+            font-family: KaTeX_Size1;
+        }
+        &.large-op {
+            font-family: KaTeX_Size2;
+        }
+    }
+
+    .op-limits {
+        > .vlist > span {
+            text-align: center;
+        }
+    }
+
+    .accent {
+        > .vlist > span {
+            text-align: center;
+        }
+
+        .accent-body > span {
+            width: 0;
+        }
+
+        .accent-body.accent-vec > span {
+            position: relative;
+            // This value is half of the value that the MathJax's makeFF shifts
+            // it left. We center it by shifting it half way right again.
+            left: 0.326em;
+        }
+    }
+
+    .mtable {
+        .vertical-separator {
+            display: inline-block;
+            margin: 0 -0.025em;
+            border-right: 0.05em solid black;
+        }
+
+        .arraycolsep {
+            display: inline-block;
+        }
+
+        .col-align-c > .vlist {
+            text-align: center;
+        }
+
+        .col-align-l > .vlist {
+            text-align: left;
+        }
+
+        .col-align-r > .vlist {
+            text-align: right;
+        }
+    }
+
 }

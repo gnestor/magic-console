@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath="../.." data-revision="Thu Feb 25 2016 21:48:31 GMT-0800 (PST)">
+    <div class="book" data-level="1.1" data-basepath="../.." data-revision="Wed Apr 20 2016 19:32:25 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -335,6 +335,7 @@
 <li><a href="#linechart">LineChart</a></li>
 <li><a href="#markdown">Markdown</a></li>
 <li><a href="#mermaid">Mermaid</a></li>
+<li><a href="#piechart">PieChart</a></li>
 <li><a href="#reactcomponent">ReactComponent</a></li>
 <li><a href="#regex">Regex</a></li>
 <li><a href="#table">Table</a></li>
@@ -409,12 +410,10 @@ console<span class="token punctuation">.</span><span class="token function">rend
 <pre><code class="lang-js">LineChart<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
   data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>React<span class="token punctuation">.</span>PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
     PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      y<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      style<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
+      y<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span><span class="token function">objectOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      style<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
+      data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span><span class="token function">objectOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
 <span class="token punctuation">}</span>
@@ -458,25 +457,74 @@ console<span class="token punctuation">.</span><span class="token function">rend
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="piechart">PieChart</h2>
+<p><img src="PieChart.png" alt=""></p>
+<h3 id="usage">Usage</h3>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;### Simple animals&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;PieChart&apos;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token string">&apos;Cat&apos;</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">62</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token string">&apos;Dog&apos;</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">91</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token string">&apos;Fish&apos;</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token string">&apos;Bird&apos;</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;### Dynamic animals&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;PieChart&apos;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>animal<span class="token punctuation">:</span> <span class="token string">&apos;Cat&apos;</span><span class="token punctuation">,</span> pet<span class="token punctuation">:</span> <span class="token number">45</span><span class="token punctuation">,</span> wild<span class="token punctuation">:</span> <span class="token number">17</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>animal<span class="token punctuation">:</span> <span class="token string">&apos;Dog&apos;</span><span class="token punctuation">,</span> pet<span class="token punctuation">:</span> <span class="token number">85</span><span class="token punctuation">,</span> wild<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>animal<span class="token punctuation">:</span> <span class="token string">&apos;Fish&apos;</span><span class="token punctuation">,</span> pet<span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">,</span> wild<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>animal<span class="token punctuation">:</span> <span class="token string">&apos;Bird&apos;</span><span class="token punctuation">,</span> pet<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span> wild<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      x<span class="token punctuation">:</span> <span class="token string">&apos;animal&apos;</span><span class="token punctuation">,</span>
+      y<span class="token punctuation">:</span><span class="token string">&apos;data =&gt; data.pet + data.wild&apos;</span><span class="token punctuation">,</span>
+      animate<span class="token punctuation">:</span> <span class="token punctuation">{</span>velocity<span class="token punctuation">:</span> <span class="token number">0.02</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="prop-types">Prop types</h4>
+<pre><code class="lang-js">PieChart<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>React<span class="token punctuation">.</span>PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      y<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>object<span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="reactcomponent">ReactComponent</h2>
 <p><img src="ReactComponent.png" alt=""></p>
 <h3 id="usage">Usage</h3>
-<pre><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">ReactComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;renderToString class component&apos;</span><span class="token punctuation">,</span> ReactDOM<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>ReactComponent text<span class="token operator">=</span><span class="token string">&quot;This is a class component&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;Stringified composite component&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">&apos;## EditableTable&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
   type<span class="token punctuation">:</span> <span class="token string">&apos;ReactComponent&apos;</span><span class="token punctuation">,</span>
   data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    type<span class="token punctuation">:</span> `React<span class="token punctuation">.</span><span class="token function">createClass</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      render<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;span&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>children<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>`<span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;ReactComponent&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;EditableTable.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      text<span class="token punctuation">:</span> <span class="token string">&apos;This is a composite component&apos;</span>
+      data<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          key<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">&apos;one&apos;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          key<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">&apos;two&apos;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          key<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">&apos;three&apos;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      handleSelect<span class="token punctuation">:</span> <span class="token string">&apos;(rows) =&gt; console.log(rows)&apos;</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -484,8 +532,8 @@ console<span class="token punctuation">.</span><span class="token function">rend
 <h4 id="prop-types">Prop types</h4>
 <pre><code class="lang-js">ReactComponent<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
   data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    type<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object<span class="token punctuation">.</span>isRequired
+    path<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired
 <span class="token punctuation">}</span>
 </code></pre>
@@ -593,6 +641,10 @@ console<span class="token punctuation">.</span><span class="token function">rend
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

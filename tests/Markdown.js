@@ -1,14 +1,8 @@
 import './console'
 
-console.render(`# Remarkable
+console.render('# Markdown')
 
-> Experience real-time editing with Remarkable!
-
-Click the \`clear\` link to start with a clean slate, or get the \`permalink\` to share or save your results.
-
-***
-
-# h1 Heading
+console.render(`# h1 Heading
 ## h2 Heading
 ### h3 Heading
 #### h4 Heading

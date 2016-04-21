@@ -3,14 +3,16 @@
 import React, {Component, PropTypes} from 'react'
 import ReactDataGrid from 'react-data-grid/addons'
 
-class Table extends Component {
+class EditableTable extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      rows: []
+      rows: [],
+      selected: []
     }
     this.handleSort = this.handleSort.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
   }
 
   componentDidMount() {
@@ -28,7 +30,8 @@ class Table extends Component {
           key,
           name: key,
           resizable: true,
-          sortable: true
+          sortable: true,
+          editable: true
         }]), columns)
       } else {
         return {
@@ -51,9 +54,12 @@ class Table extends Component {
     return <ReactDataGrid
       columns={columns}
       rowGetter={index => rows[index]}
+      rowKey="key"
       rowsCount={this.state.rows.length}
+      enableRowSelect="multi"
       minHeight={(this.state.rows.length + 1) * 35}
-      onGridSort={this.handleSort}
+      onGridSort={this.props.handleSort || this.handleSort}
+      onRowSelect={this.props.handleSelect || this.handleSelect}
     />
   }
 
@@ -70,10 +76,15 @@ class Table extends Component {
     }
   }
 
+  handleSelect(rows) {
+    // console.log(rows)
+    this.setState({selected: rows})
+  }
+
 }
 
-Table.propTypes = {
+EditableTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
-export default Table
+export default EditableTable

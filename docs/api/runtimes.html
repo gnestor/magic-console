@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3" data-basepath="../.." data-revision="Thu Feb 25 2016 21:48:31 GMT-0800 (PST)">
+    <div class="book" data-level="3.3" data-basepath="../.." data-revision="Wed Apr 20 2016 19:32:25 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -331,73 +331,94 @@
                         <a id="edit-link" href="https://github.com/gnestor/magic-console/tree/master/docs/api/runtimes.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="runtimes">Runtimes</h1>
 <p>Magic Console consumes the <a href="https://github.com/rgbkrk/atom-script" target="_blank">script Atom package</a> service which is responsible for mapping source code grammars to runtimes and evaluating the source code. script currently supports 64 programming languages:</p>
 <ul>
-<li>1C (BSL)</li>
+<li>1C (BSL) <sup>[&#xD8;](#o-stroke)</sup></li>
 <li>AppleScript</li>
-<li>Bash</li>
-<li>Behat Feature
-*</li>
-<li>C</li>
-<li>C++</li>
-<li>C#</li>
-<li>cript</li>
-<li>Clojure (via Leiningen)</li>
+<li>Bash <sup>[**](#double-asterisk)</sup></li>
+<li>Behat Feature</li>
+<li>C <sup>[*](#asterisk)</sup><sup>[&#x2021;](#double-dagger)</sup></li>
+<li>C++ <sup>[*](#asterisk)</sup><sup>[&#x2021;](#double-dagger)</sup></li>
+<li>C# Script <sup>[*](#asterisk)</sup></li>
+<li>Clojure (via Leiningen) <sup>[&#x3D6;](#pi)</sup></li>
 <li>Coffeescript</li>
-<li>CoffeeScript (Literate)</li>
+<li>CoffeeScript (Literate) <sup>[^](#caret)</sup></li>
 <li>Crystal</li>
-<li>Cucumber (Gherkin)</li>
-<li>D</li>
-<li>DOT</li>
+<li>Cucumber (Gherkin) <sup>[*](#asterisk)</sup></li>
+<li>D <sup>[*](#asterisk)</sup></li>
+<li>DOT (Graphviz)</li>
 <li>Elixir</li>
-<li>Erlang</li>
-<li>F#</li>
+<li>Erlang <sup>[&#x2020;](#dagger)</sup></li>
+<li>F# <sup>[*](#asterisk)</sup></li>
 <li>Forth (via GForth)</li>
-<li>Go</li>
+<li>Gnuplot</li>
+<li>Go <sup>[*](#asterisk)</sup></li>
 <li>Groovy</li>
 <li>Haskell</li>
-<li>Java</li>
+<li>ioLanguage (<a href="http://iolanguage.org/" target="_blank">http://iolanguage.org/</a>)</li>
+<li>Java <sup>[***](#triple-asterisk)</sup></li>
 <li>Javascript</li>
-<li>JavaScript for Automation (JXA)</li>
+<li><a href="https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/Introduction.html" target="_blank">JavaScript for Automation</a> (JXA)</li>
+<li>Jolie <sup>[*](#asterisk)</sup></li>
 <li>Julia</li>
 <li>Kotlin</li>
 <li>LaTeX (via latexmk)</li>
 <li>LilyPond</li>
-<li>Lisp (via SBCL)</li>
-<li>Literate Haskell</li>
+<li>Lisp (via SBCL) <sup>[&#x2375;](#omega)</sup></li>
+<li>Literate Haskell <sup>[*](#asterisk)</sup></li>
 <li>LiveScript</li>
 <li>Lua</li>
 <li>Makefile</li>
 <li>MoonScript</li>
 <li>MongoDB</li>
-<li>NCL#</li>
+<li><a href="http://ncl.ucar.edu" target="_blank">NCL</a><sup>[#](#hash)</sup></li>
 <li>newLISP</li>
 <li>Nim (and NimScript)</li>
 <li>NSIS</li>
-<li>Objective-C</li>
-<li>Objective-C++</li>
-<li>OCaml</li>
-<li>Pandoc Markdown</li>
+<li>Objective-C <sup>[*](#asterisk)</sup><sup>[&#x2021;](#double-dagger)</sup></li>
+<li>Objective-C++ <sup>[*](#asterisk)</sup><sup>[&#x2021;](#double-dagger)</sup></li>
+<li>OCaml <sup>[*](#asterisk)</sup></li>
+<li>Pandoc Markdown <sup>[&#x2020;&#x2020;](#two-daggers)</sup></li>
 <li>Perl</li>
 <li>Perl 6</li>
 <li>PHP</li>
-<li>PostgreSQL</li>
+<li>PostgreSQL <sup>[&#xA7;](#section)</sup></li>
 <li>Python</li>
 <li>RSpec</li>
 <li>Racket</li>
-<li>RANT</li>
+<li><a href="https://github.com/TheBerkin/Rant" target="_blank">RANT</a></li>
 <li>Ruby</li>
 <li>Ruby on Rails</li>
 <li>Rust</li>
 <li>Sage</li>
-<li>Sass/SCSS</li>
+<li>Sass/SCSS <sup>[*](#asterisk)</sup></li>
 <li>Scala</li>
-<li>Shell Script</li>
+<li>Shell Script <sup>[**](#double-asterisk)</sup></li>
 <li>Swift</li>
 <li>TypeScript</li>
 <li>Dart</li>
 <li>Octave</li>
-<li>Zsh</li>
-<li>Prolog</li>
+<li>Zsh <sup>[**](#double-asterisk)</sup></li>
+<li>Prolog <sup>[&#xA2;](#cents)</sup></li>
 </ul>
+<p><strong>NOTE</strong>: Some grammars may require you to install <a href="https://atom.io/search?utf8=&#x2713;&amp;q=language" target="_blank">a custom language package</a>.</p>
+<p>You only have to add a few lines in a PR to support another.</p>
+<h3 id="limitations">Limitations</h3>
+<p><a name="o-stroke"></a><sup>&#xD8;</sup> 1C (BSL) code runs through <a href="http://oscript.io/" target="_blank">OneScript</a> interpreter in console mode.</p>
+<p><a name="caret"></a><sup>^</sup> Running selections of code for CoffeeScript (Literate) only works when selecting just the code blocks</p>
+<p><a name="dagger"></a><sup>&#x2020;</sup> Erlang uses <code>erl</code> for limited selection based runs (see <a href="https://github.com/rgbkrk/atom-script/pull/70" target="_blank">#70</a>)</p>
+<p><a name="asterisk"></a><sup>*</sup> Cucumber (Gherkin), D, Go, F#, Literate Haskell, Jolie, OCaml, PowerShell, and Swift do not support selection based runs</p>
+<p><a name="omega"></a><sup>&#x2375;</sup> Lisp selection based runs are limited to single line</p>
+<p><a name="pi"></a><sup>&#x3D6;</sup> Clojure scripts are executed via <a href="http://leiningen.org/" target="_blank">Leiningen</a>&apos;s <a href="https://github.com/kumarshantanu/lein-exec" target="_blank">exec</a> plugin. Both <code>Leiningen</code> and <code>exec</code> must be installed</p>
+<p><a name="double-dagger"></a><sup>&#x2021;</sup> C, C++, Objective-C, and Objective-C++ are currently only available for Mac OS X (where <code>process.platform is &apos;darwin&apos;</code>). This is possible due to the commands <code>xcrun clang</code> and <code>xcrun clang++</code>. <strong>NOTE</strong>: Xcode and the Xcode command line tools are required to ensure <code>xcrun</code> and the correct compilers on your system.</p>
+<p><a name="hash"></a><sup>#</sup> NCL scripts must end with <code>exit</code> command for file based runs</p>
+<p><a name="two-daggers"></a><sup>&#x2020;&#x2020;</sup> Requires the panzer pandoc wrapper <a href="https://github.com/msprev/panzer" target="_blank">https://github.com/msprev/panzer</a> and the pandoc-flavored-markdown language package in Atom <a href="https://atom.io/packages/language-pfm" target="_blank">https://atom.io/packages/language-pfm</a></p>
+<p><a name="section"></a><sup>&#xA7;</sup> Requires the atom-language-pgsql package in
+Atom <a href="https://atom.io/packages/language-pgsql" target="_blank">https://atom.io/packages/language-pgsql</a>.  Connects as user <code>$PGUSER</code> to
+database <code>$PGDATABASE</code>. Both default to the operating system&apos;s user name and both
+can be set in the process environment or in Atom&apos;s <code>init.coffee</code> script:
+<code>process.env.PGUSER = &#x27E8;username&#x27E9;</code> and <code>process.env.PGDATABASE = &#x27E8;database name&#x27E9;</code>.</p>
+<p><a name="double-asterisk"></a><sup>\**</sup> The shell used is based on your default <code>$SHELL</code> environment variable.</p>
+<p><a name="triple-asterisk"></a><sup>\***</sup> Windows users should manually add jdk path (...\jdk1.x.x_xx\bin) to their system environment variables.</p>
+<p><a name="cents"></a><sup>&#xA2;</sup> Prolog scripts must contain a rule with the head <code>main</code> (e.g.<code>main:- parent(X,lucas),writeln(X).</code>). The script is executed with the goal <code>main</code> and is halted after the first result is found. The output is produced by the <code>writeln/1</code> predicates. It requires swipl.</p>
 <h2 id="add-a-runtime">Add a runtime</h2>
 <p>Additional runtimes can be added to script&apos;s <a href="https://github.com/rgbkrk/atom-script/blob/master/lib/grammars.coffee" target="_blank">grammars.coffee</a>.</p>
 <ol>
@@ -441,6 +462,10 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

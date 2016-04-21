@@ -1,62 +1,281 @@
 # Plugins
 
-Plugins are [React components](https://facebook.github.io/react/docs/component-api.html) with a single prop for input data (`this.props.data`) and a render method for rendering that input data into DOM. Plugins declare their own input data requirements using [React's PropTypes](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
+## Color
 
-## Creating and editing plugins
+![](/docs/plugins/Color.png)
 
-![](/docs/live-edit.png)
-
-Plugins are edited live inline with their rendered output. Rendered output is "hot reloaded" whenever the plugin source changes. Any dependencies that are declared while editing will be installed automatically, relieving the author of any module or workspace management; simply create a React component to visualize your output data and viola, there it is.
-
-You can [create a new plugin](#create-a-plugin) and access the [plugin directory](#open-plugins-directory) using [Atom's command palette](https://atom.io/docs/latest/getting-started-atom-basics#command-palette).
-
-### Create a plugin
-
-Search for "Magic Console: Create New Plugin"
-
-### Open plugins directory
-
-Search for "Magic Console: Open plugins directory"
-
-## Plugin template
-
+### Usage
 ```js
-// Use Atom's Babel
-'use babel'
-
-import React, {Component, PropTypes} from 'react'
-
-// Create a React component
-class New extends Component {
-
-  // The only required method for a React component
-  render() {
-    return (
-      <div>
-        {JSON.stringify(this.props.data)}
-      </div>
-    )
-  }
-
-}
-
-// Define the type of `this.props.data`
-New.propTypes = {
-  // Using React's provided PropTypes
-  data: PropTypes.any.isRequired
-  // Using a custom validation function
-  // data: (props, propName, componentName) => {
-  //   if (!/^(sequenceDiagram|graph|gantt)/.test(props[propName])) return new Error('Validation failed!')
-  //   return null
-  // }
-}
-
-// Export the plugin
-export default New
+console.render('Hex', '#FF5300')
+console.render('RGB', {
+  r: 255,
+  g: 83,
+  b: 0
+})
+console.render('HSL', {
+  h: 20,
+  s: 1,
+  l: 0.5
+})
 ```
 
-## Requirements
+#### Prop types
+```js
+Color.propTypes = {
+  data: PropTypes.oneOfType([
+    (props, propName, componentName) => {
+      if (typeof props[propName] !== 'string' || !/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
+    PropTypes.shape({
+      r: PropTypes.number.isRequired,
+      g: PropTypes.number.isRequired,
+      b: PropTypes.number.isRequired,
+      a: PropTypes.number
+    }),
+    PropTypes.shape({
+      h: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      s: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      l: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      a: PropTypes.number
+    })
+  ]).isRequired
+}
+```
 
-* **render**: All React components require a render method. The render method must return a valid React element using `React.createElement(type, props, children)` or [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html). Use the render method to declare how the plugin should render  output data. See [React's component specs docs](http://facebook.github.io/react/docs/component-specs.html#render) for more info.
-* **propTypes**: Prop types are used to validate the type of incoming props. Use the propTypes method to declare which data types are accepted by the plugin. See [React's prop validation docs](http://facebook.github.io/react/docs/reusable-components.html#prop-validation) for more info.
-  * PropType functions must return `null` if passing and `Error` if not passing
+## Latex
+
+![](/docs/plugins/Latex.png)
+
+### Usage
+```js
+console.render('Square root', `$$c = \\sqrt{a^2 + b^2}$$`)
+console.render('Function', `$$F(k) = \\int_{-\\infty}^{\\infty} f(x) e^{2\pi i k} dx$$`)
+```
+
+#### Prop types
+```js
+Latex.propTypes = {
+  data: (props, propName, componentName) => {
+    if (!/\$\$[\s\S]+?\$\$|\$[\s\S]+?\$/g.test(props[propName])) return new Error('Validation failed!')
+    return null
+  }
+}
+```
+
+## LineChart
+
+![](/docs/plugins/LineChart.png)
+
+### Usage
+```js
+console.render('Sine wave line chart', [
+  {
+    y: '(data) => Math.sin(2 * Math.PI * data.x)',
+    style: {
+      data: {
+        stroke: 'red'
+      }
+    }
+  }
+])
+```
+
+#### Prop types
+```js
+LineChart.propTypes = {
+  data: PropTypes.arrayOf(React.PropTypes.oneOfType([
+    PropTypes.shape({
+      y: PropTypes.string.isRequired,
+      style: PropTypes.object
+    }),
+    PropTypes.shape({
+      data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)).isRequired,
+      style: PropTypes.object
+    })
+  ])).isRequired
+}
+```
+
+## Markdown
+
+![](/docs/plugins/Markdown.png)
+
+### Usage
+```js
+console.render(`# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+`)
+```
+
+#### Prop types
+```js
+Markdown.propTypes = {
+  data: PropTypes.string.isRequired
+}
+```
+
+## Mermaid
+
+![](/docs/plugins/Mermaid.png)
+
+### Usage
+```js
+console.render('Sequence diagram', `sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail...
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!`)
+```
+
+#### Prop types
+```js
+Mermaid.propTypes = {
+  data: (props, propName, componentName) => {
+    if (!/^(sequenceDiagram|graph|gantt)/.test(props[propName])) return new Error('Validation failed!')
+    return null
+  }
+}
+```
+
+## ReactComponent
+
+![](/docs/plugins/ReactComponent.png)
+
+### Usage
+```js
+class ReactComponent extends React.Component {
+  render() {
+    return <span>{this.props.text}</span>
+  }
+}
+console.render('renderToString class component', ReactDOM.renderToString(<ReactComponent text="This is a class component" />))
+console.render('Stringified composite component', {
+  type: 'ReactComponent',
+  data: {
+    type: `React.createClass({
+      render: function() {
+        return React.createElement('span', {children: this.props.text})
+      }
+    })`,
+    props: {
+      text: 'This is a composite component'
+    }
+  }
+})
+```
+
+#### Prop types
+```js
+ReactComponent.propTypes = {
+  data: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    props: PropTypes.object.isRequired
+  }).isRequired
+}
+```
+
+## Regex
+
+![](/docs/plugins/Regex.png)
+
+### Usage
+```js
+console.render('All characters', /.*/)
+console.render('All alphanumeric characters', /[A-z]+/)
+```
+
+#### Prop types
+```js
+Regex.propTypes = {
+  data: (props, propName, componentName) => {
+    if (!/^\/.*\/[gimy]?$/.test(props[propName])) return new Error('Validation failed!')
+    return null
+  }
+}
+```
+
+## Table
+
+![](/docs/plugins/Table.png)
+
+### Usage
+```js
+console.render('Simple table', [
+  {
+    key: 1,
+    value: 'one'
+  },
+  {
+    key: 2,
+    value: 'two'
+  },
+  {
+    key: 3,
+    value: 'three'
+  }
+])
+```
+
+#### Prop types
+```js
+Table.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired
+}
+```
+
+## Test
+
+![](/docs/plugins/Test.png)
+
+### Usage
+```js
+try {
+  console.render('Passed', assert(1 + 2 === 3))
+} catch (error) {
+  console.render('Failed', error)
+}
+```
+
+#### Prop types
+```js
+Test.propTypes = {
+  data: PropTypes.oneOfType([
+    // Error type
+    (props, propName, componentName) => {
+      if (!(props[propName] instanceof Error)) return new Error('Validation failed!')
+      return null
+    },
+    // Error string
+    (props, propName, componentName) => {
+      if (!/Error/.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
+    PropTypes.bool,
+    // Boolean string
+    (props, propName, componentName) => {
+      if (!/true|false/i.test(props[propName])) return new Error('Validation failed!')
+      return null
+    },
+    // Undefined type/string
+    (props, propName, componentName) => {
+      if (typeof props[propName] !== 'undefined' && props[propName] !== 'undefined') return new Error('Validation failed!')
+      return null
+    },
+    PropTypes.shape({
+      message: PropTypes.string.isRequired,
+      stack: PropTypes.string.isRequired
+    })
+  ]).isRequired
+}
+```

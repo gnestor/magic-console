@@ -1,4 +1,8 @@
 node_modules
-plugins/node_modules
+**/node_modules
+npm-debug.log
 _book
 book.json
+*.pdf
+tests/.*
+examples/.*
