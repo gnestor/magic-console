@@ -7,8 +7,16 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-# 'atom-workspace':
-#   'ctrl-alt-o': 'magic-console:run-blank'
-#   'ctrl-alt-i': 'magic-console:run-default'
+
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-enter': 'magic-console:toggle'
+
+# 'atom-workspace .console':
+#   'cmd-z': 'magic-console:step-backward'
+#   'cmd-shift-z': 'magic-console:step-forward'
+#   'cmd-y': 'magic-console:step-forward'
+
+'body atom-workspace .console':
+  'cmd-z': 'magic-console:step-backward'
+  'cmd-shift-z': 'magic-console:step-forward'
+  'cmd-y': 'magic-console:step-forward'

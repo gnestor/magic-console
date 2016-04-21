@@ -6,7 +6,10 @@ import JSONTree from 'react-json-tree'
 class ObjectTree extends Component {
 
   render() {
-    return <JSONTree data={this.props.data} />
+    return <JSONTree
+      data={this.props.data}
+      expandAll={false}
+    />
   }
 
 }

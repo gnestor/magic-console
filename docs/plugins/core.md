@@ -5,6 +5,7 @@
 * [LineChart](#linechart)
 * [Markdown](#markdown)
 * [Mermaid](#mermaid)
+* [PieChart](#piechart)
 * [ReactComponent](#reactcomponent)
 * [Regex](#regex)
 * [Table](#table)
@@ -96,12 +97,10 @@ console.render('Sine wave line chart', [
 LineChart.propTypes = {
   data: PropTypes.arrayOf(React.PropTypes.oneOfType([
     PropTypes.shape({
-      y: PropTypes.string.isRequired,
-      style: PropTypes.object
+      y: PropTypes.string.isRequired
     }),
     PropTypes.shape({
-      data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)).isRequired,
-      style: PropTypes.object
+      data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)).isRequired
     })
   ])).isRequired
 }
@@ -158,28 +157,83 @@ Mermaid.propTypes = {
 }
 ```
 
+## PieChart
+
+![](/docs/plugins/PieChart.png)
+
+### Usage
+```js
+console.render('### Simple animals', {
+  type: 'PieChart',
+  data: [
+    {
+      data: [
+        {x: 'Cat', y: 62},
+        {x: 'Dog', y: 91},
+        {x: 'Fish', y: 55},
+        {x: 'Bird', y: 55}
+      ]
+    }
+  ]
+})
+console.render('### Dynamic animals', {
+  type: 'PieChart',
+  data: [
+    {
+      data: [
+        {animal: 'Cat', pet: 45, wild: 17},
+        {animal: 'Dog', pet: 85, wild: 6},
+        {animal: 'Fish', pet: 55, wild: 0},
+        {animal: 'Bird', pet: 15, wild: 40}
+      ],
+      x: 'animal',
+      y:'data => data.pet + data.wild',
+      animate: {velocity: 0.02}
+    }
+  ]
+})
+```
+
+#### Prop types
+```js
+PieChart.propTypes = {
+  data: PropTypes.arrayOf(React.PropTypes.oneOfType([
+    PropTypes.shape({
+      y: PropTypes.string.isRequired
+    }),
+    PropTypes.shape({
+      data: PropTypes.arrayOf(PropTypes.object).isRequired
+    })
+  ])).isRequired
+}
+```
+
 ## ReactComponent
 
 ![](/docs/plugins/ReactComponent.png)
 
 ### Usage
 ```js
-class ReactComponent extends React.Component {
-  render() {
-    return <span>{this.props.text}</span>
-  }
-}
-console.render('renderToString class component', ReactDOM.renderToString(<ReactComponent text="This is a class component" />))
-console.render('Stringified composite component', {
+console.render('## EditableTable', {
   type: 'ReactComponent',
   data: {
-    type: `React.createClass({
-      render: function() {
-        return React.createElement('span', {children: this.props.text})
-      }
-    })`,
+    path: path.join(__dirname, 'ReactComponent', 'EditableTable.js'),
     props: {
-      text: 'This is a composite component'
+      data: [
+        {
+          key: 1,
+          value: 'one'
+        },
+        {
+          key: 2,
+          value: 'two'
+        },
+        {
+          key: 3,
+          value: 'three'
+        }
+      ],
+      handleSelect: '(rows) => console.log(rows)'
     }
   }
 })
@@ -189,8 +243,8 @@ console.render('Stringified composite component', {
 ```js
 ReactComponent.propTypes = {
   data: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    props: PropTypes.object.isRequired
+    path: PropTypes.string.isRequired,
+    props: PropTypes.object
   }).isRequired
 }
 ```

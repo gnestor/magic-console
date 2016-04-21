@@ -1,4 +1,4 @@
-require '../utils/console'
+require './console'
 
 console.render '# This is a playground'
 
