@@ -1,8 +1,0 @@
-{
-  "max_line_length" : {
-    "level" : "ignore"
-  },
-  "no_unnecessary_fat_arrows" : {
-    "level" : "ignore"
-  }
-}
