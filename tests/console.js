@@ -8,10 +8,11 @@ console.render = (...args) => {
     }
     console.log(JSON.stringify(payload, (key, value) => {
       if (typeof value === 'function' || value instanceof RegExp || value instanceof Date) return value.toString()
-      if (value instanceof Error) return Object.assign({}, value, {
+      if (value instanceof Error) return {
+        ...value,
         message: value.message,
         stack: value.stack
-      })
+      }
       return value
     }))
   })

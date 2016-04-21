@@ -1,7 +1,7 @@
 'use babel'
 
 import React, {Component, PropTypes} from 'react'
-import ReactDataGrid from 'react-data-grid/addons'
+import ReactDataGrid from '../../plugins/node_modules/react-data-grid/addons'
 
 class EditableTable extends Component {
 

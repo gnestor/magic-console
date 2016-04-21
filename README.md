@@ -17,7 +17,7 @@ Magic Console is a package for [Atom](https://atom.io/) that evaluates code in [
     * Automatically install NPM dependencies when declared in visualization source (coming soon!)
   * Time-travel between past output states
 * **Universal**
-  * Support for [64 programming languages](#supported-runtimes) (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-runtime))
+  * Support for [68 programming languages](#supported-runtimes) (don't see your programming language, you can add support for it with a [couple lines of code](#add-a-runtime))
   * Atom is cross-platform (OS X, Windows, Linux) and open-source
 * **Plug and play**
   * No configuration necessary
@@ -47,14 +47,12 @@ Use Magic Console to mix Markdown documentation with interactive code examples.
 
 ### Install
 
-See [Contributing](#setup) for *alpha* install instructions
-
-<!-- * Install Atom
-* Install Magic Console using Atom's in-app package manager or using apm
-  * `apm install magic-console`
-* Link the directory
-  * `apm link`
-    * This will error if a previous version of magic-console exists, in which case remove the existing version and try again -->
+* [Install Atom](https://atom.io/)
+* Clone the repo
+  * `git clone https://github.com/gnestor/magic-console.git`
+  * `cd magic-console`
+* Install Atom package
+  * `apm install`
 
 #### Commands
 
@@ -63,6 +61,8 @@ See [Contributing](#setup) for *alpha* install instructions
 | Magic Console: Toggle                 | <kbd>CMD+ENTER</kbd> | <kbd>CTRL+ENTER</kbd> | Evaluate current file or selected text |
 | Magic Console: Open plugins directory |                      |                       | Open the plugins directory in a new workspace                |
 | Magic Console: Create new plugin      |                      |                       | Create a new plugin and open it in the current workspace     |
+| Magic Console: Step Backward          | <kbd>CMD+Z</kbd>     | <kbd>CTRL+Z</kbd>     | Step back in output history   |
+| Magic Console: Step Forward           | <kbd>CMD+SHIFT+Z</kbd> or <kbd>CMD+Y</kbd>  | <kbd>CTRL+Y</kbd>     | Step forward in output history   |
 
 ## FAQ
 
@@ -74,14 +74,14 @@ The runtime for the source code must be [supported by Magic Console](#supported-
 
 Check out the active grammar for your source code in the lower-right side of the bottom status bar and make sure that it matches the programming language you are using. For example, if you are writing ES6 Javascript and you are seeing "Javascript" and not "Babel ES6 Javascript," you need to [install](https://atom.io/packages/search?utf8=%E2%9C%93&q=language) the "Babel ES6 Javascript" grammar and use it instead.
 
-> I'm getting "[runtime command] not found" error...
+<!-- > I'm getting "[runtime command] not found" error...
 
-Make sure that the path to your runtime binary is in Atom's $PATH. You can do this by opening Atom's dev tools and typing `process.env.PATH` in the console. If you don't see the path to your runtime binary, edit Atom's init script to include the path to your binary () or move your binary to one of the available paths.
+Make sure that the path to your runtime binary is in Atom's $PATH. You can do this by opening Atom's dev tools and typing `process.env.PATH` in the console. If you don't see the path to your runtime binary, edit Atom's init script to include the path to your binary (see below) or move your binary to one of the available paths.
 
 ```coffeescript
 path = require 'path'
 process.env.PATH = process.env.PATH.split(path.delimiter).concat(NEW_PATH).join(path.delimiter)
-```
+``` -->
 
 > How do I?
 
@@ -90,6 +90,11 @@ process.env.PATH = process.env.PATH.split(path.delimiter).concat(NEW_PATH).join(
 * **Edit a plugin's source code:** Hover over the plugin and click the <i class="octicon octicon-code">code</i> button. The plugin source code will open in a new editor panel and allow you to edit the source code inline with its rendering. When the source code is saved, it will be hot reloaded and the rendering will be updated instantly.
 * **Clear the outputs:** Hover out the outputs and click the <i class="octicon octicon-trash">clear</i> button at the top.
 * **Copy/paste output:** Hover over the outputs and click the <i class="octicon octicon-clippy">copy</i> button at the top to copy the raw output data to the clipboard.
+* **Import output data into another source file or application?**: The output data for each source file is serialized in a hidden file by the same name in the same directory (`.helloWorld.js.json` for `helloWorld.js`). You can import this data as JSON like so (using Javascript):
+
+```js
+import {outputs} from './.helloWorld.js.json'
+```
 
 ## Contributing
 
@@ -103,18 +108,15 @@ Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
   * `cd magic-console`
 * Install the dependencies
   * `npm install`
-* Install script Atom package (**required**)
-  * `npm run apm:install` or `apm install script`
 * Link the directory
-  * `npm run apm:link` or 'apm link'
-    * This will throw an error if a previous version of magic-console exists, in which case remove the existing version and try again
+  * `apm link`
 
 ### Workflow
 
 * Re-install dependencies after pulling upstream changes
-  * `apm install`
+  * `npm install`
 * Run Atom in dev mode
-  * `atom --dev .`
+  * `npm start` or `atom --dev .`
 * Submit a pull request!
 
 ### Thanks
