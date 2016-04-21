@@ -9,18 +9,12 @@ console.render('## EditableTable', {
     path: path.join(__dirname, 'ReactComponent', 'EditableTable.js'),
     props: {
       data: [
-        {
-          key: 1,
-          value: 'one'
-        },
-        {
-          key: 2,
-          value: 'two'
-        },
-        {
-          key: 3,
-          value: 'three'
-        }
+        {x: 0, y: Math.floor(Math.random() * 10)},
+        {x: 1, y: Math.floor(Math.random() * 10)},
+        {x: 2, y: Math.floor(Math.random() * 10)},
+        {x: 3, y: Math.floor(Math.random() * 10)},
+        {x: 4, y: Math.floor(Math.random() * 10)},
+        {x: 5, y: Math.floor(Math.random() * 10)}
       ],
       handleSelect: '(rows) => console.log(rows)'
     }

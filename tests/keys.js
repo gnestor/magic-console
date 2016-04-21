@@ -2,60 +2,23 @@ require('./console')
 
 console.render('# Title')
 
-console.render('### Do some math', Math.sqrt(4))
+console.render({
+  key: 1,
+  data: '**Key 1**'
+})
 
-console.render('### Make some data', {
+console.render({
+  key: 2,
+  data: Math.sqrt(4)
+})
+
+console.render({
+  key: 3,
   data: {
     key: {
-      key: 'value'
+      key: '3'
     }
   }
 })
 
-console.render('### React component', {
-  type: 'ReactComponent',
-  data: {
-    type: `React.createClass({
-      render: function() {
-        return React.createElement('span', {children: this.props.text})
-      }
-    })`,
-    props: {
-      text: 'This is a React component'
-    }
-  }
-})
-
-// console.render({
-//   key: 1,
-//   data: '## Hello, World!'
-// })
-//
-// console.render({
-//   key: 2,
-//   data: Math.sqrt(16)
-// })
-//
-// console.render({
-//   key: 3,
-//   data: {
-//     key: {
-//       key: 'value2'
-//     }
-//   }
-// })
-//
-// console.render('## React component', {
-//   key: 4,
-//   type: 'ReactComponent',
-//   data: {
-//     type: `React.createClass({
-//       render: function() {
-//         return React.createElement('span', {children: this.props.text})
-//       }
-//     })`,
-//     props: {
-//       text: 'This is a React component'
-//     }
-//   }
-// })
+console.render('## 4', 'Inferred key \'4\'')
