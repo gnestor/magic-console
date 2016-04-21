@@ -51,8 +51,10 @@ Use Magic Console to mix Markdown documentation with interactive code examples.
 * Clone the repo
   * `git clone https://github.com/gnestor/magic-console.git`
   * `cd magic-console`
-* Install Atom package
-  * `apm install`
+* Install the dependencies
+  * `npm install`
+* Link the directory
+  * `apm link`
 
 #### Commands
 
@@ -99,17 +101,6 @@ import {outputs} from './.helloWorld.js.json'
 ## Contributing
 
 Use the Atom [contributing guidelines](https://atom.io/docs/latest/contributing)
-
-### Setup
-
-* Install Atom
-* Clone the repo
-  * `git clone https://github.com/gnestor/magic-console.git`
-  * `cd magic-console`
-* Install the dependencies
-  * `npm install`
-* Link the directory
-  * `apm link`
 
 ### Workflow
 
