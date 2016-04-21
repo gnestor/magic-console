@@ -25,6 +25,21 @@ console.render('### Large table', {
   data: createRows(500)
 })
 
+console.render('### Inconsistent fields', {
+  type: 'Table',
+  data: [
+    {
+      name: 'Grant',
+      gender: 'Male',
+      age: 30
+    },
+    {
+      name: 'Sarah',
+      gender: 'Female'
+    }
+  ]
+})
+
 function createRows(numberOfRows){
   let rows = []
   for (let i = 1; i < numberOfRows; i++) {
@@ -32,13 +47,17 @@ function createRows(numberOfRows){
       id: i,
       task: 'Task ' + i,
       complete: Math.min(100, Math.round(Math.random() * 110)),
-      priority : ['Critical', 'High', 'Medium', 'Low'][Math.floor((Math.random() * 3) + 1)],
-      issueType : ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
+      priority : randomItem(['Critical', 'High', 'Medium', 'Low']),
+      issueType : randomItem(['Bug', 'Improvement', 'Epic', 'Story']),
       startDate: randomDate(new Date(2015, 3, 1), new Date()),
       completeDate: randomDate(new Date(), new Date(2016, 0, 1))
     })
   }
   return rows
+}
+
+function randomItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
 function randomDate(start, end) {

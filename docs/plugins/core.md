@@ -214,22 +214,26 @@ PieChart.propTypes = {
 
 ### Usage
 ```js
-class ReactComponent extends React.Component {
-  render() {
-    return <span>{this.props.text}</span>
-  }
-}
-console.render('renderToString class component', ReactDOM.renderToString(<ReactComponent text="This is a class component" />))
-console.render('Stringified composite component', {
+console.render('## EditableTable', {
   type: 'ReactComponent',
   data: {
-    type: `React.createClass({
-      render: function() {
-        return React.createElement('span', {children: this.props.text})
-      }
-    })`,
+    path: path.join(__dirname, 'ReactComponent', 'EditableTable.js'),
     props: {
-      text: 'This is a composite component'
+      data: [
+        {
+          key: 1,
+          value: 'one'
+        },
+        {
+          key: 2,
+          value: 'two'
+        },
+        {
+          key: 3,
+          value: 'three'
+        }
+      ],
+      handleSelect: '(rows) => console.log(rows)'
     }
   }
 })
@@ -239,8 +243,8 @@ console.render('Stringified composite component', {
 ```js
 ReactComponent.propTypes = {
   data: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    props: PropTypes.object.isRequired
+    path: PropTypes.string.isRequired,
+    props: PropTypes.object
   }).isRequired
 }
 ```

@@ -8,14 +8,18 @@ class LineChart extends Component {
 
   render() {
     return (
-      <VictoryChart>
+      <VictoryChart
+        animate={{
+          duration: 400,
+          easing: 'linear'
+        }}
+      >
         {this.props.data.map((item, index) => {
           if (item.y) item.y = vm.runInNewContext(item.y)
           return (
             <VictoryLine
               key={index}
               interpolation="basis"
-              animate={{velocity: 0.02}}
               {...item}
             />
           )

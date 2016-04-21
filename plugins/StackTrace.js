@@ -12,15 +12,15 @@ class StackTrace extends Component {
 
   render() {
     let {data} = this.props
-    if (this.props.data instanceof Error) {
+    if (data instanceof Error) {
       return <RedBox error={data} style={style} />
     }
-    if (typeof this.props.data === 'string') {
+    if (typeof data === 'string') {
       let error = new Error(data)
       return <RedBox error={error} style={style} />
     }
-    let error = new Error(`${data.name ? data.name : ''} ${data.message}`)
-    error.stack = data.stack
+    let error = new Error(data.message)
+    error.stack = Array.isArray(data.stack) ? data.stack.join('\n    at ') : data.stack
     return <RedBox error={error} style={style} />
   }
 
@@ -38,7 +38,7 @@ StackTrace.propTypes = {
     },
     PropTypes.shape({
       message: PropTypes.string.isRequired,
-      stack: PropTypes.string.isRequired
+      stack: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired
     })
   ]).isRequired
 }
