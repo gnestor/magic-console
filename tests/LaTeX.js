@@ -8,3 +8,8 @@ console.render('### Function', {
   type: 'LaTeX',
   data: `$$F(k) = \\int_{-\\infty}^{\\infty} f(x) e^{2\pi i k} dx$$`
 })
+
+console.render('### React', {
+  type: 'LaTeX',
+  data: `$$F(props) = DOM$$`
+})
