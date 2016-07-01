@@ -1,4 +1,4 @@
-require('../utils/console')
+require('../tests/console')
 
 var i = 1;
 var run = setInterval(function() {
